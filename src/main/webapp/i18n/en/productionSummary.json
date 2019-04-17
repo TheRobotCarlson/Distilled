@@ -1,0 +1,21 @@
+{
+    "distilledApp": {
+        "productionSummary": {
+            "home": {
+                "title": "Production Summaries",
+                "createLabel": "Create a new Production Summary",
+                "createOrEditLabel": "Create or edit a Production Summary",
+                "search": "Search for Production Summary"
+            },
+            "created": "A new Production Summary is created with identifier {{ param }}",
+            "updated": "A Production Summary is updated with identifier {{ param }}",
+            "deleted": "A Production Summary is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Production Summary {{ id }}?"
+            },
+            "detail": {
+                "title": "Production Summary"
+            }
+        }
+    }
+}

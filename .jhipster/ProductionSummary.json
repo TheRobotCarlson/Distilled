@@ -1,0 +1,17 @@
+{
+    "name": "ProductionSummary",
+    "fields": [],
+    "relationships": [],
+    "changelogDate": "20190417235215",
+    "entityTableName": "production_summary",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "Distilled"
+    ],
+    "skipServer": true
+}

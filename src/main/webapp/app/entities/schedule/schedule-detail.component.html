@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="schedule">
+            <h2><span jhiTranslate="distilledApp.schedule.detail.title">Schedule</span> {{schedule.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="distilledApp.schedule.targetDate">Target Date</span></dt>
+                <dd>
+                    <span>{{schedule.targetDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="distilledApp.schedule.orderCode">Order Code</span></dt>
+                <dd>
+                    <span>{{schedule.orderCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="distilledApp.schedule.barrelCount">Barrel Count</span></dt>
+                <dd>
+                    <span>{{schedule.barrelCount}}</span>
+                </dd>
+                <dt><span jhiTranslate="distilledApp.schedule.targetProof">Target Proof</span></dt>
+                <dd>
+                    <span>{{schedule.targetProof}}</span>
+                </dd>
+                <dt><span jhiTranslate="distilledApp.schedule.notes">Notes</span></dt>
+                <dd>
+                    <span>{{schedule.notes}}</span>
+                </dd>
+                <dt><span jhiTranslate="distilledApp.schedule.mashbill">Mashbill</span></dt>
+                <dd>
+                    <div *ngIf="schedule.mashbillId">
+                        <a [routerLink]="['/mashbill', schedule.mashbillId, 'view']">{{schedule.mashbillMashbillCode}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="distilledApp.schedule.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="schedule.customerId">
+                        <a [routerLink]="['/customer', schedule.customerId, 'view']">{{schedule.customerCustomerCode}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="distilledApp.schedule.warehouse">Warehouse</span></dt>
+                <dd>
+                    <div *ngIf="schedule.warehouseId">
+                        <a [routerLink]="['/warehouse', schedule.warehouseId, 'view']">{{schedule.warehouseWarehouseCode}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/schedule', schedule.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+{
+    "name": "Warehouse",
+    "fields": [
+        {
+            "fieldName": "warehouseCode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "owner",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "capacity",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "barrel",
+            "otherEntityRelationshipName": "warehouse",
+            "relationshipName": "barrel"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "schedule",
+            "otherEntityRelationshipName": "warehouse",
+            "relationshipName": "schedule"
+        }
+    ],
+    "changelogDate": "20190417235209",
+    "entityTableName": "warehouse",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "Distilled"
+    ],
+    "searchEngine": "elasticsearch"
+}

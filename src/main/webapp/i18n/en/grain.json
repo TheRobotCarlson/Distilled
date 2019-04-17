@@ -1,0 +1,23 @@
+{
+    "distilledApp": {
+        "grain": {
+            "home": {
+                "title": "Grains",
+                "createLabel": "Create a new Grain",
+                "createOrEditLabel": "Create or edit a Grain",
+                "search": "Search for Grain"
+            },
+            "created": "A new Grain is created with identifier {{ param }}",
+            "updated": "A Grain is updated with identifier {{ param }}",
+            "deleted": "A Grain is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Grain {{ id }}?"
+            },
+            "detail": {
+                "title": "Grain"
+            },
+            "grainName": "Grain Name",
+            "grainBushelWeight": "Grain Bushel Weight"
+        }
+    }
+}

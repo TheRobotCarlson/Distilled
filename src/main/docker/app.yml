@@ -1,0 +1,20 @@
+version: '2'
+services:
+    distilled-app:
+        image: distilled
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://distilled-mysql:3306/distilled?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_DATA_JEST_URI=http://distilled-elasticsearch:9200
+        ports:
+            - 8080:8080
+    distilled-mysql:
+        extends:
+            file: mysql.yml
+            service: distilled-mysql
+    distilled-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: distilled-elasticsearch

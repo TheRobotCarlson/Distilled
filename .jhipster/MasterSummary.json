@@ -1,0 +1,26 @@
+{
+    "name": "MasterSummary",
+    "fields": [
+        {
+            "fieldName": "proofGallons",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "actualBarrelCount",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190417235217",
+    "entityTableName": "master_summary",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "Distilled"
+    ],
+    "skipServer": true
+}

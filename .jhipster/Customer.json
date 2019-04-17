@@ -1,0 +1,51 @@
+{
+    "name": "Customer",
+    "fields": [
+        {
+            "fieldName": "customerName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "customerCode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "mashbill",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "mashbill"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "barrel",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "barrel"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "schedule",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "schedule"
+        }
+    ],
+    "changelogDate": "20190417235206",
+    "entityTableName": "customer",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "Distilled"
+    ],
+    "searchEngine": "elasticsearch"
+}

@@ -1,0 +1,29 @@
+{
+    "distilledApp": {
+        "barrel": {
+            "home": {
+                "title": "Barrels",
+                "createLabel": "Créer un nouveau Barrel",
+                "createOrEditLabel": "Créer ou éditer un Barrel",
+                "search": "Recherche pour Barrel"
+            },
+            "created": "Un nouveau Barrel a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Barrel avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Barrel avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Barrel {{ id }} ?"
+            },
+            "detail": {
+                "title": "Barrel"
+            },
+            "proof": "Proof",
+            "barreledDate": "Barreled Date",
+            "orderCode": "Order Code",
+            "warehouse": "Warehouse",
+            "mashbill": "Mashbill",
+            "order": "Order",
+            "customer": "Customer",
+            "batch": "Batch"
+        }
+    }
+}

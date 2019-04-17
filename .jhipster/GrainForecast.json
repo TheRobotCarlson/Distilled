@@ -1,0 +1,17 @@
+{
+    "name": "GrainForecast",
+    "fields": [],
+    "relationships": [],
+    "changelogDate": "20190417235214",
+    "entityTableName": "grain_forecast",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "Distilled"
+    ],
+    "skipServer": true
+}

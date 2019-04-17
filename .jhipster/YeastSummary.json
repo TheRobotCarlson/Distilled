@@ -1,0 +1,17 @@
+{
+    "name": "YeastSummary",
+    "fields": [],
+    "relationships": [],
+    "changelogDate": "20190417235216",
+    "entityTableName": "yeast_summary",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "Distilled"
+    ],
+    "skipServer": true
+}

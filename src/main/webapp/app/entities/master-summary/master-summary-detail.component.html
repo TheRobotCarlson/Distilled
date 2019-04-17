@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="masterSummary">
+            <h2><span jhiTranslate="distilledApp.masterSummary.detail.title">Master Summary</span> {{masterSummary.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="distilledApp.masterSummary.proofGallons">Proof Gallons</span></dt>
+                <dd>
+                    <span>{{masterSummary.proofGallons}}</span>
+                </dd>
+                <dt><span jhiTranslate="distilledApp.masterSummary.actualBarrelCount">Actual Barrel Count</span></dt>
+                <dd>
+                    <span>{{masterSummary.actualBarrelCount}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/master-summary', masterSummary.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

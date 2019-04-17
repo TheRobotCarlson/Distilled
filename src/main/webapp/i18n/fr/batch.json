@@ -1,0 +1,27 @@
+{
+    "distilledApp": {
+        "batch": {
+            "home": {
+                "title": "Batches",
+                "createLabel": "Créer un nouveau Batch",
+                "createOrEditLabel": "Créer ou éditer un Batch",
+                "search": "Recherche pour Batch"
+            },
+            "created": "Un nouveau Batch a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Batch avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Batch avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Batch {{ id }} ?"
+            },
+            "detail": {
+                "title": "Batch"
+            },
+            "proof": "Proof",
+            "date": "Date",
+            "batchNumber": "Batch Number",
+            "barrel": "Barrel",
+            "schedule": "Schedule",
+            "mashbill": "Mashbill"
+        }
+    }
+}

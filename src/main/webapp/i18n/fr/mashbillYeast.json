@@ -1,0 +1,24 @@
+{
+    "distilledApp": {
+        "mashbillYeast": {
+            "home": {
+                "title": "MashbillYeasts",
+                "createLabel": "Créer un nouveau Mashbill Yeast",
+                "createOrEditLabel": "Créer ou éditer un Mashbill Yeast",
+                "search": "Recherche pour Mashbill Yeast"
+            },
+            "created": "Un nouveau Mashbill Yeast a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Mashbill Yeast avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Mashbill Yeast avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Mashbill Yeast {{ id }} ?"
+            },
+            "detail": {
+                "title": "Mashbill Yeast"
+            },
+            "quantity": "Quantity",
+            "yeast": "Yeast",
+            "mashbill": "Mashbill"
+        }
+    }
+}

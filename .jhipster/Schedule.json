@@ -1,0 +1,81 @@
+{
+    "name": "Schedule",
+    "fields": [
+        {
+            "fieldName": "targetDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "orderCode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "barrelCount",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "targetProof",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "notes",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "barrel",
+            "otherEntityRelationshipName": "order",
+            "relationshipName": "barrel"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "batch",
+            "otherEntityRelationshipName": "schedule",
+            "relationshipName": "batch"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "mashbill",
+            "otherEntityRelationshipName": "schedule",
+            "relationshipName": "mashbill",
+            "otherEntityField": "mashbillCode"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "customer",
+            "otherEntityRelationshipName": "schedule",
+            "relationshipName": "customer",
+            "otherEntityField": "customerCode"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "warehouse",
+            "otherEntityRelationshipName": "schedule",
+            "relationshipName": "warehouse",
+            "otherEntityField": "warehouseCode"
+        }
+    ],
+    "changelogDate": "20190417235211",
+    "entityTableName": "schedule",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "Distilled"
+    ],
+    "searchEngine": "elasticsearch"
+}

@@ -1,0 +1,23 @@
+{
+    "distilledApp": {
+        "productionSchedule": {
+            "home": {
+                "title": "Production Schedules",
+                "createLabel": "Create a new Production Schedule",
+                "createOrEditLabel": "Create or edit a Production Schedule",
+                "search": "Search for Production Schedule"
+            },
+            "created": "A new Production Schedule is created with identifier {{ param }}",
+            "updated": "A Production Schedule is updated with identifier {{ param }}",
+            "deleted": "A Production Schedule is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Production Schedule {{ id }}?"
+            },
+            "detail": {
+                "title": "Production Schedule"
+            },
+            "proofGallons": "Proof Gallons",
+            "actualBarrelCount": "Actual Barrel Count"
+        }
+    }
+}

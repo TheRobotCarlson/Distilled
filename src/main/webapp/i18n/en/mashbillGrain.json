@@ -1,0 +1,24 @@
+{
+    "distilledApp": {
+        "mashbillGrain": {
+            "home": {
+                "title": "Mashbill Grains",
+                "createLabel": "Create a new Mashbill Grain",
+                "createOrEditLabel": "Create or edit a Mashbill Grain",
+                "search": "Search for Mashbill Grain"
+            },
+            "created": "A new Mashbill Grain is created with identifier {{ param }}",
+            "updated": "A Mashbill Grain is updated with identifier {{ param }}",
+            "deleted": "A Mashbill Grain is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Mashbill Grain {{ id }}?"
+            },
+            "detail": {
+                "title": "Mashbill Grain"
+            },
+            "quantity": "Quantity",
+            "grain": "Grain",
+            "mashbill": "Mashbill"
+        }
+    }
+}

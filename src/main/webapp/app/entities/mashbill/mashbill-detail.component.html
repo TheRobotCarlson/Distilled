@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mashbill">
+            <h2><span jhiTranslate="distilledApp.mashbill.detail.title">Mashbill</span> {{mashbill.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="distilledApp.mashbill.mashbillName">Mashbill Name</span></dt>
+                <dd>
+                    <span>{{mashbill.mashbillName}}</span>
+                </dd>
+                <dt><span jhiTranslate="distilledApp.mashbill.mashbillCode">Mashbill Code</span></dt>
+                <dd>
+                    <span>{{mashbill.mashbillCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="distilledApp.mashbill.mashbillNotes">Mashbill Notes</span></dt>
+                <dd>
+                    <span>{{mashbill.mashbillNotes}}</span>
+                </dd>
+                <dt><span jhiTranslate="distilledApp.mashbill.yeast">Yeast</span></dt>
+                <dd>
+                    <div *ngIf="mashbill.yeastId">
+                        <a [routerLink]="['/mashbill-yeast', mashbill.yeastId, 'view']">{{mashbill.yeastId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="distilledApp.mashbill.spirit">Spirit</span></dt>
+                <dd>
+                    <div *ngIf="mashbill.spiritId">
+                        <a [routerLink]="['/spirit', mashbill.spiritId, 'view']">{{mashbill.spiritCode}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="distilledApp.mashbill.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="mashbill.customerId">
+                        <a [routerLink]="['/customer', mashbill.customerId, 'view']">{{mashbill.customerCustomerName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mashbill', mashbill.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

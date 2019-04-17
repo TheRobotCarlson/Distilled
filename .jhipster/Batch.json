@@ -1,0 +1,60 @@
+{
+    "name": "Batch",
+    "fields": [
+        {
+            "fieldName": "proof",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "batchNumber",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "barrel",
+            "otherEntityRelationshipName": "batch",
+            "relationshipName": "barrel"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "schedule",
+            "otherEntityRelationshipName": "batch",
+            "relationshipName": "schedule",
+            "otherEntityField": "orderCode"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "mashbill",
+            "otherEntityRelationshipName": "batch",
+            "relationshipName": "mashbill",
+            "otherEntityField": "mashbillCode"
+        }
+    ],
+    "changelogDate": "20190417235212",
+    "entityTableName": "batch",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "Distilled"
+    ],
+    "searchEngine": "elasticsearch"
+}
