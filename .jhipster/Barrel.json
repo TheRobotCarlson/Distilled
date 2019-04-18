@@ -12,38 +12,38 @@
     "relationships": [
         {
             "relationshipType": "many-to-one",
-            "otherEntityName": "warehouse",
-            "otherEntityRelationshipName": "barrel",
             "relationshipName": "warehouse",
-            "otherEntityField": "warehouseCode"
+            "otherEntityName": "warehouse",
+            "otherEntityField": "warehouseCode",
+            "otherEntityRelationshipName": "warehouse"
         },
         {
             "relationshipType": "many-to-one",
-            "otherEntityName": "mashbill",
-            "otherEntityRelationshipName": "barrel",
             "relationshipName": "mashbill",
-            "otherEntityField": "mashbillCode"
+            "otherEntityName": "mashbill",
+            "otherEntityField": "mashbillCode",
+            "otherEntityRelationshipName": "mashbill"
         },
         {
             "relationshipType": "many-to-one",
-            "otherEntityName": "schedule",
-            "otherEntityRelationshipName": "barrel",
             "relationshipName": "order",
-            "otherEntityField": "orderCode"
+            "otherEntityName": "schedule",
+            "otherEntityField": "orderCode",
+            "otherEntityRelationshipName": "schedule"
         },
         {
             "relationshipType": "many-to-one",
-            "otherEntityName": "customer",
-            "otherEntityRelationshipName": "barrel",
             "relationshipName": "customer",
-            "otherEntityField": "customerCode"
+            "otherEntityName": "customer",
+            "otherEntityField": "customerCode",
+            "otherEntityRelationshipName": "customer"
         },
         {
             "relationshipType": "many-to-one",
-            "otherEntityName": "batch",
-            "otherEntityRelationshipName": "barrel",
             "relationshipName": "batch",
-            "otherEntityField": "batchNumber"
+            "otherEntityName": "batch",
+            "otherEntityField": "batchNumber",
+            "otherEntityRelationshipName": "batch"
         }
     ],
     "changelogDate": "20190418014950",

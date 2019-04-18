@@ -91,8 +91,7 @@ public class GrainServiceImpl implements GrainService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Grain : {}", id);
-        grainRepository.deleteById(id);
+        log.debug("Request to delete Grain : {}", id);        grainRepository.deleteById(id);
         grainSearchRepository.deleteById(id);
     }
 

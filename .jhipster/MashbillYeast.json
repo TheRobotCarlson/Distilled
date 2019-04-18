@@ -12,18 +12,18 @@
     ],
     "relationships": [
         {
-            "relationshipType": "many-to-one",
-            "otherEntityName": "yeast",
-            "otherEntityRelationshipName": "mashbillYeast",
-            "relationshipName": "yeast",
-            "otherEntityField": "yeastCode"
+            "relationshipType": "one-to-one",
+            "relationshipName": "mashbill",
+            "otherEntityName": "mashbill",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "yeast"
         },
         {
-            "relationshipType": "one-to-one",
-            "otherEntityName": "mashbill",
-            "otherEntityRelationshipName": "yeast",
-            "relationshipName": "mashbill",
-            "ownerSide": false
+            "relationshipType": "many-to-one",
+            "relationshipName": "yeast",
+            "otherEntityName": "yeast",
+            "otherEntityField": "yeastCode",
+            "otherEntityRelationshipName": "yeast"
         }
     ],
     "changelogDate": "20190418014945",

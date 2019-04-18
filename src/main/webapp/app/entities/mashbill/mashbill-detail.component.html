@@ -36,31 +36,6 @@
                     </div>
                 </dd>
             </dl>
-            <div>
-                <h4>Mashbill Grains</h4>
-                <jhi-alert></jhi-alert>
-                <div class="table-responsive">
-                    <table class="jh-table table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Grain</th>
-                                <th>Quantity</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let mbg of grains ;trackBy: trackId">
-                                <td>
-                                    <div *ngIf="mbg.grainId">
-                                        <a [routerLink]="['/mashbill-grain',mbg.id,'view']">{{mbg.grainGrainName}}</a>
-                                    </div>
-                                    <!-- {{mbg.grainGrainName}} -->
-                                </td>
-                                <td>{{mbg.quantity}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
 
             <button type="submit"
                     (click)="previousState()"

@@ -12,6 +12,8 @@ import org.mapstruct.*;
 public interface GrainMapper extends EntityMapper<GrainDTO, Grain> {
 
 
+    @Mapping(target = "mashbillGrains", ignore = true)
+    Grain toEntity(GrainDTO grainDTO);
 
     default Grain fromId(Long id) {
         if (id == null) {

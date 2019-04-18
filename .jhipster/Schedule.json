@@ -34,36 +34,36 @@
     "relationships": [
         {
             "relationshipType": "one-to-many",
+            "relationshipName": "barrel",
             "otherEntityName": "barrel",
-            "otherEntityRelationshipName": "order",
-            "relationshipName": "barrel"
+            "otherEntityRelationshipName": "order"
         },
         {
             "relationshipType": "one-to-many",
+            "relationshipName": "batch",
             "otherEntityName": "batch",
-            "otherEntityRelationshipName": "schedule",
-            "relationshipName": "batch"
+            "otherEntityRelationshipName": "schedule"
         },
         {
             "relationshipType": "many-to-one",
-            "otherEntityName": "mashbill",
-            "otherEntityRelationshipName": "schedule",
             "relationshipName": "mashbill",
-            "otherEntityField": "mashbillCode"
+            "otherEntityName": "mashbill",
+            "otherEntityField": "mashbillCode",
+            "otherEntityRelationshipName": "mashbill"
         },
         {
             "relationshipType": "many-to-one",
-            "otherEntityName": "customer",
-            "otherEntityRelationshipName": "schedule",
             "relationshipName": "customer",
-            "otherEntityField": "customerCode"
+            "otherEntityName": "customer",
+            "otherEntityField": "customerCode",
+            "otherEntityRelationshipName": "customer"
         },
         {
             "relationshipType": "many-to-one",
-            "otherEntityName": "warehouse",
-            "otherEntityRelationshipName": "schedule",
             "relationshipName": "warehouse",
-            "otherEntityField": "warehouseCode"
+            "otherEntityName": "warehouse",
+            "otherEntityField": "warehouseCode",
+            "otherEntityRelationshipName": "warehouse"
         }
     ],
     "changelogDate": "20190418014951",

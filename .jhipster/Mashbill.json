@@ -23,49 +23,49 @@
     "relationships": [
         {
             "relationshipType": "one-to-one",
-            "otherEntityName": "mashbillYeast",
-            "otherEntityRelationshipName": "mashbill",
             "relationshipName": "yeast",
+            "otherEntityName": "mashbillYeast",
             "otherEntityField": "id",
-            "ownerSide": true
+            "ownerSide": true,
+            "otherEntityRelationshipName": "mashbill(mashbillCode)"
         },
         {
             "relationshipType": "one-to-many",
+            "relationshipName": "mashbillGrain",
             "otherEntityName": "mashbillGrain",
-            "otherEntityRelationshipName": "mashbill",
-            "relationshipName": "mashbillGrain"
+            "otherEntityRelationshipName": "mashbill"
         },
         {
             "relationshipType": "one-to-many",
+            "relationshipName": "barrel",
             "otherEntityName": "barrel",
-            "otherEntityRelationshipName": "mashbill",
-            "relationshipName": "barrel"
+            "otherEntityRelationshipName": "mashbill"
         },
         {
             "relationshipType": "one-to-many",
+            "relationshipName": "schedule",
             "otherEntityName": "schedule",
-            "otherEntityRelationshipName": "mashbill",
-            "relationshipName": "schedule"
+            "otherEntityRelationshipName": "mashbill"
         },
         {
             "relationshipType": "one-to-many",
+            "relationshipName": "batch",
             "otherEntityName": "batch",
-            "otherEntityRelationshipName": "mashbill",
-            "relationshipName": "batch"
+            "otherEntityRelationshipName": "mashbill"
         },
         {
             "relationshipType": "many-to-one",
-            "otherEntityName": "spirit",
-            "otherEntityRelationshipName": "mashbill",
             "relationshipName": "spirit",
-            "otherEntityField": "name"
+            "otherEntityName": "spirit",
+            "otherEntityField": "name",
+            "otherEntityRelationshipName": "mashbill"
         },
         {
             "relationshipType": "many-to-one",
-            "otherEntityName": "customer",
-            "otherEntityRelationshipName": "mashbill",
             "relationshipName": "customer",
-            "otherEntityField": "customerName"
+            "otherEntityName": "customer",
+            "otherEntityField": "customerName",
+            "otherEntityRelationshipName": "customer"
         }
     ],
     "changelogDate": "20190418014948",

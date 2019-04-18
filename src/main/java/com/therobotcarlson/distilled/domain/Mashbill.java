@@ -62,7 +62,7 @@ public class Mashbill implements Serializable {
     private Spirit spirit;
 
     @ManyToOne
-    @JsonIgnoreProperties("mashbills")
+    @JsonIgnoreProperties("customers")
     private Customer customer;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

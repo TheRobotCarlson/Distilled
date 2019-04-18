@@ -108,8 +108,7 @@ public class MashbillYeastServiceImpl implements MashbillYeastService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete MashbillYeast : {}", id);
-        mashbillYeastRepository.deleteById(id);
+        log.debug("Request to delete MashbillYeast : {}", id);        mashbillYeastRepository.deleteById(id);
         mashbillYeastSearchRepository.deleteById(id);
     }
 

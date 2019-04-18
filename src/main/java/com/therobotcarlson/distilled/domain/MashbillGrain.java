@@ -32,11 +32,11 @@ public class MashbillGrain implements Serializable {
     private Double quantity;
 
     @ManyToOne
-    @JsonIgnoreProperties("mashbillGrains")
+    @JsonIgnoreProperties("grains")
     private Grain grain;
 
     @ManyToOne
-    @JsonIgnoreProperties("mashbillGrains")
+    @JsonIgnoreProperties("mashbills")
     private Mashbill mashbill;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

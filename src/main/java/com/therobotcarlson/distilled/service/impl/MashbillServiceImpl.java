@@ -91,8 +91,7 @@ public class MashbillServiceImpl implements MashbillService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Mashbill : {}", id);
-        mashbillRepository.deleteById(id);
+        log.debug("Request to delete Mashbill : {}", id);        mashbillRepository.deleteById(id);
         mashbillSearchRepository.deleteById(id);
     }
 

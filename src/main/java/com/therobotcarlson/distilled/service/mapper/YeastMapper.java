@@ -12,6 +12,8 @@ import org.mapstruct.*;
 public interface YeastMapper extends EntityMapper<YeastDTO, Yeast> {
 
 
+    @Mapping(target = "mashbillYeasts", ignore = true)
+    Yeast toEntity(YeastDTO yeastDTO);
 
     default Yeast fromId(Long id) {
         if (id == null) {

@@ -6,10 +6,10 @@ import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
 import { IMashbillYeast } from 'app/shared/model/mashbill-yeast.model';
 import { MashbillYeastService } from './mashbill-yeast.service';
-import { IYeast } from 'app/shared/model/yeast.model';
-import { YeastService } from 'app/entities/yeast';
 import { IMashbill } from 'app/shared/model/mashbill.model';
 import { MashbillService } from 'app/entities/mashbill';
+import { IYeast } from 'app/shared/model/yeast.model';
+import { YeastService } from 'app/entities/yeast';
 
 @Component({
     selector: 'jhi-mashbill-yeast-update',
@@ -19,15 +19,15 @@ export class MashbillYeastUpdateComponent implements OnInit {
     mashbillYeast: IMashbillYeast;
     isSaving: boolean;
 
-    yeasts: IYeast[];
-
     mashbills: IMashbill[];
+
+    yeasts: IYeast[];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected mashbillYeastService: MashbillYeastService,
-        protected yeastService: YeastService,
         protected mashbillService: MashbillService,
+        protected yeastService: YeastService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -36,13 +36,6 @@ export class MashbillYeastUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ mashbillYeast }) => {
             this.mashbillYeast = mashbillYeast;
         });
-        this.yeastService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IYeast[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IYeast[]>) => response.body)
-            )
-            .subscribe((res: IYeast[]) => (this.yeasts = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.mashbillService
             .query()
             .pipe(
@@ -50,6 +43,13 @@ export class MashbillYeastUpdateComponent implements OnInit {
                 map((response: HttpResponse<IMashbill[]>) => response.body)
             )
             .subscribe((res: IMashbill[]) => (this.mashbills = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.yeastService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<IYeast[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IYeast[]>) => response.body)
+            )
+            .subscribe((res: IYeast[]) => (this.yeasts = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {
@@ -82,11 +82,11 @@ export class MashbillYeastUpdateComponent implements OnInit {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 
-    trackYeastById(index: number, item: IYeast) {
+    trackMashbillById(index: number, item: IMashbill) {
         return item.id;
     }
 
-    trackMashbillById(index: number, item: IMashbill) {
+    trackYeastById(index: number, item: IYeast) {
         return item.id;
     }
 }

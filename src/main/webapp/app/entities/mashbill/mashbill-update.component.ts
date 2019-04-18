@@ -42,7 +42,7 @@ export class MashbillUpdateComponent implements OnInit {
             this.mashbill = mashbill;
         });
         this.mashbillYeastService
-            .query({ filter: 'mashbill-is-null' })
+            .query({ filter: 'mashbill(mashbillcode)-is-null' })
             .pipe(
                 filter((mayBeOk: HttpResponse<IMashbillYeast[]>) => mayBeOk.ok),
                 map((response: HttpResponse<IMashbillYeast[]>) => response.body)

@@ -18,7 +18,14 @@
             "fieldValidateRulesMin": 0
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "mashbillGrain",
+            "otherEntityName": "mashbillGrain",
+            "otherEntityRelationshipName": "grain"
+        }
+    ],
     "changelogDate": "20190418014942",
     "entityTableName": "grain",
     "dto": "mapstruct",

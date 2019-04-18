@@ -47,11 +47,11 @@ public class Batch implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Barrel> barrels = new HashSet<>();
     @ManyToOne
-    @JsonIgnoreProperties("batches")
+    @JsonIgnoreProperties("schedules")
     private Schedule schedule;
 
     @ManyToOne
-    @JsonIgnoreProperties("batches")
+    @JsonIgnoreProperties("mashbills")
     private Mashbill mashbill;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
