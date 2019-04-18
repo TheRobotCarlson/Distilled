@@ -1,0 +1,6 @@
+steps:
+- name: 'gcr.io/cloud-builders/yarn'
+  args: ['install']
+- name: 'gcr.io/cloud-builders/mvn'
+  args: ['package', '-Pprod', 'verify', 'jib:dockerBuild']
+images: ['gcr.io/$PROJECT_ID/custom-script-test']
