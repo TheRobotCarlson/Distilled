@@ -18,7 +18,7 @@ export class SpiritComponentsPage {
     }
 
     async getTitle() {
-        return this.title.getAttribute('jhiTranslate');
+        return this.title.getText();
     }
 }
 
@@ -31,7 +31,7 @@ export class SpiritUpdatePage {
     codeInput = element(by.id('field_code'));
 
     async getPageTitle() {
-        return this.pageTitle.getAttribute('jhiTranslate');
+        return this.pageTitle.getText();
     }
 
     async setCategoryInput(category) {
@@ -76,7 +76,7 @@ export class SpiritDeleteDialog {
     private confirmButton = element(by.id('jhi-confirm-delete-spirit'));
 
     async getDialogTitle() {
-        return this.dialogTitle.getAttribute('jhiTranslate');
+        return this.dialogTitle.getText();
     }
 
     async clickOnConfirmButton() {

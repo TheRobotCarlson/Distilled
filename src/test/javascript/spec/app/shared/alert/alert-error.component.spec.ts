@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed, async, inject, fakeAsync, tick } from '@angular/core/testing';
 import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
-import { TranslateModule } from '@ngx-translate/core';
 
 import { DistilledTestModule } from '../../../test.module';
 import { JhiAlertErrorComponent } from 'app/shared/alert/alert-error.component';
@@ -15,7 +14,7 @@ describe('Component Tests', () => {
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
-                imports: [DistilledTestModule, TranslateModule.forRoot()],
+                imports: [DistilledTestModule],
                 declarations: [JhiAlertErrorComponent],
                 providers: [
                     JhiEventManager,
@@ -41,14 +40,14 @@ describe('Component Tests', () => {
                 eventManager.broadcast({ name: 'distilledApp.httpError', content: { status: 0 } });
                 // THEN
                 expect(comp.alerts.length).toBe(1);
-                expect(comp.alerts[0].msg).toBe('error.server.not.reachable');
+                expect(comp.alerts[0].msg).toBe('Server not reachable');
             });
             it('Should display an alert on status 404', () => {
                 // GIVEN
                 eventManager.broadcast({ name: 'distilledApp.httpError', content: { status: 404 } });
                 // THEN
                 expect(comp.alerts.length).toBe(1);
-                expect(comp.alerts[0].msg).toBe('error.url.not.found');
+                expect(comp.alerts[0].msg).toBe('Not found');
             });
             it('Should display an alert on generic error', () => {
                 // GIVEN
@@ -111,7 +110,7 @@ describe('Component Tests', () => {
                 eventManager.broadcast({ name: 'distilledApp.httpError', content: response });
                 // THEN
                 expect(comp.alerts.length).toBe(1);
-                expect(comp.alerts[0].msg).toBe('error.Size');
+                expect(comp.alerts[0].msg).toBe('Error on field "MinField"');
             });
             it('Should display an alert on status 400 for error headers', () => {
                 // GIVEN

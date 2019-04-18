@@ -19,7 +19,7 @@ import { DistilledAccountModule } from './account/account.module';
 import { DistilledEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
-import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
 
 @NgModule({
     imports: [
@@ -28,9 +28,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         NgJhipsterModule.forRoot({
             // set below to true to make alerts look like toast
             alertAsToast: false,
-            alertTimeout: 5000,
-            i18nEnabled: true,
-            defaultI18nLang: 'en'
+            alertTimeout: 5000
         }),
         DistilledSharedModule.forRoot(),
         DistilledCoreModule,
@@ -40,7 +38,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         DistilledEntityModule,
         DistilledAppRoutingModule
     ],
-    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,

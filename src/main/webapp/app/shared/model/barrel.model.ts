@@ -2,9 +2,7 @@ import { Moment } from 'moment';
 
 export interface IBarrel {
     id?: number;
-    proof?: number;
     barreledDate?: Moment;
-    orderCode?: string;
     warehouseWarehouseCode?: string;
     warehouseId?: number;
     mashbillMashbillCode?: string;
@@ -20,9 +18,7 @@ export interface IBarrel {
 export class Barrel implements IBarrel {
     constructor(
         public id?: number,
-        public proof?: number,
         public barreledDate?: Moment,
-        public orderCode?: string,
         public warehouseWarehouseCode?: string,
         public warehouseId?: number,
         public mashbillMashbillCode?: string,

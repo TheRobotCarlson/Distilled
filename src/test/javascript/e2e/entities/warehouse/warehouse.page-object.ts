@@ -18,7 +18,7 @@ export class WarehouseComponentsPage {
     }
 
     async getTitle() {
-        return this.title.getAttribute('jhiTranslate');
+        return this.title.getText();
     }
 }
 
@@ -31,7 +31,7 @@ export class WarehouseUpdatePage {
     capacityInput = element(by.id('field_capacity'));
 
     async getPageTitle() {
-        return this.pageTitle.getAttribute('jhiTranslate');
+        return this.pageTitle.getText();
     }
 
     async setWarehouseCodeInput(warehouseCode) {
@@ -76,7 +76,7 @@ export class WarehouseDeleteDialog {
     private confirmButton = element(by.id('jhi-confirm-delete-warehouse'));
 
     async getDialogTitle() {
-        return this.dialogTitle.getAttribute('jhiTranslate');
+        return this.dialogTitle.getText();
     }
 
     async clickOnConfirmButton() {

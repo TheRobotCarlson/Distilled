@@ -25,13 +25,13 @@ describe('MasterSummary e2e test', () => {
         await navBarPage.goToEntity('master-summary');
         masterSummaryComponentsPage = new MasterSummaryComponentsPage();
         await browser.wait(ec.visibilityOf(masterSummaryComponentsPage.title), 5000);
-        expect(await masterSummaryComponentsPage.getTitle()).to.eq('distilledApp.masterSummary.home.title');
+        expect(await masterSummaryComponentsPage.getTitle()).to.eq('Master Summaries');
     });
 
     it('should load create MasterSummary page', async () => {
         await masterSummaryComponentsPage.clickOnCreateButton();
         masterSummaryUpdatePage = new MasterSummaryUpdatePage();
-        expect(await masterSummaryUpdatePage.getPageTitle()).to.eq('distilledApp.masterSummary.home.createOrEditLabel');
+        expect(await masterSummaryUpdatePage.getPageTitle()).to.eq('Create or edit a Master Summary');
         await masterSummaryUpdatePage.cancel();
     });
 
@@ -53,7 +53,7 @@ describe('MasterSummary e2e test', () => {
         await masterSummaryComponentsPage.clickOnLastDeleteButton();
 
         masterSummaryDeleteDialog = new MasterSummaryDeleteDialog();
-        expect(await masterSummaryDeleteDialog.getDialogTitle()).to.eq('distilledApp.masterSummary.delete.question');
+        expect(await masterSummaryDeleteDialog.getDialogTitle()).to.eq('Are you sure you want to delete this Master Summary?');
         await masterSummaryDeleteDialog.clickOnConfirmButton();
 
         expect(await masterSummaryComponentsPage.countDeleteButtons()).to.eq(nbButtonsBeforeDelete - 1);

@@ -1,9 +1,9 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="distilledApp.barrel.home.title">Barrels</span>
+        <span>Barrels</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-barrel" [routerLink]="['/barrel/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span class="hidden-sm-down"  jhiTranslate="distilledApp.barrel.home.createLabel">
+            <span class="hidden-sm-down" >
             Create new Barrel
             </span>
         </button>
@@ -13,7 +13,7 @@
         <div class="col-sm-12">
             <form name="searchForm" class="form-inline">
                 <div class="input-group w-100 mt-3">
-                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'distilledApp.barrel.home.search' | translate }}">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="Query">
                     <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
                         <fa-icon [icon]="'search'"></fa-icon>
                     </button>
@@ -29,24 +29,20 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="proof"><span jhiTranslate="distilledApp.barrel.proof">Proof</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="barreledDate"><span jhiTranslate="distilledApp.barrel.barreledDate">Barreled Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="orderCode"><span jhiTranslate="distilledApp.barrel.orderCode">Order Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="warehouseWarehouseCode"><span jhiTranslate="distilledApp.barrel.warehouse">Warehouse</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="mashbillMashbillCode"><span jhiTranslate="distilledApp.barrel.mashbill">Mashbill</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="orderOrderCode"><span jhiTranslate="distilledApp.barrel.order">Order</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="customerCustomerCode"><span jhiTranslate="distilledApp.barrel.customer">Customer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="batchBatchNumber"><span jhiTranslate="distilledApp.barrel.batch">Batch</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="barreledDate"><span>Barreled Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="warehouseWarehouseCode"><span>Warehouse</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mashbillMashbillCode"><span>Mashbill</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="orderOrderCode"><span>Order</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="customerCustomerCode"><span>Customer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="batchBatchNumber"><span>Batch</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let barrel of barrels ;trackBy: trackId">
                 <td><a [routerLink]="['/barrel', barrel.id, 'view' ]">{{barrel.id}}</a></td>
-                <td>{{barrel.proof}}</td>
                 <td>{{barrel.barreledDate | date:'medium'}}</td>
-                <td>{{barrel.orderCode}}</td>
                 <td>
                     <div *ngIf="barrel.warehouseId">
                         <a [routerLink]="['../warehouse', barrel.warehouseId , 'view' ]" >{{barrel.warehouseWarehouseCode}}</a>
@@ -78,13 +74,13 @@
                                 [routerLink]="['/barrel', barrel.id, 'view' ]"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline">View</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/barrel', barrel.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline">Edit</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', 'barrel', { outlets: { popup: barrel.id + '/delete'} }]"
@@ -92,7 +88,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline">Delete</span>
                         </button>
                     </div>
                 </td>

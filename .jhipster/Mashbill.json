@@ -58,7 +58,7 @@
             "otherEntityName": "spirit",
             "otherEntityRelationshipName": "mashbill",
             "relationshipName": "spirit",
-            "otherEntityField": "code"
+            "otherEntityField": "name"
         },
         {
             "relationshipType": "many-to-one",
@@ -68,7 +68,7 @@
             "otherEntityField": "customerName"
         }
     ],
-    "changelogDate": "20190417235208",
+    "changelogDate": "20190418014948",
     "entityTableName": "mashbill",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

@@ -34,7 +34,7 @@ export const grainRoute: Routes = [
         component: GrainComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.grain.home.title'
+            pageTitle: 'Grains'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -46,7 +46,7 @@ export const grainRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.grain.home.title'
+            pageTitle: 'Grains'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -58,7 +58,7 @@ export const grainRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.grain.home.title'
+            pageTitle: 'Grains'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -70,7 +70,7 @@ export const grainRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.grain.home.title'
+            pageTitle: 'Grains'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -85,7 +85,7 @@ export const grainPopupRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.grain.home.title'
+            pageTitle: 'Grains'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

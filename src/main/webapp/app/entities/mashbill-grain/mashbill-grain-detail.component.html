@@ -1,21 +1,21 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="mashbillGrain">
-            <h2><span jhiTranslate="distilledApp.mashbillGrain.detail.title">Mashbill Grain</span> {{mashbillGrain.id}}</h2>
+            <h2><span>Mashbill Grain</span> {{mashbillGrain.id}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="distilledApp.mashbillGrain.quantity">Quantity</span></dt>
+                <dt><span>Quantity</span></dt>
                 <dd>
                     <span>{{mashbillGrain.quantity}}</span>
                 </dd>
-                <dt><span jhiTranslate="distilledApp.mashbillGrain.grain">Grain</span></dt>
+                <dt><span>Grain</span></dt>
                 <dd>
                     <div *ngIf="mashbillGrain.grainId">
                         <a [routerLink]="['/grain', mashbillGrain.grainId, 'view']">{{mashbillGrain.grainGrainName}}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="distilledApp.mashbillGrain.mashbill">Mashbill</span></dt>
+                <dt><span>Mashbill</span></dt>
                 <dd>
                     <div *ngIf="mashbillGrain.mashbillId">
                         <a [routerLink]="['/mashbill', mashbillGrain.mashbillId, 'view']">{{mashbillGrain.mashbillMashbillCode}}</a>
@@ -26,13 +26,13 @@
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
             </button>
 
             <button type="button"
                     [routerLink]="['/mashbill-grain', mashbillGrain.id, 'edit']"
                     class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
             </button>
         </div>
     </div>

@@ -25,13 +25,13 @@ describe('Yeast e2e test', () => {
         await navBarPage.goToEntity('yeast');
         yeastComponentsPage = new YeastComponentsPage();
         await browser.wait(ec.visibilityOf(yeastComponentsPage.title), 5000);
-        expect(await yeastComponentsPage.getTitle()).to.eq('distilledApp.yeast.home.title');
+        expect(await yeastComponentsPage.getTitle()).to.eq('Yeasts');
     });
 
     it('should load create Yeast page', async () => {
         await yeastComponentsPage.clickOnCreateButton();
         yeastUpdatePage = new YeastUpdatePage();
-        expect(await yeastUpdatePage.getPageTitle()).to.eq('distilledApp.yeast.home.createOrEditLabel');
+        expect(await yeastUpdatePage.getPageTitle()).to.eq('Create or edit a Yeast');
         await yeastUpdatePage.cancel();
     });
 
@@ -58,7 +58,7 @@ describe('Yeast e2e test', () => {
         await yeastComponentsPage.clickOnLastDeleteButton();
 
         yeastDeleteDialog = new YeastDeleteDialog();
-        expect(await yeastDeleteDialog.getDialogTitle()).to.eq('distilledApp.yeast.delete.question');
+        expect(await yeastDeleteDialog.getDialogTitle()).to.eq('Are you sure you want to delete this Yeast?');
         await yeastDeleteDialog.clickOnConfirmButton();
 
         expect(await yeastComponentsPage.countDeleteButtons()).to.eq(nbButtonsBeforeDelete - 1);

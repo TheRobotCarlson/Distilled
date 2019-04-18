@@ -25,13 +25,13 @@ describe('Schedule e2e test', () => {
         await navBarPage.goToEntity('schedule');
         scheduleComponentsPage = new ScheduleComponentsPage();
         await browser.wait(ec.visibilityOf(scheduleComponentsPage.title), 5000);
-        expect(await scheduleComponentsPage.getTitle()).to.eq('distilledApp.schedule.home.title');
+        expect(await scheduleComponentsPage.getTitle()).to.eq('Schedules');
     });
 
     it('should load create Schedule page', async () => {
         await scheduleComponentsPage.clickOnCreateButton();
         scheduleUpdatePage = new ScheduleUpdatePage();
-        expect(await scheduleUpdatePage.getPageTitle()).to.eq('distilledApp.schedule.home.createOrEditLabel');
+        expect(await scheduleUpdatePage.getPageTitle()).to.eq('Create or edit a Schedule');
         await scheduleUpdatePage.cancel();
     });
 
@@ -65,7 +65,7 @@ describe('Schedule e2e test', () => {
         await scheduleComponentsPage.clickOnLastDeleteButton();
 
         scheduleDeleteDialog = new ScheduleDeleteDialog();
-        expect(await scheduleDeleteDialog.getDialogTitle()).to.eq('distilledApp.schedule.delete.question');
+        expect(await scheduleDeleteDialog.getDialogTitle()).to.eq('Are you sure you want to delete this Schedule?');
         await scheduleDeleteDialog.clickOnConfirmButton();
 
         expect(await scheduleComponentsPage.countDeleteButtons()).to.eq(nbButtonsBeforeDelete - 1);

@@ -34,7 +34,7 @@ export const barrelRoute: Routes = [
         component: BarrelComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.barrel.home.title'
+            pageTitle: 'Barrels'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -46,7 +46,7 @@ export const barrelRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.barrel.home.title'
+            pageTitle: 'Barrels'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -58,7 +58,7 @@ export const barrelRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.barrel.home.title'
+            pageTitle: 'Barrels'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -70,7 +70,7 @@ export const barrelRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.barrel.home.title'
+            pageTitle: 'Barrels'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -85,7 +85,7 @@ export const barrelPopupRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.barrel.home.title'
+            pageTitle: 'Barrels'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

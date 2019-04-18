@@ -1,19 +1,19 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="yeast">
-            <h2><span jhiTranslate="distilledApp.yeast.detail.title">Yeast</span> {{yeast.id}}</h2>
+            <h2><span>Yeast</span> {{yeast.id}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="distilledApp.yeast.yeastName">Yeast Name</span></dt>
+                <dt><span>Yeast Name</span></dt>
                 <dd>
                     <span>{{yeast.yeastName}}</span>
                 </dd>
-                <dt><span jhiTranslate="distilledApp.yeast.yeastCode">Yeast Code</span></dt>
+                <dt><span>Yeast Code</span></dt>
                 <dd>
                     <span>{{yeast.yeastCode}}</span>
                 </dd>
-                <dt><span jhiTranslate="distilledApp.yeast.yeastPalletNum">Yeast Pallet Num</span></dt>
+                <dt><span>Yeast Pallet Num</span></dt>
                 <dd>
                     <span>{{yeast.yeastPalletNum}}</span>
                 </dd>
@@ -22,13 +22,13 @@
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
             </button>
 
             <button type="button"
                     [routerLink]="['/yeast', yeast.id, 'edit']"
                     class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
             </button>
         </div>
     </div>

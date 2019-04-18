@@ -13,7 +13,7 @@ export interface IMashbill {
     barrels?: IBarrel[];
     schedules?: ISchedule[];
     batches?: IBatch[];
-    spiritCode?: string;
+    spiritName?: string;
     spiritId?: number;
     customerCustomerName?: string;
     customerId?: number;
@@ -30,7 +30,7 @@ export class Mashbill implements IMashbill {
         public barrels?: IBarrel[],
         public schedules?: ISchedule[],
         public batches?: IBatch[],
-        public spiritCode?: string,
+        public spiritName?: string,
         public spiritId?: number,
         public customerCustomerName?: string,
         public customerId?: number

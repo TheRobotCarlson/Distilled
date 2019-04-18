@@ -1,88 +1,62 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-barrel-heading" jhiTranslate="distilledApp.barrel.home.createOrEditLabel">Create or edit a Barrel</h2>
+            <h2 id="jhi-barrel-heading">Create or edit a Barrel</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!barrel.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <label for="id">ID</label>
                     <input type="text" class="form-control" id="id" name="id"
                         [(ngModel)]="barrel.id" readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.barrel.proof" for="field_proof">Proof</label>
-                    <input type="number" class="form-control" name="proof" id="field_proof"
-                        [(ngModel)]="barrel.proof" required/>
-                    <div [hidden]="!(editForm.controls.proof?.dirty && editForm.controls.proof?.invalid)">
-                        <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.proof?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.proof?.errors?.number" jhiTranslate="entity.validation.number">
-                            This field should be a number.
-                        </small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.barrel.barreledDate" for="field_barreledDate">Barreled Date</label>
+                    <label class="form-control-label" for="field_barreledDate">Barreled Date</label>
                     <div class="d-flex">
                         <input id="field_barreledDate" type="datetime-local" class="form-control" name="barreledDate" [(ngModel)]="barreledDate" placeholder="YYYY-MM-DD HH:mm"
                         required/>
                     </div>
                     <div [hidden]="!(editForm.controls.barreledDate?.dirty && editForm.controls.barreledDate?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.barreledDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.barreledDate?.errors?.required">
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.barreledDate?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            [hidden]="!editForm.controls.barreledDate?.errors?.ZonedDateTimelocal">
                             This field should be a date and time.
-                        </small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.barrel.orderCode" for="field_orderCode">Order Code</label>
-                    <input type="text" class="form-control" name="orderCode" id="field_orderCode"
-                        [(ngModel)]="barrel.orderCode" required/>
-                    <div [hidden]="!(editForm.controls.orderCode?.dirty && editForm.controls.orderCode?.invalid)">
-                        <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.orderCode?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
                         </small>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.barrel.warehouse" for="field_warehouse">Warehouse</label>
+                    <label class="form-control-label" for="field_warehouse">Warehouse</label>
                     <select class="form-control" id="field_warehouse" name="warehouse" [(ngModel)]="barrel.warehouseId" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="warehouseOption.id" *ngFor="let warehouseOption of warehouses; trackBy: trackWarehouseById">{{warehouseOption.warehouseCode}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.barrel.mashbill" for="field_mashbill">Mashbill</label>
+                    <label class="form-control-label" for="field_mashbill">Mashbill</label>
                     <select class="form-control" id="field_mashbill" name="mashbill" [(ngModel)]="barrel.mashbillId" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="mashbillOption.id" *ngFor="let mashbillOption of mashbills; trackBy: trackMashbillById">{{mashbillOption.mashbillCode}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.barrel.order" for="field_order">Order</label>
+                    <label class="form-control-label" for="field_order">Order</label>
                     <select class="form-control" id="field_order" name="order" [(ngModel)]="barrel.orderId" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="scheduleOption.id" *ngFor="let scheduleOption of schedules; trackBy: trackScheduleById">{{scheduleOption.orderCode}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.barrel.customer" for="field_customer">Customer</label>
+                    <label class="form-control-label" for="field_customer">Customer</label>
                     <select class="form-control" id="field_customer" name="customer" [(ngModel)]="barrel.customerId" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="customerOption.id" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.customerCode}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.barrel.batch" for="field_batch">Batch</label>
+                    <label class="form-control-label" for="field_batch">Batch</label>
                     <select class="form-control" id="field_batch" name="batch" [(ngModel)]="barrel.batchId" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="batchOption.id" *ngFor="let batchOption of batches; trackBy: trackBatchById">{{batchOption.batchNumber}}</option>
@@ -91,10 +65,10 @@
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
                 </button>
                 <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
                 </button>
             </div>
         </form>

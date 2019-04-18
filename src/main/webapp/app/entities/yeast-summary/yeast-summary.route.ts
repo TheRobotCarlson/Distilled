@@ -34,7 +34,7 @@ export const yeastSummaryRoute: Routes = [
         component: YeastSummaryComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.yeastSummary.home.title'
+            pageTitle: 'YeastSummaries'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -46,7 +46,7 @@ export const yeastSummaryRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.yeastSummary.home.title'
+            pageTitle: 'YeastSummaries'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -58,7 +58,7 @@ export const yeastSummaryRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.yeastSummary.home.title'
+            pageTitle: 'YeastSummaries'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -70,7 +70,7 @@ export const yeastSummaryRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.yeastSummary.home.title'
+            pageTitle: 'YeastSummaries'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -85,7 +85,7 @@ export const yeastSummaryPopupRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.yeastSummary.home.title'
+            pageTitle: 'YeastSummaries'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

@@ -25,13 +25,13 @@ describe('MashbillGrain e2e test', () => {
         await navBarPage.goToEntity('mashbill-grain');
         mashbillGrainComponentsPage = new MashbillGrainComponentsPage();
         await browser.wait(ec.visibilityOf(mashbillGrainComponentsPage.title), 5000);
-        expect(await mashbillGrainComponentsPage.getTitle()).to.eq('distilledApp.mashbillGrain.home.title');
+        expect(await mashbillGrainComponentsPage.getTitle()).to.eq('Mashbill Grains');
     });
 
     it('should load create MashbillGrain page', async () => {
         await mashbillGrainComponentsPage.clickOnCreateButton();
         mashbillGrainUpdatePage = new MashbillGrainUpdatePage();
-        expect(await mashbillGrainUpdatePage.getPageTitle()).to.eq('distilledApp.mashbillGrain.home.createOrEditLabel');
+        expect(await mashbillGrainUpdatePage.getPageTitle()).to.eq('Create or edit a Mashbill Grain');
         await mashbillGrainUpdatePage.cancel();
     });
 
@@ -56,7 +56,7 @@ describe('MashbillGrain e2e test', () => {
         await mashbillGrainComponentsPage.clickOnLastDeleteButton();
 
         mashbillGrainDeleteDialog = new MashbillGrainDeleteDialog();
-        expect(await mashbillGrainDeleteDialog.getDialogTitle()).to.eq('distilledApp.mashbillGrain.delete.question');
+        expect(await mashbillGrainDeleteDialog.getDialogTitle()).to.eq('Are you sure you want to delete this Mashbill Grain?');
         await mashbillGrainDeleteDialog.clickOnConfirmButton();
 
         expect(await mashbillGrainComponentsPage.countDeleteButtons()).to.eq(nbButtonsBeforeDelete - 1);

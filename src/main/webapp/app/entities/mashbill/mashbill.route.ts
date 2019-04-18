@@ -34,7 +34,7 @@ export const mashbillRoute: Routes = [
         component: MashbillComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.mashbill.home.title'
+            pageTitle: 'Mashbills'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -46,7 +46,7 @@ export const mashbillRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.mashbill.home.title'
+            pageTitle: 'Mashbills'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -58,7 +58,7 @@ export const mashbillRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.mashbill.home.title'
+            pageTitle: 'Mashbills'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -70,7 +70,7 @@ export const mashbillRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.mashbill.home.title'
+            pageTitle: 'Mashbills'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -85,7 +85,7 @@ export const mashbillPopupRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.mashbill.home.title'
+            pageTitle: 'Mashbills'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

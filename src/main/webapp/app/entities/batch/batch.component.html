@@ -1,9 +1,9 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="distilledApp.batch.home.title">Batches</span>
+        <span>Batches</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-batch" [routerLink]="['/batch/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span class="hidden-sm-down"  jhiTranslate="distilledApp.batch.home.createLabel">
+            <span class="hidden-sm-down" >
             Create new Batch
             </span>
         </button>
@@ -13,7 +13,7 @@
         <div class="col-sm-12">
             <form name="searchForm" class="form-inline">
                 <div class="input-group w-100 mt-3">
-                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'distilledApp.batch.home.search' | translate }}">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="Query">
                     <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
                         <fa-icon [icon]="'search'"></fa-icon>
                     </button>
@@ -29,12 +29,12 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="proof"><span jhiTranslate="distilledApp.batch.proof">Proof</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="date"><span jhiTranslate="distilledApp.batch.date">Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="batchNumber"><span jhiTranslate="distilledApp.batch.batchNumber">Batch Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="scheduleOrderCode"><span jhiTranslate="distilledApp.batch.schedule">Schedule</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="mashbillMashbillCode"><span jhiTranslate="distilledApp.batch.mashbill">Mashbill</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="proof"><span>Proof</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="date"><span>Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="batchNumber"><span>Batch Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="scheduleOrderCode"><span>Schedule</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mashbillMashbillCode"><span>Mashbill</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -60,13 +60,13 @@
                                 [routerLink]="['/batch', batch.id, 'view' ]"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline">View</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/batch', batch.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline">Edit</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', 'batch', { outlets: { popup: batch.id + '/delete'} }]"
@@ -74,7 +74,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline">Delete</span>
                         </button>
                     </div>
                 </td>

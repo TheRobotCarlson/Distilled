@@ -1,15 +1,15 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="grain">
-            <h2><span jhiTranslate="distilledApp.grain.detail.title">Grain</span> {{grain.id}}</h2>
+            <h2><span>Grain</span> {{grain.id}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="distilledApp.grain.grainName">Grain Name</span></dt>
+                <dt><span>Grain Name</span></dt>
                 <dd>
                     <span>{{grain.grainName}}</span>
                 </dd>
-                <dt><span jhiTranslate="distilledApp.grain.grainBushelWeight">Grain Bushel Weight</span></dt>
+                <dt><span>Grain Bushel Weight</span></dt>
                 <dd>
                     <span>{{grain.grainBushelWeight}}</span>
                 </dd>
@@ -18,13 +18,13 @@
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
             </button>
 
             <button type="button"
                     [routerLink]="['/grain', grain.id, 'edit']"
                     class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
             </button>
         </div>
     </div>

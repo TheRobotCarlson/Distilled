@@ -1,40 +1,40 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-grain-heading" jhiTranslate="distilledApp.grain.home.createOrEditLabel">Create or edit a Grain</h2>
+            <h2 id="jhi-grain-heading">Create or edit a Grain</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!grain.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <label for="id">ID</label>
                     <input type="text" class="form-control" id="id" name="id"
                         [(ngModel)]="grain.id" readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.grain.grainName" for="field_grainName">Grain Name</label>
+                    <label class="form-control-label" for="field_grainName">Grain Name</label>
                     <input type="text" class="form-control" name="grainName" id="field_grainName"
                         [(ngModel)]="grain.grainName" required/>
                     <div [hidden]="!(editForm.controls.grainName?.dirty && editForm.controls.grainName?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.grainName?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.grainName?.errors?.required">
                         This field is required.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.grain.grainBushelWeight" for="field_grainBushelWeight">Grain Bushel Weight</label>
+                    <label class="form-control-label" for="field_grainBushelWeight">Grain Bushel Weight</label>
                     <input type="number" class="form-control" name="grainBushelWeight" id="field_grainBushelWeight"
                         [(ngModel)]="grain.grainBushelWeight" required min="0" jhiMin="0"/>
                     <div [hidden]="!(editForm.controls.grainBushelWeight?.dirty && editForm.controls.grainBushelWeight?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.grainBushelWeight?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.grainBushelWeight?.errors?.required">
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.grainBushelWeight?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            [hidden]="!editForm.controls.grainBushelWeight?.errors?.min">
                             This field should be at least 0.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.grainBushelWeight?.errors?.number" jhiTranslate="entity.validation.number">
+                            [hidden]="!editForm.controls.grainBushelWeight?.errors?.number">
                             This field should be a number.
                         </small>
                     </div>
@@ -43,10 +43,10 @@
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
                 </button>
                 <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
                 </button>
             </div>
         </form>

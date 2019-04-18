@@ -25,13 +25,13 @@ describe('Spirit e2e test', () => {
         await navBarPage.goToEntity('spirit');
         spiritComponentsPage = new SpiritComponentsPage();
         await browser.wait(ec.visibilityOf(spiritComponentsPage.title), 5000);
-        expect(await spiritComponentsPage.getTitle()).to.eq('distilledApp.spirit.home.title');
+        expect(await spiritComponentsPage.getTitle()).to.eq('Spirits');
     });
 
     it('should load create Spirit page', async () => {
         await spiritComponentsPage.clickOnCreateButton();
         spiritUpdatePage = new SpiritUpdatePage();
-        expect(await spiritUpdatePage.getPageTitle()).to.eq('distilledApp.spirit.home.createOrEditLabel');
+        expect(await spiritUpdatePage.getPageTitle()).to.eq('Create or edit a Spirit');
         await spiritUpdatePage.cancel();
     });
 
@@ -58,7 +58,7 @@ describe('Spirit e2e test', () => {
         await spiritComponentsPage.clickOnLastDeleteButton();
 
         spiritDeleteDialog = new SpiritDeleteDialog();
-        expect(await spiritDeleteDialog.getDialogTitle()).to.eq('distilledApp.spirit.delete.question');
+        expect(await spiritDeleteDialog.getDialogTitle()).to.eq('Are you sure you want to delete this Spirit?');
         await spiritDeleteDialog.clickOnConfirmButton();
 
         expect(await spiritComponentsPage.countDeleteButtons()).to.eq(nbButtonsBeforeDelete - 1);

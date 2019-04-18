@@ -13,7 +13,7 @@ public interface MashbillMapper extends EntityMapper<MashbillDTO, Mashbill> {
 
     @Mapping(source = "yeast.id", target = "yeastId")
     @Mapping(source = "spirit.id", target = "spiritId")
-    @Mapping(source = "spirit.code", target = "spiritCode")
+    @Mapping(source = "spirit.name", target = "spiritName")
     @Mapping(source = "customer.id", target = "customerId")
     @Mapping(source = "customer.customerName", target = "customerCustomerName")
     MashbillDTO toDto(Mashbill mashbill);

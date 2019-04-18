@@ -25,13 +25,13 @@ describe('Barrel e2e test', () => {
         await navBarPage.goToEntity('barrel');
         barrelComponentsPage = new BarrelComponentsPage();
         await browser.wait(ec.visibilityOf(barrelComponentsPage.title), 5000);
-        expect(await barrelComponentsPage.getTitle()).to.eq('distilledApp.barrel.home.title');
+        expect(await barrelComponentsPage.getTitle()).to.eq('Barrels');
     });
 
     it('should load create Barrel page', async () => {
         await barrelComponentsPage.clickOnCreateButton();
         barrelUpdatePage = new BarrelUpdatePage();
-        expect(await barrelUpdatePage.getPageTitle()).to.eq('distilledApp.barrel.home.createOrEditLabel');
+        expect(await barrelUpdatePage.getPageTitle()).to.eq('Create or edit a Barrel');
         await barrelUpdatePage.cancel();
     });
 
@@ -40,18 +40,14 @@ describe('Barrel e2e test', () => {
 
         await barrelComponentsPage.clickOnCreateButton();
         await promise.all([
-            barrelUpdatePage.setProofInput('5'),
             barrelUpdatePage.setBarreledDateInput('01/01/2001' + protractor.Key.TAB + '02:30AM'),
-            barrelUpdatePage.setOrderCodeInput('orderCode'),
             barrelUpdatePage.warehouseSelectLastOption(),
             barrelUpdatePage.mashbillSelectLastOption(),
             barrelUpdatePage.orderSelectLastOption(),
             barrelUpdatePage.customerSelectLastOption(),
             barrelUpdatePage.batchSelectLastOption()
         ]);
-        expect(await barrelUpdatePage.getProofInput()).to.eq('5');
         expect(await barrelUpdatePage.getBarreledDateInput()).to.contain('2001-01-01T02:30');
-        expect(await barrelUpdatePage.getOrderCodeInput()).to.eq('orderCode');
         await barrelUpdatePage.save();
         expect(await barrelUpdatePage.getSaveButton().isPresent()).to.be.false;
 
@@ -63,7 +59,7 @@ describe('Barrel e2e test', () => {
         await barrelComponentsPage.clickOnLastDeleteButton();
 
         barrelDeleteDialog = new BarrelDeleteDialog();
-        expect(await barrelDeleteDialog.getDialogTitle()).to.eq('distilledApp.barrel.delete.question');
+        expect(await barrelDeleteDialog.getDialogTitle()).to.eq('Are you sure you want to delete this Barrel?');
         await barrelDeleteDialog.clickOnConfirmButton();
 
         expect(await barrelComponentsPage.countDeleteButtons()).to.eq(nbButtonsBeforeDelete - 1);

@@ -24,7 +24,7 @@
         }
     ],
     "relationships": [],
-    "changelogDate": "20190417235207",
+    "changelogDate": "20190418014947",
     "entityTableName": "spirit",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

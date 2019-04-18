@@ -34,7 +34,7 @@ export const masterSummaryRoute: Routes = [
         component: MasterSummaryComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.masterSummary.home.title'
+            pageTitle: 'MasterSummaries'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -46,7 +46,7 @@ export const masterSummaryRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.masterSummary.home.title'
+            pageTitle: 'MasterSummaries'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -58,7 +58,7 @@ export const masterSummaryRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.masterSummary.home.title'
+            pageTitle: 'MasterSummaries'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -70,7 +70,7 @@ export const masterSummaryRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.masterSummary.home.title'
+            pageTitle: 'MasterSummaries'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -85,7 +85,7 @@ export const masterSummaryPopupRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.masterSummary.home.title'
+            pageTitle: 'MasterSummaries'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

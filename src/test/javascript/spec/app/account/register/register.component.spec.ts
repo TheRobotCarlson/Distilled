@@ -1,8 +1,6 @@
 import { ComponentFixture, TestBed, async, inject, tick, fakeAsync } from '@angular/core/testing';
 import { Observable, of, throwError } from 'rxjs';
 
-import { JhiLanguageService } from 'ng-jhipster';
-import { MockLanguageService } from '../../../helpers/mock-language.service';
 import { DistilledTestModule } from '../../../test.module';
 import { EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from 'app/shared';
 import { Register } from 'app/account/register/register.service';
@@ -38,8 +36,8 @@ describe('Component Tests', () => {
         });
 
         it('should update success to OK after creating an account', inject(
-            [Register, JhiLanguageService],
-            fakeAsync((service: Register, mockTranslate: MockLanguageService) => {
+            [Register],
+            fakeAsync((service: Register) => {
                 spyOn(service, 'save').and.returnValue(of({}));
                 comp.registerAccount.password = comp.confirmPassword = 'password';
 
@@ -52,7 +50,6 @@ describe('Component Tests', () => {
                 });
                 expect(comp.success).toEqual(true);
                 expect(comp.registerAccount.langKey).toEqual('en');
-                expect(mockTranslate.getCurrentSpy).toHaveBeenCalled();
                 expect(comp.errorUserExists).toBeNull();
                 expect(comp.errorEmailExists).toBeNull();
                 expect(comp.error).toBeNull();

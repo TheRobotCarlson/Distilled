@@ -18,7 +18,7 @@ export class GrainForecastComponentsPage {
     }
 
     async getTitle() {
-        return this.title.getAttribute('jhiTranslate');
+        return this.title.getText();
     }
 }
 
@@ -28,7 +28,7 @@ export class GrainForecastUpdatePage {
     cancelButton = element(by.id('cancel-save'));
 
     async getPageTitle() {
-        return this.pageTitle.getAttribute('jhiTranslate');
+        return this.pageTitle.getText();
     }
 
     async save() {
@@ -49,7 +49,7 @@ export class GrainForecastDeleteDialog {
     private confirmButton = element(by.id('jhi-confirm-delete-grainForecast'));
 
     async getDialogTitle() {
-        return this.dialogTitle.getAttribute('jhiTranslate');
+        return this.dialogTitle.getText();
     }
 
     async clickOnConfirmButton() {

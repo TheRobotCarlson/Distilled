@@ -23,7 +23,7 @@ public class MashbillDTO implements Serializable {
 
     private Long spiritId;
 
-    private String spiritCode;
+    private String spiritName;
 
     private Long customerId;
 
@@ -77,12 +77,12 @@ public class MashbillDTO implements Serializable {
         this.spiritId = spiritId;
     }
 
-    public String getSpiritCode() {
-        return spiritCode;
+    public String getSpiritName() {
+        return spiritName;
     }
 
-    public void setSpiritCode(String spiritCode) {
-        this.spiritCode = spiritCode;
+    public void setSpiritName(String spiritName) {
+        this.spiritName = spiritName;
     }
 
     public Long getCustomerId() {
@@ -131,7 +131,7 @@ public class MashbillDTO implements Serializable {
             ", mashbillNotes='" + getMashbillNotes() + "'" +
             ", yeast=" + getYeastId() +
             ", spirit=" + getSpiritId() +
-            ", spirit='" + getSpiritCode() + "'" +
+            ", spirit='" + getSpiritName() + "'" +
             ", customer=" + getCustomerId() +
             ", customer='" + getCustomerCustomerName() + "'" +
             "}";

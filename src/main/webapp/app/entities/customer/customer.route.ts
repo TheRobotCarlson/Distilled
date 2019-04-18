@@ -34,7 +34,7 @@ export const customerRoute: Routes = [
         component: CustomerComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.customer.home.title'
+            pageTitle: 'Customers'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -46,7 +46,7 @@ export const customerRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.customer.home.title'
+            pageTitle: 'Customers'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -58,7 +58,7 @@ export const customerRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.customer.home.title'
+            pageTitle: 'Customers'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -70,7 +70,7 @@ export const customerRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.customer.home.title'
+            pageTitle: 'Customers'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -85,7 +85,7 @@ export const customerPopupRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.customer.home.title'
+            pageTitle: 'Customers'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

@@ -34,7 +34,7 @@ export const scheduleRoute: Routes = [
         component: ScheduleComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.schedule.home.title'
+            pageTitle: 'Schedules'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -46,7 +46,7 @@ export const scheduleRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.schedule.home.title'
+            pageTitle: 'Schedules'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -58,7 +58,7 @@ export const scheduleRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.schedule.home.title'
+            pageTitle: 'Schedules'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -70,7 +70,7 @@ export const scheduleRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.schedule.home.title'
+            pageTitle: 'Schedules'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -85,7 +85,7 @@ export const schedulePopupRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.schedule.home.title'
+            pageTitle: 'Schedules'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

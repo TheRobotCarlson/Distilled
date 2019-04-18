@@ -37,7 +37,7 @@ export const userMgmtRoute: Routes = [
             pagingParams: JhiResolvePagingParams
         },
         data: {
-            pageTitle: 'userManagement.home.title',
+            pageTitle: 'Users',
             defaultSort: 'id,asc'
         }
     },
@@ -48,7 +48,7 @@ export const userMgmtRoute: Routes = [
             user: UserMgmtResolve
         },
         data: {
-            pageTitle: 'userManagement.home.title'
+            pageTitle: 'Users'
         }
     },
     {

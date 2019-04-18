@@ -25,7 +25,7 @@ describe('Service Tests', () => {
             httpMock = injector.get(HttpTestingController);
             currentDate = moment();
 
-            elemDefault = new Barrel(0, 0, currentDate, 'AAAAAAA');
+            elemDefault = new Barrel(0, currentDate);
         });
 
         describe('Service methods', async () => {
@@ -70,9 +70,7 @@ describe('Service Tests', () => {
             it('should update a Barrel', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        proof: 1,
-                        barreledDate: currentDate.format(DATE_TIME_FORMAT),
-                        orderCode: 'BBBBBB'
+                        barreledDate: currentDate.format(DATE_TIME_FORMAT)
                     },
                     elemDefault
                 );
@@ -94,9 +92,7 @@ describe('Service Tests', () => {
             it('should return a list of Barrel', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        proof: 1,
-                        barreledDate: currentDate.format(DATE_TIME_FORMAT),
-                        orderCode: 'BBBBBB'
+                        barreledDate: currentDate.format(DATE_TIME_FORMAT)
                     },
                     elemDefault
                 );

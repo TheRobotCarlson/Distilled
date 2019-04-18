@@ -18,7 +18,7 @@ export class YeastSummaryComponentsPage {
     }
 
     async getTitle() {
-        return this.title.getAttribute('jhiTranslate');
+        return this.title.getText();
     }
 }
 
@@ -28,7 +28,7 @@ export class YeastSummaryUpdatePage {
     cancelButton = element(by.id('cancel-save'));
 
     async getPageTitle() {
-        return this.pageTitle.getAttribute('jhiTranslate');
+        return this.pageTitle.getText();
     }
 
     async save() {
@@ -49,7 +49,7 @@ export class YeastSummaryDeleteDialog {
     private confirmButton = element(by.id('jhi-confirm-delete-yeastSummary'));
 
     async getDialogTitle() {
-        return this.dialogTitle.getAttribute('jhiTranslate');
+        return this.dialogTitle.getText();
     }
 
     async clickOnConfirmButton() {

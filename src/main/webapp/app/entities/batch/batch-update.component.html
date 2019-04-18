@@ -1,67 +1,67 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-batch-heading" jhiTranslate="distilledApp.batch.home.createOrEditLabel">Create or edit a Batch</h2>
+            <h2 id="jhi-batch-heading">Create or edit a Batch</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!batch.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <label for="id">ID</label>
                     <input type="text" class="form-control" id="id" name="id"
                         [(ngModel)]="batch.id" readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.batch.proof" for="field_proof">Proof</label>
+                    <label class="form-control-label" for="field_proof">Proof</label>
                     <input type="number" class="form-control" name="proof" id="field_proof"
                         [(ngModel)]="batch.proof" required/>
                     <div [hidden]="!(editForm.controls.proof?.dirty && editForm.controls.proof?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.proof?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.proof?.errors?.required">
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.proof?.errors?.number" jhiTranslate="entity.validation.number">
+                            [hidden]="!editForm.controls.proof?.errors?.number">
                             This field should be a number.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.batch.date" for="field_date">Date</label>
+                    <label class="form-control-label" for="field_date">Date</label>
                     <div class="d-flex">
                         <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="date" placeholder="YYYY-MM-DD HH:mm"
                         required/>
                     </div>
                     <div [hidden]="!(editForm.controls.date?.dirty && editForm.controls.date?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.date?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.date?.errors?.required">
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.date?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            [hidden]="!editForm.controls.date?.errors?.ZonedDateTimelocal">
                             This field should be a date and time.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.batch.batchNumber" for="field_batchNumber">Batch Number</label>
+                    <label class="form-control-label" for="field_batchNumber">Batch Number</label>
                     <input type="text" class="form-control" name="batchNumber" id="field_batchNumber"
                         [(ngModel)]="batch.batchNumber" required/>
                     <div [hidden]="!(editForm.controls.batchNumber?.dirty && editForm.controls.batchNumber?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.batchNumber?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.batchNumber?.errors?.required">
                         This field is required.
                         </small>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.batch.schedule" for="field_schedule">Schedule</label>
+                    <label class="form-control-label" for="field_schedule">Schedule</label>
                     <select class="form-control" id="field_schedule" name="schedule" [(ngModel)]="batch.scheduleId" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="scheduleOption.id" *ngFor="let scheduleOption of schedules; trackBy: trackScheduleById">{{scheduleOption.orderCode}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.batch.mashbill" for="field_mashbill">Mashbill</label>
+                    <label class="form-control-label" for="field_mashbill">Mashbill</label>
                     <select class="form-control" id="field_mashbill" name="mashbill" [(ngModel)]="batch.mashbillId" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="mashbillOption.id" *ngFor="let mashbillOption of mashbills; trackBy: trackMashbillById">{{mashbillOption.mashbillCode}}</option>
@@ -70,10 +70,10 @@
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
                 </button>
                 <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
                 </button>
             </div>
         </form>

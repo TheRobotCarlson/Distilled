@@ -34,7 +34,7 @@ export const batchRoute: Routes = [
         component: BatchComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.batch.home.title'
+            pageTitle: 'Batches'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -46,7 +46,7 @@ export const batchRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.batch.home.title'
+            pageTitle: 'Batches'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -58,7 +58,7 @@ export const batchRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.batch.home.title'
+            pageTitle: 'Batches'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -70,7 +70,7 @@ export const batchRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.batch.home.title'
+            pageTitle: 'Batches'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -85,7 +85,7 @@ export const batchPopupRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.batch.home.title'
+            pageTitle: 'Batches'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

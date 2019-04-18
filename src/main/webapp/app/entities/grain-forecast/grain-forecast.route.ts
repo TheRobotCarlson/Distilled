@@ -34,7 +34,7 @@ export const grainForecastRoute: Routes = [
         component: GrainForecastComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.grainForecast.home.title'
+            pageTitle: 'GrainForecasts'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -46,7 +46,7 @@ export const grainForecastRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.grainForecast.home.title'
+            pageTitle: 'GrainForecasts'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -58,7 +58,7 @@ export const grainForecastRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.grainForecast.home.title'
+            pageTitle: 'GrainForecasts'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -70,7 +70,7 @@ export const grainForecastRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.grainForecast.home.title'
+            pageTitle: 'GrainForecasts'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -85,7 +85,7 @@ export const grainForecastPopupRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.grainForecast.home.title'
+            pageTitle: 'GrainForecasts'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

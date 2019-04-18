@@ -25,13 +25,13 @@ describe('MashbillYeast e2e test', () => {
         await navBarPage.goToEntity('mashbill-yeast');
         mashbillYeastComponentsPage = new MashbillYeastComponentsPage();
         await browser.wait(ec.visibilityOf(mashbillYeastComponentsPage.title), 5000);
-        expect(await mashbillYeastComponentsPage.getTitle()).to.eq('distilledApp.mashbillYeast.home.title');
+        expect(await mashbillYeastComponentsPage.getTitle()).to.eq('Mashbill Yeasts');
     });
 
     it('should load create MashbillYeast page', async () => {
         await mashbillYeastComponentsPage.clickOnCreateButton();
         mashbillYeastUpdatePage = new MashbillYeastUpdatePage();
-        expect(await mashbillYeastUpdatePage.getPageTitle()).to.eq('distilledApp.mashbillYeast.home.createOrEditLabel');
+        expect(await mashbillYeastUpdatePage.getPageTitle()).to.eq('Create or edit a Mashbill Yeast');
         await mashbillYeastUpdatePage.cancel();
     });
 
@@ -52,7 +52,7 @@ describe('MashbillYeast e2e test', () => {
         await mashbillYeastComponentsPage.clickOnLastDeleteButton();
 
         mashbillYeastDeleteDialog = new MashbillYeastDeleteDialog();
-        expect(await mashbillYeastDeleteDialog.getDialogTitle()).to.eq('distilledApp.mashbillYeast.delete.question');
+        expect(await mashbillYeastDeleteDialog.getDialogTitle()).to.eq('Are you sure you want to delete this Mashbill Yeast?');
         await mashbillYeastDeleteDialog.clickOnConfirmButton();
 
         expect(await mashbillYeastComponentsPage.countDeleteButtons()).to.eq(nbButtonsBeforeDelete - 1);

@@ -22,46 +22,46 @@ describe('administration', () => {
 
     it('should load user management', async () => {
         await navBarPage.clickOnAdmin('user-management');
-        const expect1 = 'userManagement.home.title';
-        const value1 = await element(by.id('user-management-page-heading')).getAttribute('jhiTranslate');
+        const expect1 = 'Users';
+        const value1 = await element(by.id('user-management-page-heading')).getText();
         expect(value1).to.eq(expect1);
     });
 
     it('should load metrics', async () => {
         await navBarPage.clickOnAdmin('jhi-metrics');
-        const expect1 = 'metrics.title';
-        const value1 = await element(by.id('metrics-page-heading')).getAttribute('jhiTranslate');
+        const expect1 = 'Application Metrics';
+        const value1 = await element(by.id('metrics-page-heading')).getText();
         expect(value1).to.eq(expect1);
     });
 
     it('should load health', async () => {
         await navBarPage.clickOnAdmin('jhi-health');
-        const expect1 = 'health.title';
-        const value1 = await element(by.id('health-page-heading')).getAttribute('jhiTranslate');
+        const expect1 = 'Health Checks';
+        const value1 = await element(by.id('health-page-heading')).getText();
         expect(value1).to.eq(expect1);
     });
 
     it('should load configuration', async () => {
         await navBarPage.clickOnAdmin('jhi-configuration');
         await browser.sleep(500);
-        const expect1 = 'configuration.title';
-        const value1 = await element(by.id('configuration-page-heading')).getAttribute('jhiTranslate');
+        const expect1 = 'Configuration';
+        const value1 = await element(by.id('configuration-page-heading')).getText();
         expect(value1).to.eq(expect1);
     });
 
     it('should load audits', async () => {
         await navBarPage.clickOnAdmin('audits');
         await browser.sleep(500);
-        const expect1 = 'audits.title';
-        const value1 = await element(by.id('audits-page-heading')).getAttribute('jhiTranslate');
+        const expect1 = 'Audits';
+        const value1 = await element(by.id('audits-page-heading')).getText();
         expect(value1).to.eq(expect1);
     });
 
     it('should load logs', async () => {
         await navBarPage.clickOnAdmin('logs');
         await browser.sleep(500);
-        const expect1 = 'logs.title';
-        const value1 = await element(by.id('logs-page-heading')).getAttribute('jhiTranslate');
+        const expect1 = 'Logs';
+        const value1 = await element(by.id('logs-page-heading')).getText();
         expect(value1).to.eq(expect1);
     });
 

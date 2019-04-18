@@ -34,7 +34,7 @@ export const warehouseRoute: Routes = [
         component: WarehouseComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.warehouse.home.title'
+            pageTitle: 'Warehouses'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -46,7 +46,7 @@ export const warehouseRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.warehouse.home.title'
+            pageTitle: 'Warehouses'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -58,7 +58,7 @@ export const warehouseRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.warehouse.home.title'
+            pageTitle: 'Warehouses'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -70,7 +70,7 @@ export const warehouseRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.warehouse.home.title'
+            pageTitle: 'Warehouses'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -85,7 +85,7 @@ export const warehousePopupRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.warehouse.home.title'
+            pageTitle: 'Warehouses'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

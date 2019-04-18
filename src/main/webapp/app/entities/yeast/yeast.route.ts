@@ -34,7 +34,7 @@ export const yeastRoute: Routes = [
         component: YeastComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.yeast.home.title'
+            pageTitle: 'Yeasts'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -46,7 +46,7 @@ export const yeastRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.yeast.home.title'
+            pageTitle: 'Yeasts'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -58,7 +58,7 @@ export const yeastRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.yeast.home.title'
+            pageTitle: 'Yeasts'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -70,7 +70,7 @@ export const yeastRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.yeast.home.title'
+            pageTitle: 'Yeasts'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -85,7 +85,7 @@ export const yeastPopupRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.yeast.home.title'
+            pageTitle: 'Yeasts'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

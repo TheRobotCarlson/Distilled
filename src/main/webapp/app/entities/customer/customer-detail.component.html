@@ -1,15 +1,15 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="customer">
-            <h2><span jhiTranslate="distilledApp.customer.detail.title">Customer</span> {{customer.id}}</h2>
+            <h2><span>Customer</span> {{customer.id}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="distilledApp.customer.customerName">Customer Name</span></dt>
+                <dt><span>Customer Name</span></dt>
                 <dd>
                     <span>{{customer.customerName}}</span>
                 </dd>
-                <dt><span jhiTranslate="distilledApp.customer.customerCode">Customer Code</span></dt>
+                <dt><span>Customer Code</span></dt>
                 <dd>
                     <span>{{customer.customerCode}}</span>
                 </dd>
@@ -18,13 +18,13 @@
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
             </button>
 
             <button type="button"
                     [routerLink]="['/customer', customer.id, 'edit']"
                     class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
             </button>
         </div>
     </div>

@@ -4,7 +4,7 @@
         "devDatabaseType": "h2Disk",
         "enableHibernateCache": true,
         "enableSwaggerCodegen": true,
-        "enableTranslation": true,
+        "enableTranslation": false,
         "jhiPrefix": "jhi",
         "languages": ["en", "fr"],
         "messageBroker": false,
@@ -29,7 +29,7 @@
         "skipUserManagement": false,
         "clientFramework": "angularX",
         "serverPort": "8080",
-        "jwtSecretKey": "N2NiMWEzMTU3Y2JjNjU5OGMwZDcyMGQzODVlMjBkOTQ3NWQ1YWMxZDMxN2Y3YmE5OWYyNWFkNjQwNjY1NWUyMzRiMWVmYmI2YTcxYWU4ODQxMGZmNDE0ZmM5MmRiYWRjZTc5N2YwMWM0YWFlODhjYzc5YzgwMGRjMTc0ODFhZjY=",
+        "jwtSecretKey": "MjFjMjM4YmJhNjFhZTQ2ZGM4NDg3NDg5ZDU1YWE5NWVjM2I1OGIxYzU4Y2RkMDg0MmRlM2U1NmM0NzVlNzgzOWE1YThjYzQzZjEzMmI5M2FmYTE2YzQ3ZmQzNjkwNzQ2NjUyODJmODY2Njg2NTI5MmY0MDNhODQzNGY1YjIzYTg=",
         "entitySuffix": "",
         "dtoSuffix": "DTO",
         "otherModules": []

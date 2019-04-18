@@ -1,9 +1,9 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="distilledApp.mashbill.home.title">Mashbills</span>
+        <span>Mashbills</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-mashbill" [routerLink]="['/mashbill/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span class="hidden-sm-down"  jhiTranslate="distilledApp.mashbill.home.createLabel">
+            <span class="hidden-sm-down" >
             Create new Mashbill
             </span>
         </button>
@@ -13,7 +13,7 @@
         <div class="col-sm-12">
             <form name="searchForm" class="form-inline">
                 <div class="input-group w-100 mt-3">
-                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'distilledApp.mashbill.home.search' | translate }}">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="Query">
                     <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
                         <fa-icon [icon]="'search'"></fa-icon>
                     </button>
@@ -29,13 +29,13 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="mashbillName"><span jhiTranslate="distilledApp.mashbill.mashbillName">Mashbill Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="mashbillCode"><span jhiTranslate="distilledApp.mashbill.mashbillCode">Mashbill Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="mashbillNotes"><span jhiTranslate="distilledApp.mashbill.mashbillNotes">Mashbill Notes</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="yeastId"><span jhiTranslate="distilledApp.mashbill.yeast">Yeast</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="spiritCode"><span jhiTranslate="distilledApp.mashbill.spirit">Spirit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="customerCustomerName"><span jhiTranslate="distilledApp.mashbill.customer">Customer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mashbillName"><span>Mashbill Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mashbillCode"><span>Mashbill Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mashbillNotes"><span>Mashbill Notes</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="yeastId"><span>Yeast</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="spiritName"><span>Spirit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="customerCustomerName"><span>Customer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -52,7 +52,7 @@
                 </td>
                 <td>
                     <div *ngIf="mashbill.spiritId">
-                        <a [routerLink]="['../spirit', mashbill.spiritId , 'view' ]" >{{mashbill.spiritCode}}</a>
+                        <a [routerLink]="['../spirit', mashbill.spiritId , 'view' ]" >{{mashbill.spiritName}}</a>
                     </div>
                 </td>
                 <td>
@@ -66,13 +66,13 @@
                                 [routerLink]="['/mashbill', mashbill.id, 'view' ]"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline">View</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/mashbill', mashbill.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline">Edit</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', 'mashbill', { outlets: { popup: mashbill.id + '/delete'} }]"
@@ -80,7 +80,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline">Delete</span>
                         </button>
                     </div>
                 </td>

@@ -18,7 +18,7 @@ export class ProductionSummaryComponentsPage {
     }
 
     async getTitle() {
-        return this.title.getAttribute('jhiTranslate');
+        return this.title.getText();
     }
 }
 
@@ -28,7 +28,7 @@ export class ProductionSummaryUpdatePage {
     cancelButton = element(by.id('cancel-save'));
 
     async getPageTitle() {
-        return this.pageTitle.getAttribute('jhiTranslate');
+        return this.pageTitle.getText();
     }
 
     async save() {
@@ -49,7 +49,7 @@ export class ProductionSummaryDeleteDialog {
     private confirmButton = element(by.id('jhi-confirm-delete-productionSummary'));
 
     async getDialogTitle() {
-        return this.dialogTitle.getAttribute('jhiTranslate');
+        return this.dialogTitle.getText();
     }
 
     async clickOnConfirmButton() {

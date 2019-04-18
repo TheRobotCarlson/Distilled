@@ -29,16 +29,8 @@ public class Barrel implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "proof", nullable = false)
-    private Integer proof;
-
-    @NotNull
     @Column(name = "barreled_date", nullable = false)
     private ZonedDateTime barreledDate;
-
-    @NotNull
-    @Column(name = "order_code", nullable = false)
-    private String orderCode;
 
     @ManyToOne
     @JsonIgnoreProperties("barrels")
@@ -69,19 +61,6 @@ public class Barrel implements Serializable {
         this.id = id;
     }
 
-    public Integer getProof() {
-        return proof;
-    }
-
-    public Barrel proof(Integer proof) {
-        this.proof = proof;
-        return this;
-    }
-
-    public void setProof(Integer proof) {
-        this.proof = proof;
-    }
-
     public ZonedDateTime getBarreledDate() {
         return barreledDate;
     }
@@ -93,19 +72,6 @@ public class Barrel implements Serializable {
 
     public void setBarreledDate(ZonedDateTime barreledDate) {
         this.barreledDate = barreledDate;
-    }
-
-    public String getOrderCode() {
-        return orderCode;
-    }
-
-    public Barrel orderCode(String orderCode) {
-        this.orderCode = orderCode;
-        return this;
-    }
-
-    public void setOrderCode(String orderCode) {
-        this.orderCode = orderCode;
     }
 
     public Warehouse getWarehouse() {
@@ -198,9 +164,7 @@ public class Barrel implements Serializable {
     public String toString() {
         return "Barrel{" +
             "id=" + getId() +
-            ", proof=" + getProof() +
             ", barreledDate='" + getBarreledDate() + "'" +
-            ", orderCode='" + getOrderCode() + "'" +
             "}";
     }
 }

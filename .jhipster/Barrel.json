@@ -2,22 +2,8 @@
     "name": "Barrel",
     "fields": [
         {
-            "fieldName": "proof",
-            "fieldType": "Integer",
-            "fieldValidateRules": [
-                "required"
-            ]
-        },
-        {
             "fieldName": "barreledDate",
             "fieldType": "ZonedDateTime",
-            "fieldValidateRules": [
-                "required"
-            ]
-        },
-        {
-            "fieldName": "orderCode",
-            "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]
@@ -60,7 +46,7 @@
             "otherEntityField": "batchNumber"
         }
     ],
-    "changelogDate": "20190417235210",
+    "changelogDate": "20190418014950",
     "entityTableName": "barrel",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

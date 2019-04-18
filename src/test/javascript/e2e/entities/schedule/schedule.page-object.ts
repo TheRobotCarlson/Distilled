@@ -18,7 +18,7 @@ export class ScheduleComponentsPage {
     }
 
     async getTitle() {
-        return this.title.getAttribute('jhiTranslate');
+        return this.title.getText();
     }
 }
 
@@ -36,7 +36,7 @@ export class ScheduleUpdatePage {
     warehouseSelect = element(by.id('field_warehouse'));
 
     async getPageTitle() {
-        return this.pageTitle.getAttribute('jhiTranslate');
+        return this.pageTitle.getText();
     }
 
     async setTargetDateInput(targetDate) {
@@ -154,7 +154,7 @@ export class ScheduleDeleteDialog {
     private confirmButton = element(by.id('jhi-confirm-delete-schedule'));
 
     async getDialogTitle() {
-        return this.dialogTitle.getAttribute('jhiTranslate');
+        return this.dialogTitle.getText();
     }
 
     async clickOnConfirmButton() {

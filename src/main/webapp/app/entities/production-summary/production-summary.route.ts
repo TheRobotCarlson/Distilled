@@ -34,7 +34,7 @@ export const productionSummaryRoute: Routes = [
         component: ProductionSummaryComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.productionSummary.home.title'
+            pageTitle: 'ProductionSummaries'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -46,7 +46,7 @@ export const productionSummaryRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.productionSummary.home.title'
+            pageTitle: 'ProductionSummaries'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -58,7 +58,7 @@ export const productionSummaryRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.productionSummary.home.title'
+            pageTitle: 'ProductionSummaries'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -70,7 +70,7 @@ export const productionSummaryRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.productionSummary.home.title'
+            pageTitle: 'ProductionSummaries'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -85,7 +85,7 @@ export const productionSummaryPopupRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.productionSummary.home.title'
+            pageTitle: 'ProductionSummaries'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

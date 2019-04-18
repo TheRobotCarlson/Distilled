@@ -2,7 +2,7 @@
     "name": "GrainForecast",
     "fields": [],
     "relationships": [],
-    "changelogDate": "20190417235214",
+    "changelogDate": "20190418014954",
     "entityTableName": "grain_forecast",
     "dto": "no",
     "pagination": "no",

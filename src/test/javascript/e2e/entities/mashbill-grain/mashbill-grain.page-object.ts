@@ -18,7 +18,7 @@ export class MashbillGrainComponentsPage {
     }
 
     async getTitle() {
-        return this.title.getAttribute('jhiTranslate');
+        return this.title.getText();
     }
 }
 
@@ -31,7 +31,7 @@ export class MashbillGrainUpdatePage {
     mashbillSelect = element(by.id('field_mashbill'));
 
     async getPageTitle() {
-        return this.pageTitle.getAttribute('jhiTranslate');
+        return this.pageTitle.getText();
     }
 
     async setQuantityInput(quantity) {
@@ -98,7 +98,7 @@ export class MashbillGrainDeleteDialog {
     private confirmButton = element(by.id('jhi-confirm-delete-mashbillGrain'));
 
     async getDialogTitle() {
-        return this.dialogTitle.getAttribute('jhiTranslate');
+        return this.dialogTitle.getText();
     }
 
     async clickOnConfirmButton() {

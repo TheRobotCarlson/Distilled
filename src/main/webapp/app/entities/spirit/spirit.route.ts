@@ -34,7 +34,7 @@ export const spiritRoute: Routes = [
         component: SpiritComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.spirit.home.title'
+            pageTitle: 'Spirits'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -46,7 +46,7 @@ export const spiritRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.spirit.home.title'
+            pageTitle: 'Spirits'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -58,7 +58,7 @@ export const spiritRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.spirit.home.title'
+            pageTitle: 'Spirits'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -70,7 +70,7 @@ export const spiritRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.spirit.home.title'
+            pageTitle: 'Spirits'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -85,7 +85,7 @@ export const spiritPopupRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.spirit.home.title'
+            pageTitle: 'Spirits'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

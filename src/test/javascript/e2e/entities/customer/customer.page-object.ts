@@ -18,7 +18,7 @@ export class CustomerComponentsPage {
     }
 
     async getTitle() {
-        return this.title.getAttribute('jhiTranslate');
+        return this.title.getText();
     }
 }
 
@@ -30,7 +30,7 @@ export class CustomerUpdatePage {
     customerCodeInput = element(by.id('field_customerCode'));
 
     async getPageTitle() {
-        return this.pageTitle.getAttribute('jhiTranslate');
+        return this.pageTitle.getText();
     }
 
     async setCustomerNameInput(customerName) {
@@ -67,7 +67,7 @@ export class CustomerDeleteDialog {
     private confirmButton = element(by.id('jhi-confirm-delete-customer'));
 
     async getDialogTitle() {
-        return this.dialogTitle.getAttribute('jhiTranslate');
+        return this.dialogTitle.getText();
     }
 
     async clickOnConfirmButton() {

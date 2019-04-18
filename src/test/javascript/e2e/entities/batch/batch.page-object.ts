@@ -18,7 +18,7 @@ export class BatchComponentsPage {
     }
 
     async getTitle() {
-        return this.title.getAttribute('jhiTranslate');
+        return this.title.getText();
     }
 }
 
@@ -33,7 +33,7 @@ export class BatchUpdatePage {
     mashbillSelect = element(by.id('field_mashbill'));
 
     async getPageTitle() {
-        return this.pageTitle.getAttribute('jhiTranslate');
+        return this.pageTitle.getText();
     }
 
     async setProofInput(proof) {
@@ -116,7 +116,7 @@ export class BatchDeleteDialog {
     private confirmButton = element(by.id('jhi-confirm-delete-batch'));
 
     async getDialogTitle() {
-        return this.dialogTitle.getAttribute('jhiTranslate');
+        return this.dialogTitle.getText();
     }
 
     async clickOnConfirmButton() {

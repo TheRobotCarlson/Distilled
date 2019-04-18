@@ -1,47 +1,39 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="barrel">
-            <h2><span jhiTranslate="distilledApp.barrel.detail.title">Barrel</span> {{barrel.id}}</h2>
+            <h2><span>Barrel</span> {{barrel.id}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="distilledApp.barrel.proof">Proof</span></dt>
-                <dd>
-                    <span>{{barrel.proof}}</span>
-                </dd>
-                <dt><span jhiTranslate="distilledApp.barrel.barreledDate">Barreled Date</span></dt>
+                <dt><span>Barreled Date</span></dt>
                 <dd>
                     <span>{{barrel.barreledDate}}</span>
                 </dd>
-                <dt><span jhiTranslate="distilledApp.barrel.orderCode">Order Code</span></dt>
-                <dd>
-                    <span>{{barrel.orderCode}}</span>
-                </dd>
-                <dt><span jhiTranslate="distilledApp.barrel.warehouse">Warehouse</span></dt>
+                <dt><span>Warehouse</span></dt>
                 <dd>
                     <div *ngIf="barrel.warehouseId">
                         <a [routerLink]="['/warehouse', barrel.warehouseId, 'view']">{{barrel.warehouseWarehouseCode}}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="distilledApp.barrel.mashbill">Mashbill</span></dt>
+                <dt><span>Mashbill</span></dt>
                 <dd>
                     <div *ngIf="barrel.mashbillId">
                         <a [routerLink]="['/mashbill', barrel.mashbillId, 'view']">{{barrel.mashbillMashbillCode}}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="distilledApp.barrel.order">Order</span></dt>
+                <dt><span>Order</span></dt>
                 <dd>
                     <div *ngIf="barrel.orderId">
                         <a [routerLink]="['/schedule', barrel.orderId, 'view']">{{barrel.orderOrderCode}}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="distilledApp.barrel.customer">Customer</span></dt>
+                <dt><span>Customer</span></dt>
                 <dd>
                     <div *ngIf="barrel.customerId">
                         <a [routerLink]="['/customer', barrel.customerId, 'view']">{{barrel.customerCustomerCode}}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="distilledApp.barrel.batch">Batch</span></dt>
+                <dt><span>Batch</span></dt>
                 <dd>
                     <div *ngIf="barrel.batchId">
                         <a [routerLink]="['/batch', barrel.batchId, 'view']">{{barrel.batchBatchNumber}}</a>
@@ -52,13 +44,13 @@
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
             </button>
 
             <button type="button"
                     [routerLink]="['/barrel', barrel.id, 'edit']"
                     class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
             </button>
         </div>
     </div>

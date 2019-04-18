@@ -34,7 +34,7 @@ export const mashbillYeastRoute: Routes = [
         component: MashbillYeastComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.mashbillYeast.home.title'
+            pageTitle: 'MashbillYeasts'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -46,7 +46,7 @@ export const mashbillYeastRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.mashbillYeast.home.title'
+            pageTitle: 'MashbillYeasts'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -58,7 +58,7 @@ export const mashbillYeastRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.mashbillYeast.home.title'
+            pageTitle: 'MashbillYeasts'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -70,7 +70,7 @@ export const mashbillYeastRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.mashbillYeast.home.title'
+            pageTitle: 'MashbillYeasts'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -85,7 +85,7 @@ export const mashbillYeastPopupRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.mashbillYeast.home.title'
+            pageTitle: 'MashbillYeasts'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

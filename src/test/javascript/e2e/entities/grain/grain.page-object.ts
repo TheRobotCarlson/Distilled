@@ -18,7 +18,7 @@ export class GrainComponentsPage {
     }
 
     async getTitle() {
-        return this.title.getAttribute('jhiTranslate');
+        return this.title.getText();
     }
 }
 
@@ -30,7 +30,7 @@ export class GrainUpdatePage {
     grainBushelWeightInput = element(by.id('field_grainBushelWeight'));
 
     async getPageTitle() {
-        return this.pageTitle.getAttribute('jhiTranslate');
+        return this.pageTitle.getText();
     }
 
     async setGrainNameInput(grainName) {
@@ -67,7 +67,7 @@ export class GrainDeleteDialog {
     private confirmButton = element(by.id('jhi-confirm-delete-grain'));
 
     async getDialogTitle() {
-        return this.dialogTitle.getAttribute('jhiTranslate');
+        return this.dialogTitle.getText();
     }
 
     async clickOnConfirmButton() {

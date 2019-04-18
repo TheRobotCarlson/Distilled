@@ -25,13 +25,13 @@ describe('Customer e2e test', () => {
         await navBarPage.goToEntity('customer');
         customerComponentsPage = new CustomerComponentsPage();
         await browser.wait(ec.visibilityOf(customerComponentsPage.title), 5000);
-        expect(await customerComponentsPage.getTitle()).to.eq('distilledApp.customer.home.title');
+        expect(await customerComponentsPage.getTitle()).to.eq('Customers');
     });
 
     it('should load create Customer page', async () => {
         await customerComponentsPage.clickOnCreateButton();
         customerUpdatePage = new CustomerUpdatePage();
-        expect(await customerUpdatePage.getPageTitle()).to.eq('distilledApp.customer.home.createOrEditLabel');
+        expect(await customerUpdatePage.getPageTitle()).to.eq('Create or edit a Customer');
         await customerUpdatePage.cancel();
     });
 
@@ -56,7 +56,7 @@ describe('Customer e2e test', () => {
         await customerComponentsPage.clickOnLastDeleteButton();
 
         customerDeleteDialog = new CustomerDeleteDialog();
-        expect(await customerDeleteDialog.getDialogTitle()).to.eq('distilledApp.customer.delete.question');
+        expect(await customerDeleteDialog.getDialogTitle()).to.eq('Are you sure you want to delete this Customer?');
         await customerDeleteDialog.clickOnConfirmButton();
 
         expect(await customerComponentsPage.countDeleteButtons()).to.eq(nbButtonsBeforeDelete - 1);

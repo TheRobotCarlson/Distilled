@@ -25,13 +25,13 @@ describe('YeastSummary e2e test', () => {
         await navBarPage.goToEntity('yeast-summary');
         yeastSummaryComponentsPage = new YeastSummaryComponentsPage();
         await browser.wait(ec.visibilityOf(yeastSummaryComponentsPage.title), 5000);
-        expect(await yeastSummaryComponentsPage.getTitle()).to.eq('distilledApp.yeastSummary.home.title');
+        expect(await yeastSummaryComponentsPage.getTitle()).to.eq('Yeast Summaries');
     });
 
     it('should load create YeastSummary page', async () => {
         await yeastSummaryComponentsPage.clickOnCreateButton();
         yeastSummaryUpdatePage = new YeastSummaryUpdatePage();
-        expect(await yeastSummaryUpdatePage.getPageTitle()).to.eq('distilledApp.yeastSummary.home.createOrEditLabel');
+        expect(await yeastSummaryUpdatePage.getPageTitle()).to.eq('Create or edit a Yeast Summary');
         await yeastSummaryUpdatePage.cancel();
     });
 
@@ -51,7 +51,7 @@ describe('YeastSummary e2e test', () => {
         await yeastSummaryComponentsPage.clickOnLastDeleteButton();
 
         yeastSummaryDeleteDialog = new YeastSummaryDeleteDialog();
-        expect(await yeastSummaryDeleteDialog.getDialogTitle()).to.eq('distilledApp.yeastSummary.delete.question');
+        expect(await yeastSummaryDeleteDialog.getDialogTitle()).to.eq('Are you sure you want to delete this Yeast Summary?');
         await yeastSummaryDeleteDialog.clickOnConfirmButton();
 
         expect(await yeastSummaryComponentsPage.countDeleteButtons()).to.eq(nbButtonsBeforeDelete - 1);

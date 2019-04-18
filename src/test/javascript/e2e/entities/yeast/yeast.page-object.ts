@@ -18,7 +18,7 @@ export class YeastComponentsPage {
     }
 
     async getTitle() {
-        return this.title.getAttribute('jhiTranslate');
+        return this.title.getText();
     }
 }
 
@@ -31,7 +31,7 @@ export class YeastUpdatePage {
     yeastPalletNumInput = element(by.id('field_yeastPalletNum'));
 
     async getPageTitle() {
-        return this.pageTitle.getAttribute('jhiTranslate');
+        return this.pageTitle.getText();
     }
 
     async setYeastNameInput(yeastName) {
@@ -76,7 +76,7 @@ export class YeastDeleteDialog {
     private confirmButton = element(by.id('jhi-confirm-delete-yeast'));
 
     async getDialogTitle() {
-        return this.dialogTitle.getAttribute('jhiTranslate');
+        return this.dialogTitle.getText();
     }
 
     async clickOnConfirmButton() {

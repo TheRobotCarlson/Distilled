@@ -25,13 +25,13 @@ describe('Warehouse e2e test', () => {
         await navBarPage.goToEntity('warehouse');
         warehouseComponentsPage = new WarehouseComponentsPage();
         await browser.wait(ec.visibilityOf(warehouseComponentsPage.title), 5000);
-        expect(await warehouseComponentsPage.getTitle()).to.eq('distilledApp.warehouse.home.title');
+        expect(await warehouseComponentsPage.getTitle()).to.eq('Warehouses');
     });
 
     it('should load create Warehouse page', async () => {
         await warehouseComponentsPage.clickOnCreateButton();
         warehouseUpdatePage = new WarehouseUpdatePage();
-        expect(await warehouseUpdatePage.getPageTitle()).to.eq('distilledApp.warehouse.home.createOrEditLabel');
+        expect(await warehouseUpdatePage.getPageTitle()).to.eq('Create or edit a Warehouse');
         await warehouseUpdatePage.cancel();
     });
 
@@ -58,7 +58,7 @@ describe('Warehouse e2e test', () => {
         await warehouseComponentsPage.clickOnLastDeleteButton();
 
         warehouseDeleteDialog = new WarehouseDeleteDialog();
-        expect(await warehouseDeleteDialog.getDialogTitle()).to.eq('distilledApp.warehouse.delete.question');
+        expect(await warehouseDeleteDialog.getDialogTitle()).to.eq('Are you sure you want to delete this Warehouse?');
         await warehouseDeleteDialog.clickOnConfirmButton();
 
         expect(await warehouseComponentsPage.countDeleteButtons()).to.eq(nbButtonsBeforeDelete - 1);

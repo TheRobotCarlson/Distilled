@@ -29,13 +29,13 @@ describe('ProductionSummary e2e test', () => {
         await navBarPage.goToEntity('production-summary');
         productionSummaryComponentsPage = new ProductionSummaryComponentsPage();
         await browser.wait(ec.visibilityOf(productionSummaryComponentsPage.title), 5000);
-        expect(await productionSummaryComponentsPage.getTitle()).to.eq('distilledApp.productionSummary.home.title');
+        expect(await productionSummaryComponentsPage.getTitle()).to.eq('Production Summaries');
     });
 
     it('should load create ProductionSummary page', async () => {
         await productionSummaryComponentsPage.clickOnCreateButton();
         productionSummaryUpdatePage = new ProductionSummaryUpdatePage();
-        expect(await productionSummaryUpdatePage.getPageTitle()).to.eq('distilledApp.productionSummary.home.createOrEditLabel');
+        expect(await productionSummaryUpdatePage.getPageTitle()).to.eq('Create or edit a Production Summary');
         await productionSummaryUpdatePage.cancel();
     });
 
@@ -55,7 +55,7 @@ describe('ProductionSummary e2e test', () => {
         await productionSummaryComponentsPage.clickOnLastDeleteButton();
 
         productionSummaryDeleteDialog = new ProductionSummaryDeleteDialog();
-        expect(await productionSummaryDeleteDialog.getDialogTitle()).to.eq('distilledApp.productionSummary.delete.question');
+        expect(await productionSummaryDeleteDialog.getDialogTitle()).to.eq('Are you sure you want to delete this Production Summary?');
         await productionSummaryDeleteDialog.clickOnConfirmButton();
 
         expect(await productionSummaryComponentsPage.countDeleteButtons()).to.eq(nbButtonsBeforeDelete - 1);

@@ -29,13 +29,13 @@ describe('ProductionSchedule e2e test', () => {
         await navBarPage.goToEntity('production-schedule');
         productionScheduleComponentsPage = new ProductionScheduleComponentsPage();
         await browser.wait(ec.visibilityOf(productionScheduleComponentsPage.title), 5000);
-        expect(await productionScheduleComponentsPage.getTitle()).to.eq('distilledApp.productionSchedule.home.title');
+        expect(await productionScheduleComponentsPage.getTitle()).to.eq('Production Schedules');
     });
 
     it('should load create ProductionSchedule page', async () => {
         await productionScheduleComponentsPage.clickOnCreateButton();
         productionScheduleUpdatePage = new ProductionScheduleUpdatePage();
-        expect(await productionScheduleUpdatePage.getPageTitle()).to.eq('distilledApp.productionSchedule.home.createOrEditLabel');
+        expect(await productionScheduleUpdatePage.getPageTitle()).to.eq('Create or edit a Production Schedule');
         await productionScheduleUpdatePage.cancel();
     });
 
@@ -60,7 +60,7 @@ describe('ProductionSchedule e2e test', () => {
         await productionScheduleComponentsPage.clickOnLastDeleteButton();
 
         productionScheduleDeleteDialog = new ProductionScheduleDeleteDialog();
-        expect(await productionScheduleDeleteDialog.getDialogTitle()).to.eq('distilledApp.productionSchedule.delete.question');
+        expect(await productionScheduleDeleteDialog.getDialogTitle()).to.eq('Are you sure you want to delete this Production Schedule?');
         await productionScheduleDeleteDialog.clickOnConfirmButton();
 
         expect(await productionScheduleComponentsPage.countDeleteButtons()).to.eq(nbButtonsBeforeDelete - 1);

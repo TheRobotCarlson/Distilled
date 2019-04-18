@@ -18,7 +18,7 @@ export class BarrelComponentsPage {
     }
 
     async getTitle() {
-        return this.title.getAttribute('jhiTranslate');
+        return this.title.getText();
     }
 }
 
@@ -26,9 +26,7 @@ export class BarrelUpdatePage {
     pageTitle = element(by.id('jhi-barrel-heading'));
     saveButton = element(by.id('save-entity'));
     cancelButton = element(by.id('cancel-save'));
-    proofInput = element(by.id('field_proof'));
     barreledDateInput = element(by.id('field_barreledDate'));
-    orderCodeInput = element(by.id('field_orderCode'));
     warehouseSelect = element(by.id('field_warehouse'));
     mashbillSelect = element(by.id('field_mashbill'));
     orderSelect = element(by.id('field_order'));
@@ -36,15 +34,7 @@ export class BarrelUpdatePage {
     batchSelect = element(by.id('field_batch'));
 
     async getPageTitle() {
-        return this.pageTitle.getAttribute('jhiTranslate');
-    }
-
-    async setProofInput(proof) {
-        await this.proofInput.sendKeys(proof);
-    }
-
-    async getProofInput() {
-        return this.proofInput.getAttribute('value');
+        return this.pageTitle.getText();
     }
 
     async setBarreledDateInput(barreledDate) {
@@ -53,14 +43,6 @@ export class BarrelUpdatePage {
 
     async getBarreledDateInput() {
         return this.barreledDateInput.getAttribute('value');
-    }
-
-    async setOrderCodeInput(orderCode) {
-        await this.orderCodeInput.sendKeys(orderCode);
-    }
-
-    async getOrderCodeInput() {
-        return this.orderCodeInput.getAttribute('value');
     }
 
     async warehouseSelectLastOption() {
@@ -176,7 +158,7 @@ export class BarrelDeleteDialog {
     private confirmButton = element(by.id('jhi-confirm-delete-barrel'));
 
     async getDialogTitle() {
-        return this.dialogTitle.getAttribute('jhiTranslate');
+        return this.dialogTitle.getText();
     }
 
     async clickOnConfirmButton() {

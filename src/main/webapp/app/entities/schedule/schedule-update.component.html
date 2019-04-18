@@ -1,84 +1,84 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-schedule-heading" jhiTranslate="distilledApp.schedule.home.createOrEditLabel">Create or edit a Schedule</h2>
+            <h2 id="jhi-schedule-heading">Create or edit a Schedule</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!schedule.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <label for="id">ID</label>
                     <input type="text" class="form-control" id="id" name="id"
                         [(ngModel)]="schedule.id" readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.schedule.targetDate" for="field_targetDate">Target Date</label>
+                    <label class="form-control-label" for="field_targetDate">Target Date</label>
                     <div class="d-flex">
                         <input id="field_targetDate" type="datetime-local" class="form-control" name="targetDate" [(ngModel)]="targetDate" placeholder="YYYY-MM-DD HH:mm"
                         />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.schedule.orderCode" for="field_orderCode">Order Code</label>
+                    <label class="form-control-label" for="field_orderCode">Order Code</label>
                     <input type="text" class="form-control" name="orderCode" id="field_orderCode"
                         [(ngModel)]="schedule.orderCode" required/>
                     <div [hidden]="!(editForm.controls.orderCode?.dirty && editForm.controls.orderCode?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.orderCode?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.orderCode?.errors?.required">
                         This field is required.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.schedule.barrelCount" for="field_barrelCount">Barrel Count</label>
+                    <label class="form-control-label" for="field_barrelCount">Barrel Count</label>
                     <input type="number" class="form-control" name="barrelCount" id="field_barrelCount"
                         [(ngModel)]="schedule.barrelCount" required/>
                     <div [hidden]="!(editForm.controls.barrelCount?.dirty && editForm.controls.barrelCount?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.barrelCount?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.barrelCount?.errors?.required">
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.barrelCount?.errors?.number" jhiTranslate="entity.validation.number">
+                            [hidden]="!editForm.controls.barrelCount?.errors?.number">
                             This field should be a number.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.schedule.targetProof" for="field_targetProof">Target Proof</label>
+                    <label class="form-control-label" for="field_targetProof">Target Proof</label>
                     <input type="number" class="form-control" name="targetProof" id="field_targetProof"
                         [(ngModel)]="schedule.targetProof" required/>
                     <div [hidden]="!(editForm.controls.targetProof?.dirty && editForm.controls.targetProof?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.targetProof?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.targetProof?.errors?.required">
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.targetProof?.errors?.number" jhiTranslate="entity.validation.number">
+                            [hidden]="!editForm.controls.targetProof?.errors?.number">
                             This field should be a number.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.schedule.notes" for="field_notes">Notes</label>
+                    <label class="form-control-label" for="field_notes">Notes</label>
                     <input type="text" class="form-control" name="notes" id="field_notes"
                         [(ngModel)]="schedule.notes" />
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.schedule.mashbill" for="field_mashbill">Mashbill</label>
+                    <label class="form-control-label" for="field_mashbill">Mashbill</label>
                     <select class="form-control" id="field_mashbill" name="mashbill" [(ngModel)]="schedule.mashbillId" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="mashbillOption.id" *ngFor="let mashbillOption of mashbills; trackBy: trackMashbillById">{{mashbillOption.mashbillCode}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.schedule.customer" for="field_customer">Customer</label>
+                    <label class="form-control-label" for="field_customer">Customer</label>
                     <select class="form-control" id="field_customer" name="customer" [(ngModel)]="schedule.customerId" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="customerOption.id" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.customerCode}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.schedule.warehouse" for="field_warehouse">Warehouse</label>
+                    <label class="form-control-label" for="field_warehouse">Warehouse</label>
                     <select class="form-control" id="field_warehouse" name="warehouse" [(ngModel)]="schedule.warehouseId" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="warehouseOption.id" *ngFor="let warehouseOption of warehouses; trackBy: trackWarehouseById">{{warehouseOption.warehouseCode}}</option>
@@ -87,10 +87,10 @@
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
                 </button>
                 <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
                 </button>
             </div>
         </form>

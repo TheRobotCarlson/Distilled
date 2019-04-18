@@ -25,13 +25,13 @@ describe('Grain e2e test', () => {
         await navBarPage.goToEntity('grain');
         grainComponentsPage = new GrainComponentsPage();
         await browser.wait(ec.visibilityOf(grainComponentsPage.title), 5000);
-        expect(await grainComponentsPage.getTitle()).to.eq('distilledApp.grain.home.title');
+        expect(await grainComponentsPage.getTitle()).to.eq('Grains');
     });
 
     it('should load create Grain page', async () => {
         await grainComponentsPage.clickOnCreateButton();
         grainUpdatePage = new GrainUpdatePage();
-        expect(await grainUpdatePage.getPageTitle()).to.eq('distilledApp.grain.home.createOrEditLabel');
+        expect(await grainUpdatePage.getPageTitle()).to.eq('Create or edit a Grain');
         await grainUpdatePage.cancel();
     });
 
@@ -53,7 +53,7 @@ describe('Grain e2e test', () => {
         await grainComponentsPage.clickOnLastDeleteButton();
 
         grainDeleteDialog = new GrainDeleteDialog();
-        expect(await grainDeleteDialog.getDialogTitle()).to.eq('distilledApp.grain.delete.question');
+        expect(await grainDeleteDialog.getDialogTitle()).to.eq('Are you sure you want to delete this Grain?');
         await grainDeleteDialog.clickOnConfirmButton();
 
         expect(await grainComponentsPage.countDeleteButtons()).to.eq(nbButtonsBeforeDelete - 1);

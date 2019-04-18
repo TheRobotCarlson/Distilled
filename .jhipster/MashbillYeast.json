@@ -26,7 +26,7 @@
             "ownerSide": false
         }
     ],
-    "changelogDate": "20190417235205",
+    "changelogDate": "20190418014945",
     "entityTableName": "mashbill_yeast",
     "dto": "mapstruct",
     "pagination": "no",

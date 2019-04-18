@@ -1,21 +1,21 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-master-summary-heading" jhiTranslate="distilledApp.masterSummary.home.createOrEditLabel">Create or edit a Master Summary</h2>
+            <h2 id="jhi-master-summary-heading">Create or edit a Master Summary</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!masterSummary.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <label for="id">ID</label>
                     <input type="text" class="form-control" id="id" name="id"
                         [(ngModel)]="masterSummary.id" readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.masterSummary.proofGallons" for="field_proofGallons">Proof Gallons</label>
+                    <label class="form-control-label" for="field_proofGallons">Proof Gallons</label>
                     <input type="number" class="form-control" name="proofGallons" id="field_proofGallons"
                         [(ngModel)]="masterSummary.proofGallons" />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.masterSummary.actualBarrelCount" for="field_actualBarrelCount">Actual Barrel Count</label>
+                    <label class="form-control-label" for="field_actualBarrelCount">Actual Barrel Count</label>
                     <input type="number" class="form-control" name="actualBarrelCount" id="field_actualBarrelCount"
                         [(ngModel)]="masterSummary.actualBarrelCount" />
                 </div>
@@ -23,10 +23,10 @@
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
                 </button>
                 <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
                 </button>
             </div>
         </form>

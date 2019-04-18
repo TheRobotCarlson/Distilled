@@ -2,7 +2,7 @@
     "name": "ProductionSummary",
     "fields": [],
     "relationships": [],
-    "changelogDate": "20190417235215",
+    "changelogDate": "20190418014955",
     "entityTableName": "production_summary",
     "dto": "no",
     "pagination": "no",

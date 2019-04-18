@@ -25,13 +25,13 @@ describe('Batch e2e test', () => {
         await navBarPage.goToEntity('batch');
         batchComponentsPage = new BatchComponentsPage();
         await browser.wait(ec.visibilityOf(batchComponentsPage.title), 5000);
-        expect(await batchComponentsPage.getTitle()).to.eq('distilledApp.batch.home.title');
+        expect(await batchComponentsPage.getTitle()).to.eq('Batches');
     });
 
     it('should load create Batch page', async () => {
         await batchComponentsPage.clickOnCreateButton();
         batchUpdatePage = new BatchUpdatePage();
-        expect(await batchUpdatePage.getPageTitle()).to.eq('distilledApp.batch.home.createOrEditLabel');
+        expect(await batchUpdatePage.getPageTitle()).to.eq('Create or edit a Batch');
         await batchUpdatePage.cancel();
     });
 
@@ -60,7 +60,7 @@ describe('Batch e2e test', () => {
         await batchComponentsPage.clickOnLastDeleteButton();
 
         batchDeleteDialog = new BatchDeleteDialog();
-        expect(await batchDeleteDialog.getDialogTitle()).to.eq('distilledApp.batch.delete.question');
+        expect(await batchDeleteDialog.getDialogTitle()).to.eq('Are you sure you want to delete this Batch?');
         await batchDeleteDialog.clickOnConfirmButton();
 
         expect(await batchComponentsPage.countDeleteButtons()).to.eq(nbButtonsBeforeDelete - 1);

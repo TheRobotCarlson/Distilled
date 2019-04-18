@@ -12,13 +12,7 @@ public class BarrelDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private Integer proof;
-
-    @NotNull
     private ZonedDateTime barreledDate;
-
-    @NotNull
-    private String orderCode;
 
 
     private Long warehouseId;
@@ -49,28 +43,12 @@ public class BarrelDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getProof() {
-        return proof;
-    }
-
-    public void setProof(Integer proof) {
-        this.proof = proof;
-    }
-
     public ZonedDateTime getBarreledDate() {
         return barreledDate;
     }
 
     public void setBarreledDate(ZonedDateTime barreledDate) {
         this.barreledDate = barreledDate;
-    }
-
-    public String getOrderCode() {
-        return orderCode;
-    }
-
-    public void setOrderCode(String orderCode) {
-        this.orderCode = orderCode;
     }
 
     public Long getWarehouseId() {
@@ -178,9 +156,7 @@ public class BarrelDTO implements Serializable {
     public String toString() {
         return "BarrelDTO{" +
             "id=" + getId() +
-            ", proof=" + getProof() +
             ", barreledDate='" + getBarreledDate() + "'" +
-            ", orderCode='" + getOrderCode() + "'" +
             ", warehouse=" + getWarehouseId() +
             ", warehouse='" + getWarehouseWarehouseCode() + "'" +
             ", mashbill=" + getMashbillId() +

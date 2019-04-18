@@ -25,13 +25,13 @@ describe('Mashbill e2e test', () => {
         await navBarPage.goToEntity('mashbill');
         mashbillComponentsPage = new MashbillComponentsPage();
         await browser.wait(ec.visibilityOf(mashbillComponentsPage.title), 5000);
-        expect(await mashbillComponentsPage.getTitle()).to.eq('distilledApp.mashbill.home.title');
+        expect(await mashbillComponentsPage.getTitle()).to.eq('Mashbills');
     });
 
     it('should load create Mashbill page', async () => {
         await mashbillComponentsPage.clickOnCreateButton();
         mashbillUpdatePage = new MashbillUpdatePage();
-        expect(await mashbillUpdatePage.getPageTitle()).to.eq('distilledApp.mashbill.home.createOrEditLabel');
+        expect(await mashbillUpdatePage.getPageTitle()).to.eq('Create or edit a Mashbill');
         await mashbillUpdatePage.cancel();
     });
 
@@ -61,7 +61,7 @@ describe('Mashbill e2e test', () => {
         await mashbillComponentsPage.clickOnLastDeleteButton();
 
         mashbillDeleteDialog = new MashbillDeleteDialog();
-        expect(await mashbillDeleteDialog.getDialogTitle()).to.eq('distilledApp.mashbill.delete.question');
+        expect(await mashbillDeleteDialog.getDialogTitle()).to.eq('Are you sure you want to delete this Mashbill?');
         await mashbillDeleteDialog.clickOnConfirmButton();
 
         expect(await mashbillComponentsPage.countDeleteButtons()).to.eq(nbButtonsBeforeDelete - 1);

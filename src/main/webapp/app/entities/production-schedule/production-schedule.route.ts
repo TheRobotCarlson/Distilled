@@ -34,7 +34,7 @@ export const productionScheduleRoute: Routes = [
         component: ProductionScheduleComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.productionSchedule.home.title'
+            pageTitle: 'ProductionSchedules'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -46,7 +46,7 @@ export const productionScheduleRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.productionSchedule.home.title'
+            pageTitle: 'ProductionSchedules'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -58,7 +58,7 @@ export const productionScheduleRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.productionSchedule.home.title'
+            pageTitle: 'ProductionSchedules'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -70,7 +70,7 @@ export const productionScheduleRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.productionSchedule.home.title'
+            pageTitle: 'ProductionSchedules'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -85,7 +85,7 @@ export const productionSchedulePopupRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.productionSchedule.home.title'
+            pageTitle: 'ProductionSchedules'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

@@ -18,7 +18,7 @@ export class MasterSummaryComponentsPage {
     }
 
     async getTitle() {
-        return this.title.getAttribute('jhiTranslate');
+        return this.title.getText();
     }
 }
 
@@ -30,7 +30,7 @@ export class MasterSummaryUpdatePage {
     actualBarrelCountInput = element(by.id('field_actualBarrelCount'));
 
     async getPageTitle() {
-        return this.pageTitle.getAttribute('jhiTranslate');
+        return this.pageTitle.getText();
     }
 
     async setProofGallonsInput(proofGallons) {
@@ -67,7 +67,7 @@ export class MasterSummaryDeleteDialog {
     private confirmButton = element(by.id('jhi-confirm-delete-masterSummary'));
 
     async getDialogTitle() {
-        return this.dialogTitle.getAttribute('jhiTranslate');
+        return this.dialogTitle.getText();
     }
 
     async clickOnConfirmButton() {

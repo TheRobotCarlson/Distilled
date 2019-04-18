@@ -18,7 +18,7 @@ export class MashbillYeastComponentsPage {
     }
 
     async getTitle() {
-        return this.title.getAttribute('jhiTranslate');
+        return this.title.getText();
     }
 }
 
@@ -30,7 +30,7 @@ export class MashbillYeastUpdatePage {
     yeastSelect = element(by.id('field_yeast'));
 
     async getPageTitle() {
-        return this.pageTitle.getAttribute('jhiTranslate');
+        return this.pageTitle.getText();
     }
 
     async setQuantityInput(quantity) {
@@ -78,7 +78,7 @@ export class MashbillYeastDeleteDialog {
     private confirmButton = element(by.id('jhi-confirm-delete-mashbillYeast'));
 
     async getDialogTitle() {
-        return this.dialogTitle.getAttribute('jhiTranslate');
+        return this.dialogTitle.getText();
     }
 
     async clickOnConfirmButton() {

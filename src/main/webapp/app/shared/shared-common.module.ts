@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 
-import { DistilledSharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent } from './';
+import { DistilledSharedLibsModule, JhiAlertComponent, JhiAlertErrorComponent } from './';
 
 @NgModule({
     imports: [DistilledSharedLibsModule],
-    declarations: [FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent],
-    exports: [DistilledSharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent]
+    declarations: [JhiAlertComponent, JhiAlertErrorComponent],
+    exports: [DistilledSharedLibsModule, JhiAlertComponent, JhiAlertErrorComponent]
 })
 export class DistilledSharedCommonModule {}

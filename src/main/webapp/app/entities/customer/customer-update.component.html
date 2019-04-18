@@ -1,32 +1,32 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-customer-heading" jhiTranslate="distilledApp.customer.home.createOrEditLabel">Create or edit a Customer</h2>
+            <h2 id="jhi-customer-heading">Create or edit a Customer</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!customer.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <label for="id">ID</label>
                     <input type="text" class="form-control" id="id" name="id"
                         [(ngModel)]="customer.id" readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.customer.customerName" for="field_customerName">Customer Name</label>
+                    <label class="form-control-label" for="field_customerName">Customer Name</label>
                     <input type="text" class="form-control" name="customerName" id="field_customerName"
                         [(ngModel)]="customer.customerName" required/>
                     <div [hidden]="!(editForm.controls.customerName?.dirty && editForm.controls.customerName?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.customerName?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.customerName?.errors?.required">
                         This field is required.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.customer.customerCode" for="field_customerCode">Customer Code</label>
+                    <label class="form-control-label" for="field_customerCode">Customer Code</label>
                     <input type="text" class="form-control" name="customerCode" id="field_customerCode"
                         [(ngModel)]="customer.customerCode" required/>
                     <div [hidden]="!(editForm.controls.customerCode?.dirty && editForm.controls.customerCode?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.customerCode?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.customerCode?.errors?.required">
                         This field is required.
                         </small>
                     </div>
@@ -35,10 +35,10 @@
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
                 </button>
                 <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
                 </button>
             </div>
         </form>

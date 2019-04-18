@@ -1,47 +1,47 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-warehouse-heading" jhiTranslate="distilledApp.warehouse.home.createOrEditLabel">Create or edit a Warehouse</h2>
+            <h2 id="jhi-warehouse-heading">Create or edit a Warehouse</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!warehouse.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <label for="id">ID</label>
                     <input type="text" class="form-control" id="id" name="id"
                         [(ngModel)]="warehouse.id" readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.warehouse.warehouseCode" for="field_warehouseCode">Warehouse Code</label>
+                    <label class="form-control-label" for="field_warehouseCode">Warehouse Code</label>
                     <input type="text" class="form-control" name="warehouseCode" id="field_warehouseCode"
                         [(ngModel)]="warehouse.warehouseCode" required/>
                     <div [hidden]="!(editForm.controls.warehouseCode?.dirty && editForm.controls.warehouseCode?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.warehouseCode?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.warehouseCode?.errors?.required">
                         This field is required.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.warehouse.owner" for="field_owner">Owner</label>
+                    <label class="form-control-label" for="field_owner">Owner</label>
                     <input type="text" class="form-control" name="owner" id="field_owner"
                         [(ngModel)]="warehouse.owner" required/>
                     <div [hidden]="!(editForm.controls.owner?.dirty && editForm.controls.owner?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.owner?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.owner?.errors?.required">
                         This field is required.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.warehouse.capacity" for="field_capacity">Capacity</label>
+                    <label class="form-control-label" for="field_capacity">Capacity</label>
                     <input type="number" class="form-control" name="capacity" id="field_capacity"
                         [(ngModel)]="warehouse.capacity" required/>
                     <div [hidden]="!(editForm.controls.capacity?.dirty && editForm.controls.capacity?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.capacity?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.capacity?.errors?.required">
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.capacity?.errors?.number" jhiTranslate="entity.validation.number">
+                            [hidden]="!editForm.controls.capacity?.errors?.number">
                             This field should be a number.
                         </small>
                     </div>
@@ -50,10 +50,10 @@
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
                 </button>
                 <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
                 </button>
             </div>
         </form>

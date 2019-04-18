@@ -54,14 +54,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = DistilledApp.class)
 public class BarrelResourceIntTest {
 
-    private static final Integer DEFAULT_PROOF = 1;
-    private static final Integer UPDATED_PROOF = 2;
-
     private static final ZonedDateTime DEFAULT_BARRELED_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_BARRELED_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
-
-    private static final String DEFAULT_ORDER_CODE = "AAAAAAAAAA";
-    private static final String UPDATED_ORDER_CODE = "BBBBBBBBBB";
 
     @Autowired
     private BarrelRepository barrelRepository;
@@ -119,9 +113,7 @@ public class BarrelResourceIntTest {
      */
     public static Barrel createEntity(EntityManager em) {
         Barrel barrel = new Barrel()
-            .proof(DEFAULT_PROOF)
-            .barreledDate(DEFAULT_BARRELED_DATE)
-            .orderCode(DEFAULT_ORDER_CODE);
+            .barreledDate(DEFAULT_BARRELED_DATE);
         return barrel;
     }
 
@@ -146,9 +138,7 @@ public class BarrelResourceIntTest {
         List<Barrel> barrelList = barrelRepository.findAll();
         assertThat(barrelList).hasSize(databaseSizeBeforeCreate + 1);
         Barrel testBarrel = barrelList.get(barrelList.size() - 1);
-        assertThat(testBarrel.getProof()).isEqualTo(DEFAULT_PROOF);
         assertThat(testBarrel.getBarreledDate()).isEqualTo(DEFAULT_BARRELED_DATE);
-        assertThat(testBarrel.getOrderCode()).isEqualTo(DEFAULT_ORDER_CODE);
 
         // Validate the Barrel in Elasticsearch
         verify(mockBarrelSearchRepository, times(1)).save(testBarrel);
@@ -179,48 +169,10 @@ public class BarrelResourceIntTest {
 
     @Test
     @Transactional
-    public void checkProofIsRequired() throws Exception {
-        int databaseSizeBeforeTest = barrelRepository.findAll().size();
-        // set the field null
-        barrel.setProof(null);
-
-        // Create the Barrel, which fails.
-        BarrelDTO barrelDTO = barrelMapper.toDto(barrel);
-
-        restBarrelMockMvc.perform(post("/api/barrels")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(barrelDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<Barrel> barrelList = barrelRepository.findAll();
-        assertThat(barrelList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void checkBarreledDateIsRequired() throws Exception {
         int databaseSizeBeforeTest = barrelRepository.findAll().size();
         // set the field null
         barrel.setBarreledDate(null);
-
-        // Create the Barrel, which fails.
-        BarrelDTO barrelDTO = barrelMapper.toDto(barrel);
-
-        restBarrelMockMvc.perform(post("/api/barrels")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(barrelDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<Barrel> barrelList = barrelRepository.findAll();
-        assertThat(barrelList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkOrderCodeIsRequired() throws Exception {
-        int databaseSizeBeforeTest = barrelRepository.findAll().size();
-        // set the field null
-        barrel.setOrderCode(null);
 
         // Create the Barrel, which fails.
         BarrelDTO barrelDTO = barrelMapper.toDto(barrel);
@@ -245,9 +197,7 @@ public class BarrelResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(barrel.getId().intValue())))
-            .andExpect(jsonPath("$.[*].proof").value(hasItem(DEFAULT_PROOF)))
-            .andExpect(jsonPath("$.[*].barreledDate").value(hasItem(sameInstant(DEFAULT_BARRELED_DATE))))
-            .andExpect(jsonPath("$.[*].orderCode").value(hasItem(DEFAULT_ORDER_CODE.toString())));
+            .andExpect(jsonPath("$.[*].barreledDate").value(hasItem(sameInstant(DEFAULT_BARRELED_DATE))));
     }
     
     @Test
@@ -261,9 +211,7 @@ public class BarrelResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(barrel.getId().intValue()))
-            .andExpect(jsonPath("$.proof").value(DEFAULT_PROOF))
-            .andExpect(jsonPath("$.barreledDate").value(sameInstant(DEFAULT_BARRELED_DATE)))
-            .andExpect(jsonPath("$.orderCode").value(DEFAULT_ORDER_CODE.toString()));
+            .andExpect(jsonPath("$.barreledDate").value(sameInstant(DEFAULT_BARRELED_DATE)));
     }
 
     @Test
@@ -287,9 +235,7 @@ public class BarrelResourceIntTest {
         // Disconnect from session so that the updates on updatedBarrel are not directly saved in db
         em.detach(updatedBarrel);
         updatedBarrel
-            .proof(UPDATED_PROOF)
-            .barreledDate(UPDATED_BARRELED_DATE)
-            .orderCode(UPDATED_ORDER_CODE);
+            .barreledDate(UPDATED_BARRELED_DATE);
         BarrelDTO barrelDTO = barrelMapper.toDto(updatedBarrel);
 
         restBarrelMockMvc.perform(put("/api/barrels")
@@ -301,9 +247,7 @@ public class BarrelResourceIntTest {
         List<Barrel> barrelList = barrelRepository.findAll();
         assertThat(barrelList).hasSize(databaseSizeBeforeUpdate);
         Barrel testBarrel = barrelList.get(barrelList.size() - 1);
-        assertThat(testBarrel.getProof()).isEqualTo(UPDATED_PROOF);
         assertThat(testBarrel.getBarreledDate()).isEqualTo(UPDATED_BARRELED_DATE);
-        assertThat(testBarrel.getOrderCode()).isEqualTo(UPDATED_ORDER_CODE);
 
         // Validate the Barrel in Elasticsearch
         verify(mockBarrelSearchRepository, times(1)).save(testBarrel);
@@ -364,9 +308,7 @@ public class BarrelResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(barrel.getId().intValue())))
-            .andExpect(jsonPath("$.[*].proof").value(hasItem(DEFAULT_PROOF)))
-            .andExpect(jsonPath("$.[*].barreledDate").value(hasItem(sameInstant(DEFAULT_BARRELED_DATE))))
-            .andExpect(jsonPath("$.[*].orderCode").value(hasItem(DEFAULT_ORDER_CODE)));
+            .andExpect(jsonPath("$.[*].barreledDate").value(hasItem(sameInstant(DEFAULT_BARRELED_DATE))));
     }
 
     @Test

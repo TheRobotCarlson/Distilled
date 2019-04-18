@@ -1,58 +1,58 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-mashbill-heading" jhiTranslate="distilledApp.mashbill.home.createOrEditLabel">Create or edit a Mashbill</h2>
+            <h2 id="jhi-mashbill-heading">Create or edit a Mashbill</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!mashbill.id">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <label for="id">ID</label>
                     <input type="text" class="form-control" id="id" name="id"
                         [(ngModel)]="mashbill.id" readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.mashbill.mashbillName" for="field_mashbillName">Mashbill Name</label>
+                    <label class="form-control-label" for="field_mashbillName">Mashbill Name</label>
                     <input type="text" class="form-control" name="mashbillName" id="field_mashbillName"
                         [(ngModel)]="mashbill.mashbillName" required/>
                     <div [hidden]="!(editForm.controls.mashbillName?.dirty && editForm.controls.mashbillName?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.mashbillName?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.mashbillName?.errors?.required">
                         This field is required.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.mashbill.mashbillCode" for="field_mashbillCode">Mashbill Code</label>
+                    <label class="form-control-label" for="field_mashbillCode">Mashbill Code</label>
                     <input type="text" class="form-control" name="mashbillCode" id="field_mashbillCode"
                         [(ngModel)]="mashbill.mashbillCode" required/>
                     <div [hidden]="!(editForm.controls.mashbillCode?.dirty && editForm.controls.mashbillCode?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.mashbillCode?.errors?.required" jhiTranslate="entity.validation.required">
+                        [hidden]="!editForm.controls.mashbillCode?.errors?.required">
                         This field is required.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.mashbill.mashbillNotes" for="field_mashbillNotes">Mashbill Notes</label>
+                    <label class="form-control-label" for="field_mashbillNotes">Mashbill Notes</label>
                     <input type="text" class="form-control" name="mashbillNotes" id="field_mashbillNotes"
                         [(ngModel)]="mashbill.mashbillNotes" />
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.mashbill.yeast" for="field_yeast">Yeast</label>
+                    <label class="form-control-label" for="field_yeast">Yeast</label>
                     <select class="form-control" id="field_yeast" name="yeast" [(ngModel)]="mashbill.yeastId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="mashbillYeastOption.id" *ngFor="let mashbillYeastOption of yeasts; trackBy: trackMashbillYeastById">{{mashbillYeastOption.id}}</option>
+                        <option [ngValue]="mashbillYeastOption.id" *ngFor="let mashbillYeastOption of yeasts; trackBy: trackMashbillYeastById">{{mashbillYeastOption.yeastYeastCode}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.mashbill.spirit" for="field_spirit">Spirit</label>
+                    <label class="form-control-label" for="field_spirit">Spirit</label>
                     <select class="form-control" id="field_spirit" name="spirit" [(ngModel)]="mashbill.spiritId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="spiritOption.id" *ngFor="let spiritOption of spirits; trackBy: trackSpiritById">{{spiritOption.code}}</option>
+                        <option [ngValue]="spiritOption.id" *ngFor="let spiritOption of spirits; trackBy: trackSpiritById">{{spiritOption.name}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="distilledApp.mashbill.customer" for="field_customer">Customer</label>
+                    <label class="form-control-label" for="field_customer">Customer</label>
                     <select class="form-control" id="field_customer" name="customer" [(ngModel)]="mashbill.customerId" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="customerOption.id" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.customerName}}</option>
@@ -61,10 +61,10 @@
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
                 </button>
                 <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
                 </button>
             </div>
         </form>

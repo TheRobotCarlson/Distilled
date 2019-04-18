@@ -1,7 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { JhiLanguageService } from 'ng-jhipster';
-import { JhiLanguageHelper } from 'app/core';
 
 import { DistilledSharedModule } from 'app/shared';
 import {
@@ -26,15 +24,6 @@ const ENTITY_STATES = [...mashbillRoute, ...mashbillPopupRoute];
         MashbillDeletePopupComponent
     ],
     entryComponents: [MashbillComponent, MashbillUpdateComponent, MashbillDeleteDialogComponent, MashbillDeletePopupComponent],
-    providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class DistilledMashbillModule {
-    constructor(private languageService: JhiLanguageService, private languageHelper: JhiLanguageHelper) {
-        this.languageHelper.language.subscribe((languageKey: string) => {
-            if (languageKey !== undefined) {
-                this.languageService.changeLanguage(languageKey);
-            }
-        });
-    }
-}
+export class DistilledMashbillModule {}

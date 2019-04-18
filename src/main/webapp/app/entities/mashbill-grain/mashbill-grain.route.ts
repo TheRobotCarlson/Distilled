@@ -34,7 +34,7 @@ export const mashbillGrainRoute: Routes = [
         component: MashbillGrainComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.mashbillGrain.home.title'
+            pageTitle: 'MashbillGrains'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -46,7 +46,7 @@ export const mashbillGrainRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.mashbillGrain.home.title'
+            pageTitle: 'MashbillGrains'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -58,7 +58,7 @@ export const mashbillGrainRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.mashbillGrain.home.title'
+            pageTitle: 'MashbillGrains'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -70,7 +70,7 @@ export const mashbillGrainRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.mashbillGrain.home.title'
+            pageTitle: 'MashbillGrains'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -85,7 +85,7 @@ export const mashbillGrainPopupRoute: Routes = [
         },
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'distilledApp.mashbillGrain.home.title'
+            pageTitle: 'MashbillGrains'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
