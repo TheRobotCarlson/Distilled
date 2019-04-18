@@ -32,7 +32,16 @@
         "jwtSecretKey": "MjFjMjM4YmJhNjFhZTQ2ZGM4NDg3NDg5ZDU1YWE5NWVjM2I1OGIxYzU4Y2RkMDg0MmRlM2U1NmM0NzVlNzgzOWE1YThjYzQzZjEzMmI5M2FmYTE2YzQ3ZmQzNjkwNzQ2NjUyODJmODY2Njg2NTI5MmY0MDNhODQzNGY1YjIzYTg=",
         "entitySuffix": "",
         "dtoSuffix": "DTO",
-        "otherModules": []
+        "otherModules": [],
+        "aws": {
+            "applicationName": "distilled",
+            "environmentName": "distilled-env",
+            "bucketName": "distilledb",
+            "instanceType": "t2.micro",
+            "awsRegion": "us-east-1",
+            "dbName": "distilleddb",
+            "dbInstanceClass": "db.t2.micro"
+        }
     },
     "entities": [
         "Grain",
