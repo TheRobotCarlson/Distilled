@@ -26,23 +26,23 @@
     "relationships": [
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "barrel",
             "otherEntityName": "barrel",
-            "otherEntityRelationshipName": "batch"
+            "otherEntityRelationshipName": "batch",
+            "relationshipName": "barrel"
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "schedule",
             "otherEntityName": "schedule",
-            "otherEntityField": "orderCode",
-            "otherEntityRelationshipName": "schedule"
+            "otherEntityRelationshipName": "batch",
+            "relationshipName": "schedule",
+            "otherEntityField": "orderCode"
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "mashbill",
             "otherEntityName": "mashbill",
-            "otherEntityField": "mashbillCode",
-            "otherEntityRelationshipName": "mashbill"
+            "otherEntityRelationshipName": "batch",
+            "relationshipName": "mashbill",
+            "otherEntityField": "mashbillCode"
         }
     ],
     "changelogDate": "20190418014952",

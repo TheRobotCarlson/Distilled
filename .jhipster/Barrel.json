@@ -12,38 +12,38 @@
     "relationships": [
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "warehouse",
             "otherEntityName": "warehouse",
-            "otherEntityField": "warehouseCode",
-            "otherEntityRelationshipName": "warehouse"
+            "otherEntityRelationshipName": "barrel",
+            "relationshipName": "warehouse",
+            "otherEntityField": "warehouseCode"
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "mashbill",
             "otherEntityName": "mashbill",
-            "otherEntityField": "mashbillCode",
-            "otherEntityRelationshipName": "mashbill"
+            "otherEntityRelationshipName": "barrel",
+            "relationshipName": "mashbill",
+            "otherEntityField": "mashbillCode"
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "order",
             "otherEntityName": "schedule",
-            "otherEntityField": "orderCode",
-            "otherEntityRelationshipName": "schedule"
+            "otherEntityRelationshipName": "barrel",
+            "relationshipName": "order",
+            "otherEntityField": "orderCode"
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "customer",
             "otherEntityName": "customer",
-            "otherEntityField": "customerCode",
-            "otherEntityRelationshipName": "customer"
+            "otherEntityRelationshipName": "barrel",
+            "relationshipName": "customer",
+            "otherEntityField": "customerCode"
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "batch",
             "otherEntityName": "batch",
-            "otherEntityField": "batchNumber",
-            "otherEntityRelationshipName": "batch"
+            "otherEntityRelationshipName": "barrel",
+            "relationshipName": "batch",
+            "otherEntityField": "batchNumber"
         }
     ],
     "changelogDate": "20190418014950",

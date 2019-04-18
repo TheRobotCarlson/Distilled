@@ -91,7 +91,8 @@ public class ScheduleServiceImpl implements ScheduleService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Schedule : {}", id);        scheduleRepository.deleteById(id);
+        log.debug("Request to delete Schedule : {}", id);
+        scheduleRepository.deleteById(id);
         scheduleSearchRepository.deleteById(id);
     }
 

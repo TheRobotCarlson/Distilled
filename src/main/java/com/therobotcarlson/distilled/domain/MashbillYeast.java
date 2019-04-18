@@ -32,13 +32,13 @@ public class MashbillYeast implements Serializable {
     @Column(name = "quantity")
     private Double quantity;
 
+    @ManyToOne
+    @JsonIgnoreProperties("mashbillYeasts")
+    private Yeast yeast;
+
     @OneToOne(mappedBy = "yeast")
     @JsonIgnore
     private Mashbill mashbill;
-
-    @ManyToOne
-    @JsonIgnoreProperties("yeasts")
-    private Yeast yeast;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -62,19 +62,6 @@ public class MashbillYeast implements Serializable {
         this.quantity = quantity;
     }
 
-    public Mashbill getMashbill() {
-        return mashbill;
-    }
-
-    public MashbillYeast mashbill(Mashbill mashbill) {
-        this.mashbill = mashbill;
-        return this;
-    }
-
-    public void setMashbill(Mashbill mashbill) {
-        this.mashbill = mashbill;
-    }
-
     public Yeast getYeast() {
         return yeast;
     }
@@ -86,6 +73,19 @@ public class MashbillYeast implements Serializable {
 
     public void setYeast(Yeast yeast) {
         this.yeast = yeast;
+    }
+
+    public Mashbill getMashbill() {
+        return mashbill;
+    }
+
+    public MashbillYeast mashbill(Mashbill mashbill) {
+        this.mashbill = mashbill;
+        return this;
+    }
+
+    public void setMashbill(Mashbill mashbill) {
+        this.mashbill = mashbill;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

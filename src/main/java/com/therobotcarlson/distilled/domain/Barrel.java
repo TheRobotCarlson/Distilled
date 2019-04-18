@@ -33,23 +33,23 @@ public class Barrel implements Serializable {
     private ZonedDateTime barreledDate;
 
     @ManyToOne
-    @JsonIgnoreProperties("warehouses")
+    @JsonIgnoreProperties("barrels")
     private Warehouse warehouse;
 
     @ManyToOne
-    @JsonIgnoreProperties("mashbills")
+    @JsonIgnoreProperties("barrels")
     private Mashbill mashbill;
 
     @ManyToOne
-    @JsonIgnoreProperties("schedules")
+    @JsonIgnoreProperties("barrels")
     private Schedule order;
 
     @ManyToOne
-    @JsonIgnoreProperties("customers")
+    @JsonIgnoreProperties("barrels")
     private Customer customer;
 
     @ManyToOne
-    @JsonIgnoreProperties("batches")
+    @JsonIgnoreProperties("barrels")
     private Batch batch;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

@@ -39,9 +39,7 @@ public class CacheConfiguration {
             cm.createCache(com.therobotcarlson.distilled.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.therobotcarlson.distilled.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(com.therobotcarlson.distilled.domain.Grain.class.getName(), jcacheConfiguration);
-            cm.createCache(com.therobotcarlson.distilled.domain.Grain.class.getName() + ".mashbillGrains", jcacheConfiguration);
             cm.createCache(com.therobotcarlson.distilled.domain.Yeast.class.getName(), jcacheConfiguration);
-            cm.createCache(com.therobotcarlson.distilled.domain.Yeast.class.getName() + ".mashbillYeasts", jcacheConfiguration);
             cm.createCache(com.therobotcarlson.distilled.domain.MashbillGrain.class.getName(), jcacheConfiguration);
             cm.createCache(com.therobotcarlson.distilled.domain.MashbillYeast.class.getName(), jcacheConfiguration);
             cm.createCache(com.therobotcarlson.distilled.domain.Customer.class.getName(), jcacheConfiguration);

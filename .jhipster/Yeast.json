@@ -23,14 +23,7 @@
             ]
         }
     ],
-    "relationships": [
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "mashbillYeast",
-            "otherEntityName": "mashbillYeast",
-            "otherEntityRelationshipName": "yeast"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20190418014943",
     "entityTableName": "yeast",
     "dto": "mapstruct",

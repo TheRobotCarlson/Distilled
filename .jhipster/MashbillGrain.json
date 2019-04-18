@@ -13,17 +13,17 @@
     "relationships": [
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "grain",
             "otherEntityName": "grain",
-            "otherEntityField": "grainName",
-            "otherEntityRelationshipName": "grain"
+            "otherEntityRelationshipName": "mashbillGrain",
+            "relationshipName": "grain",
+            "otherEntityField": "grainName"
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "mashbill",
             "otherEntityName": "mashbill",
-            "otherEntityField": "mashbillCode",
-            "otherEntityRelationshipName": "mashbill"
+            "otherEntityRelationshipName": "mashbillGrain",
+            "relationshipName": "mashbill",
+            "otherEntityField": "mashbillCode"
         }
     ],
     "changelogDate": "20190418014944",

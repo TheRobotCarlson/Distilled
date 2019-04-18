@@ -91,7 +91,8 @@ public class BarrelServiceImpl implements BarrelService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Barrel : {}", id);        barrelRepository.deleteById(id);
+        log.debug("Request to delete Barrel : {}", id);
+        barrelRepository.deleteById(id);
         barrelSearchRepository.deleteById(id);
     }
 

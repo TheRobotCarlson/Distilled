@@ -91,7 +91,8 @@ public class YeastServiceImpl implements YeastService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Yeast : {}", id);        yeastRepository.deleteById(id);
+        log.debug("Request to delete Yeast : {}", id);
+        yeastRepository.deleteById(id);
         yeastSearchRepository.deleteById(id);
     }
 

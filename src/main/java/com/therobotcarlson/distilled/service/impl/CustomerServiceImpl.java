@@ -91,7 +91,8 @@ public class CustomerServiceImpl implements CustomerService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Customer : {}", id);        customerRepository.deleteById(id);
+        log.debug("Request to delete Customer : {}", id);
+        customerRepository.deleteById(id);
         customerSearchRepository.deleteById(id);
     }
 

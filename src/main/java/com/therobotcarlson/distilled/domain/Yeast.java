@@ -1,7 +1,6 @@
 package com.therobotcarlson.distilled.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -10,8 +9,6 @@ import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -41,9 +38,6 @@ public class Yeast implements Serializable {
     @Column(name = "yeast_pallet_num", nullable = false)
     private Integer yeastPalletNum;
 
-    @OneToMany(mappedBy = "yeast")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<MashbillYeast> mashbillYeasts = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -90,31 +84,6 @@ public class Yeast implements Serializable {
 
     public void setYeastPalletNum(Integer yeastPalletNum) {
         this.yeastPalletNum = yeastPalletNum;
-    }
-
-    public Set<MashbillYeast> getMashbillYeasts() {
-        return mashbillYeasts;
-    }
-
-    public Yeast mashbillYeasts(Set<MashbillYeast> mashbillYeasts) {
-        this.mashbillYeasts = mashbillYeasts;
-        return this;
-    }
-
-    public Yeast addMashbillYeast(MashbillYeast mashbillYeast) {
-        this.mashbillYeasts.add(mashbillYeast);
-        mashbillYeast.setYeast(this);
-        return this;
-    }
-
-    public Yeast removeMashbillYeast(MashbillYeast mashbillYeast) {
-        this.mashbillYeasts.remove(mashbillYeast);
-        mashbillYeast.setYeast(null);
-        return this;
-    }
-
-    public void setMashbillYeasts(Set<MashbillYeast> mashbillYeasts) {
-        this.mashbillYeasts = mashbillYeasts;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

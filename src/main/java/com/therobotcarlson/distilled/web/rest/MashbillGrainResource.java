@@ -100,6 +100,13 @@ public class MashbillGrainResource {
         return ResponseUtil.wrapOrNotFound(mashbillGrainDTO);
     }
 
+    @GetMapping("/mashbill-grains/byMashbill/{id}")
+    public List<MashbillGrainDTO> getMashbillGrainByMashbill(@PathVariable Long id) {
+        log.debug("REST request to get MashbillGrain by Mashbill : {}", id);
+        List<MashbillGrainDTO> mashbillGrainDTO = mashbillGrainService.findGrainsByMashbillId(id);
+        return mashbillGrainDTO;
+    }
+
     /**
      * DELETE  /mashbill-grains/:id : delete the "id" mashbillGrain.
      *

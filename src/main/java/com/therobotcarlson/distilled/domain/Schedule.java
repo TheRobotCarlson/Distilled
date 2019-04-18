@@ -56,15 +56,15 @@ public class Schedule implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Batch> batches = new HashSet<>();
     @ManyToOne
-    @JsonIgnoreProperties("mashbills")
+    @JsonIgnoreProperties("schedules")
     private Mashbill mashbill;
 
     @ManyToOne
-    @JsonIgnoreProperties("customers")
+    @JsonIgnoreProperties("schedules")
     private Customer customer;
 
     @ManyToOne
-    @JsonIgnoreProperties("warehouses")
+    @JsonIgnoreProperties("schedules")
     private Warehouse warehouse;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

@@ -23,49 +23,49 @@
     "relationships": [
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "yeast",
             "otherEntityName": "mashbillYeast",
+            "otherEntityRelationshipName": "mashbill",
+            "relationshipName": "yeast",
             "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "mashbill(mashbillCode)"
+            "ownerSide": true
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "mashbillGrain",
             "otherEntityName": "mashbillGrain",
-            "otherEntityRelationshipName": "mashbill"
+            "otherEntityRelationshipName": "mashbill",
+            "relationshipName": "mashbillGrain"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "barrel",
             "otherEntityName": "barrel",
-            "otherEntityRelationshipName": "mashbill"
+            "otherEntityRelationshipName": "mashbill",
+            "relationshipName": "barrel"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "schedule",
             "otherEntityName": "schedule",
-            "otherEntityRelationshipName": "mashbill"
+            "otherEntityRelationshipName": "mashbill",
+            "relationshipName": "schedule"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "batch",
             "otherEntityName": "batch",
-            "otherEntityRelationshipName": "mashbill"
+            "otherEntityRelationshipName": "mashbill",
+            "relationshipName": "batch"
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "spirit",
             "otherEntityName": "spirit",
-            "otherEntityField": "name",
-            "otherEntityRelationshipName": "mashbill"
+            "otherEntityRelationshipName": "mashbill",
+            "relationshipName": "spirit",
+            "otherEntityField": "name"
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "customer",
             "otherEntityName": "customer",
-            "otherEntityField": "customerName",
-            "otherEntityRelationshipName": "customer"
+            "otherEntityRelationshipName": "mashbill",
+            "relationshipName": "customer",
+            "otherEntityField": "customerName"
         }
     ],
     "changelogDate": "20190418014948",

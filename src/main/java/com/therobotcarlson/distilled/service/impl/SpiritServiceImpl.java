@@ -91,7 +91,8 @@ public class SpiritServiceImpl implements SpiritService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Spirit : {}", id);        spiritRepository.deleteById(id);
+        log.debug("Request to delete Spirit : {}", id);
+        spiritRepository.deleteById(id);
         spiritSearchRepository.deleteById(id);
     }
 

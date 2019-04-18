@@ -26,6 +26,7 @@ public interface MashbillGrainService {
     List<MashbillGrainDTO> findAll();
 
 
+
     /**
      * Get the "id" mashbillGrain.
      *
@@ -33,6 +34,15 @@ public interface MashbillGrainService {
      * @return the entity
      */
     Optional<MashbillGrainDTO> findOne(Long id);
+
+    /**
+     * Get the all the mashbillGrains for mashbill "id"
+     *
+     * @param id the id of the entity
+     * @return the entity
+     */
+    List<MashbillGrainDTO> findGrainsByMashbillId(Long id);
+
 
     /**
      * Delete the "id" mashbillGrain.

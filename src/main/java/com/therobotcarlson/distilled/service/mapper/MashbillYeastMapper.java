@@ -15,8 +15,8 @@ public interface MashbillYeastMapper extends EntityMapper<MashbillYeastDTO, Mash
     @Mapping(source = "yeast.yeastCode", target = "yeastYeastCode")
     MashbillYeastDTO toDto(MashbillYeast mashbillYeast);
 
-    @Mapping(target = "mashbill", ignore = true)
     @Mapping(source = "yeastId", target = "yeast")
+    @Mapping(target = "mashbill", ignore = true)
     MashbillYeast toEntity(MashbillYeastDTO mashbillYeastDTO);
 
     default MashbillYeast fromId(Long id) {

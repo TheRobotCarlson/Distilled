@@ -91,7 +91,8 @@ public class WarehouseServiceImpl implements WarehouseService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Warehouse : {}", id);        warehouseRepository.deleteById(id);
+        log.debug("Request to delete Warehouse : {}", id);
+        warehouseRepository.deleteById(id);
         warehouseSearchRepository.deleteById(id);
     }
 
