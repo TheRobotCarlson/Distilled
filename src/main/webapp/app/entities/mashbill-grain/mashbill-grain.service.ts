@@ -33,6 +33,10 @@ export class MashbillGrainService {
         return this.http.get<IMashbillGrain[]>(this.resourceUrl, { params: options, observe: 'response' });
     }
 
+    queryByOwner(id: number): Observable<IMashbillGrain[]> {
+        return this.http.get<IMashbillGrain[]>(`${this.resourceUrl}/byMashbill/${id}`);
+    }
+
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }

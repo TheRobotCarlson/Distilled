@@ -87,6 +87,21 @@ public class MashbillGrainServiceImpl implements MashbillGrainService {
     }
 
     /**
+     * Get the all the mashbillGrains for mashbill "id"
+     *
+     * @param id the id of the entity
+     * @return the entity
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public List<MashbillGrainDTO> findGrainsByMashbillId(Long id){
+        log.debug("Request to get all MashbillGrains belonging to Mashbill : {}",id);
+        return mashbillGrainRepository.findByMashbillId(id).stream()
+            .map(mashbillGrainMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+    /**
      * Delete the mashbillGrain by id.
      *
      * @param id the id of the entity
