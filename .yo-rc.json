@@ -25,7 +25,7 @@
         "cacheProvider": "ehcache",
         "useSass": true,
         "clientPackageManager": "yarn",
-        "jhipsterVersion": "5.8.2",
+        "jhipsterVersion": "5.8.1",
         "skipUserManagement": false,
         "clientFramework": "angularX",
         "serverPort": "8080",
