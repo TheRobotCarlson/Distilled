@@ -17,10 +17,6 @@ import { RouterModule } from '@angular/router';
                 loadChildren: './mashbill-grain/mashbill-grain.module#DistilledMashbillGrainModule'
             },
             {
-                path: 'mashbill-yeast',
-                loadChildren: './mashbill-yeast/mashbill-yeast.module#DistilledMashbillYeastModule'
-            },
-            {
                 path: 'customer',
                 loadChildren: './customer/customer.module#DistilledCustomerModule'
             },

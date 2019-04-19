@@ -18,10 +18,6 @@ public class MashbillGrainDTO implements Serializable {
 
     private String grainGrainName;
 
-    private Long mashbillId;
-
-    private String mashbillMashbillCode;
-
     public Long getId() {
         return id;
     }
@@ -54,22 +50,6 @@ public class MashbillGrainDTO implements Serializable {
         this.grainGrainName = grainGrainName;
     }
 
-    public Long getMashbillId() {
-        return mashbillId;
-    }
-
-    public void setMashbillId(Long mashbillId) {
-        this.mashbillId = mashbillId;
-    }
-
-    public String getMashbillMashbillCode() {
-        return mashbillMashbillCode;
-    }
-
-    public void setMashbillMashbillCode(String mashbillMashbillCode) {
-        this.mashbillMashbillCode = mashbillMashbillCode;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -98,8 +78,6 @@ public class MashbillGrainDTO implements Serializable {
             ", quantity=" + getQuantity() +
             ", grain=" + getGrainId() +
             ", grain='" + getGrainGrainName() + "'" +
-            ", mashbill=" + getMashbillId() +
-            ", mashbill='" + getMashbillMashbillCode() + "'" +
             "}";
     }
 }

@@ -69,6 +69,15 @@ public class MashbillServiceImpl implements MashbillService {
             .map(mashbillMapper::toDto);
     }
 
+    /**
+     * Get all the Mashbill with eager load of many-to-many relationships.
+     *
+     * @return the list of entities
+     */
+    public Page<MashbillDTO> findAllWithEagerRelationships(Pageable pageable) {
+        return mashbillRepository.findAllWithEagerRelationships(pageable).map(mashbillMapper::toDto);
+    }
+    
 
     /**
      * Get one mashbill by id.
@@ -80,7 +89,7 @@ public class MashbillServiceImpl implements MashbillService {
     @Transactional(readOnly = true)
     public Optional<MashbillDTO> findOne(Long id) {
         log.debug("Request to get Mashbill : {}", id);
-        return mashbillRepository.findById(id)
+        return mashbillRepository.findOneWithEagerRelationships(id)
             .map(mashbillMapper::toDto);
     }
 

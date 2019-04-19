@@ -85,13 +85,19 @@ public class MashbillResource {
      * GET  /mashbills : get all the mashbills.
      *
      * @param pageable the pagination information
+     * @param eagerload flag to eager load entities from relationships (This is applicable for many-to-many)
      * @return the ResponseEntity with status 200 (OK) and the list of mashbills in body
      */
     @GetMapping("/mashbills")
-    public ResponseEntity<List<MashbillDTO>> getAllMashbills(Pageable pageable) {
+    public ResponseEntity<List<MashbillDTO>> getAllMashbills(Pageable pageable, @RequestParam(required = false, defaultValue = "false") boolean eagerload) {
         log.debug("REST request to get a page of Mashbills");
-        Page<MashbillDTO> page = mashbillService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/mashbills");
+        Page<MashbillDTO> page;
+        if (eagerload) {
+            page = mashbillService.findAllWithEagerRelationships(pageable);
+        } else {
+            page = mashbillService.findAll(pageable);
+        }
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, String.format("/api/mashbills?eagerload=%b", eagerload));
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 

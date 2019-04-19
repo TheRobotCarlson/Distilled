@@ -1,6 +1,8 @@
 package com.therobotcarlson.distilled.service.dto;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -21,9 +23,13 @@ public class MashbillDTO implements Serializable {
 
     private Long yeastId;
 
+    private String yeastYeastCode;
+
     private Long spiritId;
 
     private String spiritName;
+
+    private Set<MashbillGrainDTO> grainCounts = new HashSet<>();
 
     private Long customerId;
 
@@ -65,8 +71,16 @@ public class MashbillDTO implements Serializable {
         return yeastId;
     }
 
-    public void setYeastId(Long mashbillYeastId) {
-        this.yeastId = mashbillYeastId;
+    public void setYeastId(Long yeastId) {
+        this.yeastId = yeastId;
+    }
+
+    public String getYeastYeastCode() {
+        return yeastYeastCode;
+    }
+
+    public void setYeastYeastCode(String yeastYeastCode) {
+        this.yeastYeastCode = yeastYeastCode;
     }
 
     public Long getSpiritId() {
@@ -83,6 +97,14 @@ public class MashbillDTO implements Serializable {
 
     public void setSpiritName(String spiritName) {
         this.spiritName = spiritName;
+    }
+
+    public Set<MashbillGrainDTO> getGrainCounts() {
+        return grainCounts;
+    }
+
+    public void setGrainCounts(Set<MashbillGrainDTO> mashbillGrains) {
+        this.grainCounts = mashbillGrains;
     }
 
     public Long getCustomerId() {
@@ -130,6 +152,7 @@ public class MashbillDTO implements Serializable {
             ", mashbillCode='" + getMashbillCode() + "'" +
             ", mashbillNotes='" + getMashbillNotes() + "'" +
             ", yeast=" + getYeastId() +
+            ", yeast='" + getYeastYeastCode() + "'" +
             ", spirit=" + getSpiritId() +
             ", spirit='" + getSpiritName() + "'" +
             ", customer=" + getCustomerId() +

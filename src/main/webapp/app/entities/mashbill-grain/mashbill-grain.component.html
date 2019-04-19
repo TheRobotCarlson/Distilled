@@ -32,7 +32,6 @@
             <th><span>ID</span></th>
             <th><span>Quantity</span></th>
             <th><span>Grain</span></th>
-            <th><span>Mashbill</span></th>
             <th></th>
             </tr>
             </thead>
@@ -43,11 +42,6 @@
                 <td>
                     <div *ngIf="mashbillGrain.grainId">
                         <a [routerLink]="['../grain', mashbillGrain.grainId , 'view' ]" >{{mashbillGrain.grainGrainName}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="mashbillGrain.mashbillId">
-                        <a [routerLink]="['../mashbill', mashbillGrain.mashbillId , 'view' ]" >{{mashbillGrain.mashbillMashbillCode}}</a>
                     </div>
                 </td>
                 <td class="text-right">

@@ -8,17 +8,15 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity MashbillGrain and its DTO MashbillGrainDTO.
  */
-@Mapper(componentModel = "spring", uses = {GrainMapper.class, MashbillMapper.class})
+@Mapper(componentModel = "spring", uses = {GrainMapper.class})
 public interface MashbillGrainMapper extends EntityMapper<MashbillGrainDTO, MashbillGrain> {
 
     @Mapping(source = "grain.id", target = "grainId")
     @Mapping(source = "grain.grainName", target = "grainGrainName")
-    @Mapping(source = "mashbill.id", target = "mashbillId")
-    @Mapping(source = "mashbill.mashbillCode", target = "mashbillMashbillCode")
     MashbillGrainDTO toDto(MashbillGrain mashbillGrain);
 
     @Mapping(source = "grainId", target = "grain")
-    @Mapping(source = "mashbillId", target = "mashbill")
+    @Mapping(target = "mashbills", ignore = true)
     MashbillGrain toEntity(MashbillGrainDTO mashbillGrainDTO);
 
     default MashbillGrain fromId(Long id) {

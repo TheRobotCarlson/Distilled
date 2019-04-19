@@ -39,11 +39,7 @@ describe('MashbillGrain e2e test', () => {
         const nbButtonsBeforeCreate = await mashbillGrainComponentsPage.countDeleteButtons();
 
         await mashbillGrainComponentsPage.clickOnCreateButton();
-        await promise.all([
-            mashbillGrainUpdatePage.setQuantityInput('5'),
-            mashbillGrainUpdatePage.grainSelectLastOption(),
-            mashbillGrainUpdatePage.mashbillSelectLastOption()
-        ]);
+        await promise.all([mashbillGrainUpdatePage.setQuantityInput('5'), mashbillGrainUpdatePage.grainSelectLastOption()]);
         expect(await mashbillGrainUpdatePage.getQuantityInput()).to.eq('5');
         await mashbillGrainUpdatePage.save();
         expect(await mashbillGrainUpdatePage.getSaveButton().isPresent()).to.be.false;

@@ -46,7 +46,7 @@
             "otherEntityField": "batchNumber"
         }
     ],
-    "changelogDate": "20190418014950",
+    "changelogDate": "20190419000618",
     "entityTableName": "barrel",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

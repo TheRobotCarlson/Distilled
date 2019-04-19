@@ -8,10 +8,11 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Mashbill and its DTO MashbillDTO.
  */
-@Mapper(componentModel = "spring", uses = {MashbillYeastMapper.class, SpiritMapper.class, CustomerMapper.class})
+@Mapper(componentModel = "spring", uses = {YeastMapper.class, SpiritMapper.class, MashbillGrainMapper.class, CustomerMapper.class})
 public interface MashbillMapper extends EntityMapper<MashbillDTO, Mashbill> {
 
     @Mapping(source = "yeast.id", target = "yeastId")
+    @Mapping(source = "yeast.yeastCode", target = "yeastYeastCode")
     @Mapping(source = "spirit.id", target = "spiritId")
     @Mapping(source = "spirit.name", target = "spiritName")
     @Mapping(source = "customer.id", target = "customerId")
@@ -19,7 +20,6 @@ public interface MashbillMapper extends EntityMapper<MashbillDTO, Mashbill> {
     MashbillDTO toDto(Mashbill mashbill);
 
     @Mapping(source = "yeastId", target = "yeast")
-    @Mapping(target = "mashbillGrains", ignore = true)
     @Mapping(target = "barrels", ignore = true)
     @Mapping(target = "schedules", ignore = true)
     @Mapping(target = "batches", ignore = true)

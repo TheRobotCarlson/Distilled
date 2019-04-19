@@ -45,6 +45,7 @@ describe('Mashbill e2e test', () => {
             mashbillUpdatePage.setMashbillNotesInput('mashbillNotes'),
             mashbillUpdatePage.yeastSelectLastOption(),
             mashbillUpdatePage.spiritSelectLastOption(),
+            // mashbillUpdatePage.grainCountSelectLastOption(),
             mashbillUpdatePage.customerSelectLastOption()
         ]);
         expect(await mashbillUpdatePage.getMashbillNameInput()).to.eq('mashbillName');

@@ -43,11 +43,8 @@ public class Mashbill implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private MashbillYeast yeast;
+    private Yeast yeast;
 
-    @OneToMany(mappedBy = "mashbill")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<MashbillGrain> mashbillGrains = new HashSet<>();
     @OneToMany(mappedBy = "mashbill")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Barrel> barrels = new HashSet<>();
@@ -60,6 +57,13 @@ public class Mashbill implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties("mashbills")
     private Spirit spirit;
+
+    @ManyToMany
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @JoinTable(name = "mashbill_grain_count",
+               joinColumns = @JoinColumn(name = "mashbill_id", referencedColumnName = "id"),
+               inverseJoinColumns = @JoinColumn(name = "grain_count_id", referencedColumnName = "id"))
+    private Set<MashbillGrain> grainCounts = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties("mashbills")
@@ -113,42 +117,17 @@ public class Mashbill implements Serializable {
         this.mashbillNotes = mashbillNotes;
     }
 
-    public MashbillYeast getYeast() {
+    public Yeast getYeast() {
         return yeast;
     }
 
-    public Mashbill yeast(MashbillYeast mashbillYeast) {
-        this.yeast = mashbillYeast;
+    public Mashbill yeast(Yeast yeast) {
+        this.yeast = yeast;
         return this;
     }
 
-    public void setYeast(MashbillYeast mashbillYeast) {
-        this.yeast = mashbillYeast;
-    }
-
-    public Set<MashbillGrain> getMashbillGrains() {
-        return mashbillGrains;
-    }
-
-    public Mashbill mashbillGrains(Set<MashbillGrain> mashbillGrains) {
-        this.mashbillGrains = mashbillGrains;
-        return this;
-    }
-
-    public Mashbill addMashbillGrain(MashbillGrain mashbillGrain) {
-        this.mashbillGrains.add(mashbillGrain);
-        mashbillGrain.setMashbill(this);
-        return this;
-    }
-
-    public Mashbill removeMashbillGrain(MashbillGrain mashbillGrain) {
-        this.mashbillGrains.remove(mashbillGrain);
-        mashbillGrain.setMashbill(null);
-        return this;
-    }
-
-    public void setMashbillGrains(Set<MashbillGrain> mashbillGrains) {
-        this.mashbillGrains = mashbillGrains;
+    public void setYeast(Yeast yeast) {
+        this.yeast = yeast;
     }
 
     public Set<Barrel> getBarrels() {
@@ -237,6 +216,31 @@ public class Mashbill implements Serializable {
 
     public void setSpirit(Spirit spirit) {
         this.spirit = spirit;
+    }
+
+    public Set<MashbillGrain> getGrainCounts() {
+        return grainCounts;
+    }
+
+    public Mashbill grainCounts(Set<MashbillGrain> mashbillGrains) {
+        this.grainCounts = mashbillGrains;
+        return this;
+    }
+
+    public Mashbill addGrainCount(MashbillGrain mashbillGrain) {
+        this.grainCounts.add(mashbillGrain);
+        mashbillGrain.getMashbills().add(this);
+        return this;
+    }
+
+    public Mashbill removeGrainCount(MashbillGrain mashbillGrain) {
+        this.grainCounts.remove(mashbillGrain);
+        mashbillGrain.getMashbills().remove(this);
+        return this;
+    }
+
+    public void setGrainCounts(Set<MashbillGrain> mashbillGrains) {
+        this.grainCounts = mashbillGrains;
     }
 
     public Customer getCustomer() {

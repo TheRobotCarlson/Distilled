@@ -13,6 +13,7 @@ import com.therobotcarlson.distilled.web.rest.errors.ExceptionTranslator;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,6 +29,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Validator;
 
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -61,8 +63,14 @@ public class MashbillResourceIntTest {
     @Autowired
     private MashbillRepository mashbillRepository;
 
+    @Mock
+    private MashbillRepository mashbillRepositoryMock;
+
     @Autowired
     private MashbillMapper mashbillMapper;
+
+    @Mock
+    private MashbillService mashbillServiceMock;
 
     @Autowired
     private MashbillService mashbillService;
@@ -226,6 +234,39 @@ public class MashbillResourceIntTest {
             .andExpect(jsonPath("$.[*].mashbillNotes").value(hasItem(DEFAULT_MASHBILL_NOTES.toString())));
     }
     
+    @SuppressWarnings({"unchecked"})
+    public void getAllMashbillsWithEagerRelationshipsIsEnabled() throws Exception {
+        MashbillResource mashbillResource = new MashbillResource(mashbillServiceMock);
+        when(mashbillServiceMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
+
+        MockMvc restMashbillMockMvc = MockMvcBuilders.standaloneSetup(mashbillResource)
+            .setCustomArgumentResolvers(pageableArgumentResolver)
+            .setControllerAdvice(exceptionTranslator)
+            .setConversionService(createFormattingConversionService())
+            .setMessageConverters(jacksonMessageConverter).build();
+
+        restMashbillMockMvc.perform(get("/api/mashbills?eagerload=true"))
+        .andExpect(status().isOk());
+
+        verify(mashbillServiceMock, times(1)).findAllWithEagerRelationships(any());
+    }
+
+    @SuppressWarnings({"unchecked"})
+    public void getAllMashbillsWithEagerRelationshipsIsNotEnabled() throws Exception {
+        MashbillResource mashbillResource = new MashbillResource(mashbillServiceMock);
+            when(mashbillServiceMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
+            MockMvc restMashbillMockMvc = MockMvcBuilders.standaloneSetup(mashbillResource)
+            .setCustomArgumentResolvers(pageableArgumentResolver)
+            .setControllerAdvice(exceptionTranslator)
+            .setConversionService(createFormattingConversionService())
+            .setMessageConverters(jacksonMessageConverter).build();
+
+        restMashbillMockMvc.perform(get("/api/mashbills?eagerload=true"))
+        .andExpect(status().isOk());
+
+            verify(mashbillServiceMock, times(1)).findAllWithEagerRelationships(any());
+    }
+
     @Test
     @Transactional
     public void getMashbill() throws Exception {

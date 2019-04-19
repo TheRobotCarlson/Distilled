@@ -25,29 +25,19 @@
         "cacheProvider": "ehcache",
         "useSass": true,
         "clientPackageManager": "yarn",
-        "jhipsterVersion": "5.8.1",
+        "jhipsterVersion": "5.8.2",
         "skipUserManagement": false,
         "clientFramework": "angularX",
         "serverPort": "8080",
-        "jwtSecretKey": "MjFjMjM4YmJhNjFhZTQ2ZGM4NDg3NDg5ZDU1YWE5NWVjM2I1OGIxYzU4Y2RkMDg0MmRlM2U1NmM0NzVlNzgzOWE1YThjYzQzZjEzMmI5M2FmYTE2YzQ3ZmQzNjkwNzQ2NjUyODJmODY2Njg2NTI5MmY0MDNhODQzNGY1YjIzYTg=",
+        "jwtSecretKey": "NjhjZGJjZDc0ZGU1MzRkMjJkMDdkNDRhMzFhMGZhMzY0YWU5YzNmODcxYjQ0YWQ0NTJjM2YxY2QzZWQ3N2QwNzA3NGQ5Y2ZjOTdmMThlYjY2MjViZjAyNWFhYTE1MDYxYWIwMjZhYWRiODk3YjA0YzY4MmFhYTY0NmE5OTdkNTQ=",
         "entitySuffix": "",
         "dtoSuffix": "DTO",
-        "otherModules": [],
-        "aws": {
-            "applicationName": "distilled",
-            "environmentName": "distilled-env",
-            "bucketName": "distilledb",
-            "instanceType": "t2.micro",
-            "awsRegion": "us-east-1",
-            "dbName": "distilleddb",
-            "dbInstanceClass": "db.t2.micro"
-        }
+        "otherModules": []
     },
     "entities": [
         "Grain",
         "Yeast",
         "MashbillGrain",
-        "MashbillYeast",
         "Customer",
         "Spirit",
         "Mashbill",

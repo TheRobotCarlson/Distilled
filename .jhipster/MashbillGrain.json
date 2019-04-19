@@ -19,14 +19,15 @@
             "otherEntityField": "grainName"
         },
         {
-            "relationshipType": "many-to-one",
+            "relationshipType": "many-to-many",
             "otherEntityName": "mashbill",
-            "otherEntityRelationshipName": "mashbillGrain",
+            "otherEntityRelationshipName": "grainCount",
             "relationshipName": "mashbill",
-            "otherEntityField": "mashbillCode"
+            "otherEntityField": "mashbillCode",
+            "ownerSide": false
         }
     ],
-    "changelogDate": "20190418014944",
+    "changelogDate": "20190419000613",
     "entityTableName": "mashbill_grain",
     "dto": "mapstruct",
     "pagination": "no",

@@ -6,10 +6,12 @@ import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
 import { IMashbill } from 'app/shared/model/mashbill.model';
 import { MashbillService } from './mashbill.service';
-import { IMashbillYeast } from 'app/shared/model/mashbill-yeast.model';
-import { MashbillYeastService } from 'app/entities/mashbill-yeast';
+import { IYeast } from 'app/shared/model/yeast.model';
+import { YeastService } from 'app/entities/yeast';
 import { ISpirit } from 'app/shared/model/spirit.model';
 import { SpiritService } from 'app/entities/spirit';
+import { IMashbillGrain } from 'app/shared/model/mashbill-grain.model';
+import { MashbillGrainService } from 'app/entities/mashbill-grain';
 import { ICustomer } from 'app/shared/model/customer.model';
 import { CustomerService } from 'app/entities/customer';
 
@@ -21,17 +23,20 @@ export class MashbillUpdateComponent implements OnInit {
     mashbill: IMashbill;
     isSaving: boolean;
 
-    yeasts: IMashbillYeast[];
+    yeasts: IYeast[];
 
     spirits: ISpirit[];
+
+    mashbillgrains: IMashbillGrain[];
 
     customers: ICustomer[];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected mashbillService: MashbillService,
-        protected mashbillYeastService: MashbillYeastService,
+        protected yeastService: YeastService,
         protected spiritService: SpiritService,
+        protected mashbillGrainService: MashbillGrainService,
         protected customerService: CustomerService,
         protected activatedRoute: ActivatedRoute
     ) {}
@@ -41,25 +46,25 @@ export class MashbillUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ mashbill }) => {
             this.mashbill = mashbill;
         });
-        this.mashbillYeastService
+        this.yeastService
             .query({ filter: 'mashbill-is-null' })
             .pipe(
-                filter((mayBeOk: HttpResponse<IMashbillYeast[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IMashbillYeast[]>) => response.body)
+                filter((mayBeOk: HttpResponse<IYeast[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IYeast[]>) => response.body)
             )
             .subscribe(
-                (res: IMashbillYeast[]) => {
+                (res: IYeast[]) => {
                     if (!this.mashbill.yeastId) {
                         this.yeasts = res;
                     } else {
-                        this.mashbillYeastService
+                        this.yeastService
                             .find(this.mashbill.yeastId)
                             .pipe(
-                                filter((subResMayBeOk: HttpResponse<IMashbillYeast>) => subResMayBeOk.ok),
-                                map((subResponse: HttpResponse<IMashbillYeast>) => subResponse.body)
+                                filter((subResMayBeOk: HttpResponse<IYeast>) => subResMayBeOk.ok),
+                                map((subResponse: HttpResponse<IYeast>) => subResponse.body)
                             )
                             .subscribe(
-                                (subRes: IMashbillYeast) => (this.yeasts = [subRes].concat(res)),
+                                (subRes: IYeast) => (this.yeasts = [subRes].concat(res)),
                                 (subRes: HttpErrorResponse) => this.onError(subRes.message)
                             );
                     }
@@ -73,6 +78,13 @@ export class MashbillUpdateComponent implements OnInit {
                 map((response: HttpResponse<ISpirit[]>) => response.body)
             )
             .subscribe((res: ISpirit[]) => (this.spirits = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.mashbillGrainService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<IMashbillGrain[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IMashbillGrain[]>) => response.body)
+            )
+            .subscribe((res: IMashbillGrain[]) => (this.mashbillgrains = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.customerService
             .query()
             .pipe(
@@ -112,7 +124,7 @@ export class MashbillUpdateComponent implements OnInit {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 
-    trackMashbillYeastById(index: number, item: IMashbillYeast) {
+    trackYeastById(index: number, item: IYeast) {
         return item.id;
     }
 
@@ -120,7 +132,22 @@ export class MashbillUpdateComponent implements OnInit {
         return item.id;
     }
 
+    trackMashbillGrainById(index: number, item: IMashbillGrain) {
+        return item.id;
+    }
+
     trackCustomerById(index: number, item: ICustomer) {
         return item.id;
+    }
+
+    getSelected(selectedVals: Array<any>, option: any) {
+        if (selectedVals) {
+            for (let i = 0; i < selectedVals.length; i++) {
+                if (option.id === selectedVals[i].id) {
+                    return selectedVals[i];
+                }
+            }
+        }
+        return option;
     }
 }

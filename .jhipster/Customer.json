@@ -36,7 +36,7 @@
             "relationshipName": "schedule"
         }
     ],
-    "changelogDate": "20190418014946",
+    "changelogDate": "20190419000614",
     "entityTableName": "customer",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

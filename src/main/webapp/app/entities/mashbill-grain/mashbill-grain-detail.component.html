@@ -15,12 +15,6 @@
                         <a [routerLink]="['/grain', mashbillGrain.grainId, 'view']">{{mashbillGrain.grainGrainName}}</a>
                     </div>
                 </dd>
-                <dt><span>Mashbill</span></dt>
-                <dd>
-                    <div *ngIf="mashbillGrain.mashbillId">
-                        <a [routerLink]="['/mashbill', mashbillGrain.mashbillId, 'view']">{{mashbillGrain.mashbillMashbillCode}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

@@ -23,17 +23,11 @@
     "relationships": [
         {
             "relationshipType": "one-to-one",
-            "otherEntityName": "mashbillYeast",
+            "otherEntityName": "yeast",
             "otherEntityRelationshipName": "mashbill",
             "relationshipName": "yeast",
-            "otherEntityField": "id",
+            "otherEntityField": "yeastCode",
             "ownerSide": true
-        },
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "mashbillGrain",
-            "otherEntityRelationshipName": "mashbill",
-            "relationshipName": "mashbillGrain"
         },
         {
             "relationshipType": "one-to-many",
@@ -61,6 +55,14 @@
             "otherEntityField": "name"
         },
         {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "mashbillGrain",
+            "otherEntityRelationshipName": "mashbill",
+            "relationshipName": "grainCount",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
             "relationshipType": "many-to-one",
             "otherEntityName": "customer",
             "otherEntityRelationshipName": "mashbill",
@@ -68,7 +70,7 @@
             "otherEntityField": "customerName"
         }
     ],
-    "changelogDate": "20190418014948",
+    "changelogDate": "20190419000616",
     "entityTableName": "mashbill",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

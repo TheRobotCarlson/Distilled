@@ -2,7 +2,7 @@
     "name": "YeastSummary",
     "fields": [],
     "relationships": [],
-    "changelogDate": "20190418014956",
+    "changelogDate": "20190419000624",
     "entityTableName": "yeast_summary",
     "dto": "no",
     "pagination": "no",

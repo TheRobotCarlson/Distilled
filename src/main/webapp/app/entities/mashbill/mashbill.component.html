@@ -33,7 +33,7 @@
             <th jhiSortBy="mashbillName"><span>Mashbill Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="mashbillCode"><span>Mashbill Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="mashbillNotes"><span>Mashbill Notes</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="yeastId"><span>Yeast</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="yeastYeastCode"><span>Yeast</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="spiritName"><span>Spirit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="customerCustomerName"><span>Customer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
@@ -47,7 +47,7 @@
                 <td>{{mashbill.mashbillNotes}}</td>
                 <td>
                     <div *ngIf="mashbill.yeastId">
-                        <a [routerLink]="['../mashbill-yeast', mashbill.yeastId , 'view' ]" >{{mashbill.yeastId}}</a>
+                        <a [routerLink]="['../yeast', mashbill.yeastId , 'view' ]" >{{mashbill.yeastYeastCode}}</a>
                     </div>
                 </td>
                 <td>

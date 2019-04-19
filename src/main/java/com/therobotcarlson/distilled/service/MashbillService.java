@@ -28,7 +28,13 @@ public interface MashbillService {
      */
     Page<MashbillDTO> findAll(Pageable pageable);
 
-
+    /**
+     * Get all the Mashbill with eager load of many-to-many relationships.
+     *
+     * @return the list of entities
+     */
+    Page<MashbillDTO> findAllWithEagerRelationships(Pageable pageable);
+    
     /**
      * Get the "id" mashbill.
      *

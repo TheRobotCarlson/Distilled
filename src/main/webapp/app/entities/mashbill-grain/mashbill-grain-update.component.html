@@ -32,13 +32,6 @@
                         <option [ngValue]="grainOption.id" *ngFor="let grainOption of grains; trackBy: trackGrainById">{{grainOption.grainName}}</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" for="field_mashbill">Mashbill</label>
-                    <select class="form-control" id="field_mashbill" name="mashbill" [(ngModel)]="mashbillGrain.mashbillId" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="mashbillOption.id" *ngFor="let mashbillOption of mashbills; trackBy: trackMashbillById">{{mashbillOption.mashbillCode}}</option>
-                    </select>
-                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

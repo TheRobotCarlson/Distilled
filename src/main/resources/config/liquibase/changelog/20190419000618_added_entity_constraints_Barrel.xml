@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Barrel.
+    -->
+    <changeSet id="20190419000618-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="warehouse_id"
+                                 baseTableName="barrel"
+                                 constraintName="fk_barrel_warehouse_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="warehouse"/>
+
+        <addForeignKeyConstraint baseColumnNames="mashbill_id"
+                                 baseTableName="barrel"
+                                 constraintName="fk_barrel_mashbill_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mashbill"/>
+
+        <addForeignKeyConstraint baseColumnNames="order_id"
+                                 baseTableName="barrel"
+                                 constraintName="fk_barrel_order_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="schedule"/>
+
+        <addForeignKeyConstraint baseColumnNames="customer_id"
+                                 baseTableName="barrel"
+                                 constraintName="fk_barrel_customer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="customer"/>
+
+        <addForeignKeyConstraint baseColumnNames="batch_id"
+                                 baseTableName="barrel"
+                                 constraintName="fk_barrel_batch_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="batch"/>
+
+    </changeSet>
+</databaseChangeLog>

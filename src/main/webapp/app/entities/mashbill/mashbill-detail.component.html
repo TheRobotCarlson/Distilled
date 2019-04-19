@@ -13,14 +13,10 @@
                 <dd>
                     <span>{{mashbill.mashbillCode}}</span>
                 </dd>
-                <dt><span>Mashbill Notes</span></dt>
-                <dd>
-                    <span>{{mashbill.mashbillNotes}}</span>
-                </dd>
                 <dt><span>Yeast</span></dt>
                 <dd>
                     <div *ngIf="mashbill.yeastId">
-                        <a [routerLink]="['/mashbill-yeast', mashbill.yeastId, 'view']">{{mashbill.yeastId}}</a>
+                        <a [routerLink]="['/yeast', mashbill.yeastId, 'view']">{{mashbill.yeastYeastCode}}</a>
                     </div>
                 </dd>
                 <dt><span>Spirit</span></dt>
@@ -35,10 +31,7 @@
                         <a [routerLink]="['/customer', mashbill.customerId, 'view']">{{mashbill.customerCustomerName}}</a>
                     </div>
                 </dd>
-            </dl>
-            <div>
-                <h4>Mashbill Grains</h4>
-                <jhi-alert></jhi-alert>
+                <dt><span>Grain Types</span></dt>
                 <div class="table-responsive">
                     <table class="jh-table table table-striped">
                         <thead>
@@ -48,19 +41,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let mbg of grains ;trackBy: trackId">
+                            <tr *ngFor="let grainCount of mashbill.grainCounts; let last = last">
                                 <td>
-                                    <div *ngIf="mbg.grainId">
-                                        <a [routerLink]="['/mashbill-grain',mbg.id,'view']">{{mbg.grainGrainName}}</a>
+                                    <div *ngIf="grainCount.grainId">
+                                        <a [routerLink]="['/mashbill-grain', grainCount?.id, 'view' ]">{{grainCount.grainGrainName}}</a>
                                     </div>
                                     <!-- {{mbg.grainGrainName}} -->
                                 </td>
-                                <td>{{mbg.quantity}}</td>
+                                <td>{{grainCount.quantity}}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
+                <dt><span>Mashbill Notes</span></dt>
+                <dd>
+                    <span>{{mashbill.mashbillNotes}}</span>
+                </dd>
+                <!-- <dd>
+                    <span *ngFor="let grainCount of mashbill.grainCounts; let last = last">
+                        <a [routerLink]="['/mashbill-grain', grainCount?.id, 'view' ]">{{grainCount.grainGrainName}}: {{grainCount.quantity}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd> -->
+
+            </dl>
 
             <button type="submit"
                     (click)="previousState()"

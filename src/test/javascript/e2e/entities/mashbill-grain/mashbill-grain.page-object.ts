@@ -28,7 +28,6 @@ export class MashbillGrainUpdatePage {
     cancelButton = element(by.id('cancel-save'));
     quantityInput = element(by.id('field_quantity'));
     grainSelect = element(by.id('field_grain'));
-    mashbillSelect = element(by.id('field_mashbill'));
 
     async getPageTitle() {
         return this.pageTitle.getText();
@@ -59,25 +58,6 @@ export class MashbillGrainUpdatePage {
 
     async getGrainSelectedOption() {
         return this.grainSelect.element(by.css('option:checked')).getText();
-    }
-
-    async mashbillSelectLastOption() {
-        await this.mashbillSelect
-            .all(by.tagName('option'))
-            .last()
-            .click();
-    }
-
-    async mashbillSelectOption(option) {
-        await this.mashbillSelect.sendKeys(option);
-    }
-
-    getMashbillSelect(): ElementFinder {
-        return this.mashbillSelect;
-    }
-
-    async getMashbillSelectedOption() {
-        return this.mashbillSelect.element(by.css('option:checked')).getText();
     }
 
     async save() {

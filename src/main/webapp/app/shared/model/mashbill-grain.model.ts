@@ -1,10 +1,11 @@
+import { IMashbill } from 'app/shared/model/mashbill.model';
+
 export interface IMashbillGrain {
     id?: number;
     quantity?: number;
     grainGrainName?: string;
     grainId?: number;
-    mashbillMashbillCode?: string;
-    mashbillId?: number;
+    mashbills?: IMashbill[];
 }
 
 export class MashbillGrain implements IMashbillGrain {
@@ -13,7 +14,6 @@ export class MashbillGrain implements IMashbillGrain {
         public quantity?: number,
         public grainGrainName?: string,
         public grainId?: number,
-        public mashbillMashbillCode?: string,
-        public mashbillId?: number
+        public mashbills?: IMashbill[]
     ) {}
 }

@@ -31,6 +31,7 @@ export class MashbillUpdatePage {
     mashbillNotesInput = element(by.id('field_mashbillNotes'));
     yeastSelect = element(by.id('field_yeast'));
     spiritSelect = element(by.id('field_spirit'));
+    grainCountSelect = element(by.id('field_grainCount'));
     customerSelect = element(by.id('field_customer'));
 
     async getPageTitle() {
@@ -97,6 +98,25 @@ export class MashbillUpdatePage {
 
     async getSpiritSelectedOption() {
         return this.spiritSelect.element(by.css('option:checked')).getText();
+    }
+
+    async grainCountSelectLastOption() {
+        await this.grainCountSelect
+            .all(by.tagName('option'))
+            .last()
+            .click();
+    }
+
+    async grainCountSelectOption(option) {
+        await this.grainCountSelect.sendKeys(option);
+    }
+
+    getGrainCountSelect(): ElementFinder {
+        return this.grainCountSelect;
+    }
+
+    async getGrainCountSelectedOption() {
+        return this.grainCountSelect.element(by.css('option:checked')).getText();
     }
 
     async customerSelectLastOption() {

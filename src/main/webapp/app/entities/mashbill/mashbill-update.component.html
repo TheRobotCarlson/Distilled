@@ -41,7 +41,7 @@
                     <label class="form-control-label" for="field_yeast">Yeast</label>
                     <select class="form-control" id="field_yeast" name="yeast" [(ngModel)]="mashbill.yeastId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="mashbillYeastOption.id" *ngFor="let mashbillYeastOption of yeasts; trackBy: trackMashbillYeastById">{{mashbillYeastOption.yeastYeastCode}}</option>
+                        <option [ngValue]="yeastOption.id" *ngFor="let yeastOption of yeasts; trackBy: trackYeastById">{{yeastOption.yeastCode}}</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -49,6 +49,12 @@
                     <select class="form-control" id="field_spirit" name="spirit" [(ngModel)]="mashbill.spiritId" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="spiritOption.id" *ngFor="let spiritOption of spirits; trackBy: trackSpiritById">{{spiritOption.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_grainCount">Grain Types</label>
+                    <select class="form-control" id="field_grainCount" multiple name="grainCount" [(ngModel)]="mashbill.grainCounts">
+                        <option [ngValue]="getSelected(mashbill.grainCounts, mashbillGrainOption)" *ngFor="let mashbillGrainOption of mashbillgrains; trackBy: trackMashbillGrainById">{{mashbillGrainOption.grainGrainName}}: {{mashbillGrainOption.quantity}}</option>
                     </select>
                 </div>
                 <div class="form-group">

@@ -11,7 +11,7 @@
         }
     ],
     "relationships": [],
-    "changelogDate": "20190418014953",
+    "changelogDate": "20190419000621",
     "entityTableName": "production_schedule",
     "dto": "no",
     "pagination": "no",

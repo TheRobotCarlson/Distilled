@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Mashbill.
+    -->
+    <changeSet id="20190419000616-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="yeast_id"
+                                 baseTableName="mashbill"
+                                 constraintName="fk_mashbill_yeast_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="yeast"/>
+
+        <addForeignKeyConstraint baseColumnNames="spirit_id"
+                                 baseTableName="mashbill"
+                                 constraintName="fk_mashbill_spirit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="spirit"/>
+
+        <addForeignKeyConstraint baseColumnNames="mashbill_id"
+                                 baseTableName="mashbill_grain_count"
+                                 constraintName="fk_mashbill_grain_count_mashbill_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mashbill"/>
+        <addForeignKeyConstraint baseColumnNames="grain_count_id"
+                                 baseTableName="mashbill_grain_count"
+                                 constraintName="fk_mashbill_grain_count_grain_count_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mashbill_grain"/>
+        
+        <addForeignKeyConstraint baseColumnNames="customer_id"
+                                 baseTableName="mashbill"
+                                 constraintName="fk_mashbill_customer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="customer"/>
+
+    </changeSet>
+</databaseChangeLog>
