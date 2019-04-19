@@ -29,7 +29,7 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
-            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <!-- <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
             <th jhiSortBy="yeastName"><span>Yeast Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="yeastCode"><span>Yeast Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="yeastPalletNum"><span>Yeast Pallet Num</span> <fa-icon [icon]="'sort'"></fa-icon></th>
@@ -38,7 +38,7 @@
             </thead>
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let yeast of yeasts ;trackBy: trackId">
-                <td><a [routerLink]="['/yeast', yeast.id, 'view' ]">{{yeast.id}}</a></td>
+                <!-- <td><a [routerLink]="['/yeast', yeast.id, 'view' ]">{{yeast.id}}</a></td> -->
                 <td>{{yeast.yeastName}}</td>
                 <td>{{yeast.yeastCode}}</td>
                 <td>{{yeast.yeastPalletNum}}</td>
