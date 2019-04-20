@@ -30,6 +30,8 @@ export class ScheduleUpdateComponent implements OnInit {
     warehouses: IWarehouse[];
     targetDate: string;
 
+    // today:Date;
+
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected scheduleService: ScheduleService,
@@ -40,10 +42,11 @@ export class ScheduleUpdateComponent implements OnInit {
     ) {}
 
     ngOnInit() {
+        this.targetDate = new Date().toISOString().split('T')[0];
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ schedule }) => {
             this.schedule = schedule;
-            this.targetDate = this.schedule.targetDate != null ? this.schedule.targetDate.format(DATE_TIME_FORMAT) : null;
+            this.targetDate = this.schedule.targetDate != null ? this.schedule.targetDate.format(DATE_TIME_FORMAT) : this.targetDate;
         });
         this.mashbillService
             .query()
