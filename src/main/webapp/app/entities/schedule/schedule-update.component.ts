@@ -27,6 +27,8 @@ export class ScheduleUpdateComponent implements OnInit {
     customers: ICustomer[];
     targetDate: string;
 
+    // today:Date;
+
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected scheduleService: ScheduleService,
@@ -36,6 +38,7 @@ export class ScheduleUpdateComponent implements OnInit {
     ) {}
 
     ngOnInit() {
+        this.targetDate = new Date().toISOString().split('T')[0];
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ schedule }) => {
             this.schedule = schedule;
