@@ -16,7 +16,7 @@
             ]
         },
         {
-            "fieldName": "batchNumber",
+            "fieldName": "orderCode",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
@@ -35,17 +35,10 @@
             "otherEntityName": "schedule",
             "otherEntityRelationshipName": "batch",
             "relationshipName": "schedule",
-            "otherEntityField": "orderCode"
-        },
-        {
-            "relationshipType": "many-to-one",
-            "otherEntityName": "mashbill",
-            "otherEntityRelationshipName": "batch",
-            "relationshipName": "mashbill",
-            "otherEntityField": "mashbillCode"
+            "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20190419000620",
+    "changelogDate": "20190420184720",
     "entityTableName": "batch",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

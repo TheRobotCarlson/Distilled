@@ -10,8 +10,6 @@ import { IBatch } from 'app/shared/model/batch.model';
 import { BatchService } from './batch.service';
 import { ISchedule } from 'app/shared/model/schedule.model';
 import { ScheduleService } from 'app/entities/schedule';
-import { IMashbill } from 'app/shared/model/mashbill.model';
-import { MashbillService } from 'app/entities/mashbill';
 
 @Component({
     selector: 'jhi-batch-update',
@@ -22,15 +20,12 @@ export class BatchUpdateComponent implements OnInit {
     isSaving: boolean;
 
     schedules: ISchedule[];
-
-    mashbills: IMashbill[];
     date: string;
 
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected batchService: BatchService,
         protected scheduleService: ScheduleService,
-        protected mashbillService: MashbillService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -47,13 +42,6 @@ export class BatchUpdateComponent implements OnInit {
                 map((response: HttpResponse<ISchedule[]>) => response.body)
             )
             .subscribe((res: ISchedule[]) => (this.schedules = res), (res: HttpErrorResponse) => this.onError(res.message));
-        this.mashbillService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IMashbill[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IMashbill[]>) => response.body)
-            )
-            .subscribe((res: IMashbill[]) => (this.mashbills = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {
@@ -88,10 +76,6 @@ export class BatchUpdateComponent implements OnInit {
     }
 
     trackScheduleById(index: number, item: ISchedule) {
-        return item.id;
-    }
-
-    trackMashbillById(index: number, item: IMashbill) {
         return item.id;
     }
 }

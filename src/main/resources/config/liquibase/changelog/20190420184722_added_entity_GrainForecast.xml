@@ -15,10 +15,10 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity ProductionSummary.
+        Added the entity GrainForecast.
     -->
-    <changeSet id="20190419000623-1" author="jhipster">
-        <createTable tableName="production_summary">
+    <changeSet id="20190420184722-1" author="jhipster">
+        <createTable tableName="grain_forecast">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

@@ -72,7 +72,7 @@ describe('Service Tests', () => {
                     {
                         proof: 1,
                         date: currentDate.format(DATE_TIME_FORMAT),
-                        batchNumber: 'BBBBBB'
+                        orderCode: 'BBBBBB'
                     },
                     elemDefault
                 );
@@ -96,7 +96,7 @@ describe('Service Tests', () => {
                     {
                         proof: 1,
                         date: currentDate.format(DATE_TIME_FORMAT),
-                        batchNumber: 'BBBBBB'
+                        orderCode: 'BBBBBB'
                     },
                     elemDefault
                 );

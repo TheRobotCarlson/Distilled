@@ -4,15 +4,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
     <!--
-        Added the constraints for entity MashbillGrain.
+        Added the constraints for entity Batch.
     -->
-    <changeSet id="20190419000613-2" author="jhipster">
+    <changeSet id="20190420184720-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="grain_id"
-                                 baseTableName="mashbill_grain"
-                                 constraintName="fk_mashbill_grain_grain_id"
+        <addForeignKeyConstraint baseColumnNames="schedule_id"
+                                 baseTableName="batch"
+                                 constraintName="fk_batch_schedule_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="grain"/>
+                                 referencedTableName="schedule"/>
 
     </changeSet>
 </databaseChangeLog>

@@ -27,7 +27,6 @@ export class ScheduleUpdatePage {
     saveButton = element(by.id('save-entity'));
     cancelButton = element(by.id('cancel-save'));
     targetDateInput = element(by.id('field_targetDate'));
-    orderCodeInput = element(by.id('field_orderCode'));
     barrelCountInput = element(by.id('field_barrelCount'));
     targetProofInput = element(by.id('field_targetProof'));
     notesInput = element(by.id('field_notes'));
@@ -45,14 +44,6 @@ export class ScheduleUpdatePage {
 
     async getTargetDateInput() {
         return this.targetDateInput.getAttribute('value');
-    }
-
-    async setOrderCodeInput(orderCode) {
-        await this.orderCodeInput.sendKeys(orderCode);
-    }
-
-    async getOrderCodeInput() {
-        return this.orderCodeInput.getAttribute('value');
     }
 
     async setBarrelCountInput(barrelCount) {

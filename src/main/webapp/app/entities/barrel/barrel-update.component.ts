@@ -12,8 +12,6 @@ import { IWarehouse } from 'app/shared/model/warehouse.model';
 import { WarehouseService } from 'app/entities/warehouse';
 import { IMashbill } from 'app/shared/model/mashbill.model';
 import { MashbillService } from 'app/entities/mashbill';
-import { ISchedule } from 'app/shared/model/schedule.model';
-import { ScheduleService } from 'app/entities/schedule';
 import { ICustomer } from 'app/shared/model/customer.model';
 import { CustomerService } from 'app/entities/customer';
 import { IBatch } from 'app/shared/model/batch.model';
@@ -31,8 +29,6 @@ export class BarrelUpdateComponent implements OnInit {
 
     mashbills: IMashbill[];
 
-    schedules: ISchedule[];
-
     customers: ICustomer[];
 
     batches: IBatch[];
@@ -43,7 +39,6 @@ export class BarrelUpdateComponent implements OnInit {
         protected barrelService: BarrelService,
         protected warehouseService: WarehouseService,
         protected mashbillService: MashbillService,
-        protected scheduleService: ScheduleService,
         protected customerService: CustomerService,
         protected batchService: BatchService,
         protected activatedRoute: ActivatedRoute
@@ -69,13 +64,6 @@ export class BarrelUpdateComponent implements OnInit {
                 map((response: HttpResponse<IMashbill[]>) => response.body)
             )
             .subscribe((res: IMashbill[]) => (this.mashbills = res), (res: HttpErrorResponse) => this.onError(res.message));
-        this.scheduleService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<ISchedule[]>) => mayBeOk.ok),
-                map((response: HttpResponse<ISchedule[]>) => response.body)
-            )
-            .subscribe((res: ISchedule[]) => (this.schedules = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.customerService
             .query()
             .pipe(
@@ -128,10 +116,6 @@ export class BarrelUpdateComponent implements OnInit {
     }
 
     trackMashbillById(index: number, item: IMashbill) {
-        return item.id;
-    }
-
-    trackScheduleById(index: number, item: ISchedule) {
         return item.id;
     }
 

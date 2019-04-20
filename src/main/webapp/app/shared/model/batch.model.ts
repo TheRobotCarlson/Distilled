@@ -5,12 +5,9 @@ export interface IBatch {
     id?: number;
     proof?: number;
     date?: Moment;
-    batchNumber?: string;
+    orderCode?: string;
     barrels?: IBarrel[];
-    scheduleOrderCode?: string;
     scheduleId?: number;
-    mashbillMashbillCode?: string;
-    mashbillId?: number;
 }
 
 export class Batch implements IBatch {
@@ -18,11 +15,8 @@ export class Batch implements IBatch {
         public id?: number,
         public proof?: number,
         public date?: Moment,
-        public batchNumber?: string,
+        public orderCode?: string,
         public barrels?: IBarrel[],
-        public scheduleOrderCode?: string,
-        public scheduleId?: number,
-        public mashbillMashbillCode?: string,
-        public mashbillId?: number
+        public scheduleId?: number
     ) {}
 }

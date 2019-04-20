@@ -43,7 +43,6 @@ describe('Barrel e2e test', () => {
             barrelUpdatePage.setBarreledDateInput('01/01/2001' + protractor.Key.TAB + '02:30AM'),
             barrelUpdatePage.warehouseSelectLastOption(),
             barrelUpdatePage.mashbillSelectLastOption(),
-            barrelUpdatePage.orderSelectLastOption(),
             barrelUpdatePage.customerSelectLastOption(),
             barrelUpdatePage.batchSelectLastOption()
         ]);

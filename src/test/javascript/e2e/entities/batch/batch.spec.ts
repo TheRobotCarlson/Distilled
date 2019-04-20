@@ -42,13 +42,12 @@ describe('Batch e2e test', () => {
         await promise.all([
             batchUpdatePage.setProofInput('5'),
             batchUpdatePage.setDateInput('01/01/2001' + protractor.Key.TAB + '02:30AM'),
-            batchUpdatePage.setBatchNumberInput('batchNumber'),
-            batchUpdatePage.scheduleSelectLastOption(),
-            batchUpdatePage.mashbillSelectLastOption()
+            batchUpdatePage.setOrderCodeInput('orderCode'),
+            batchUpdatePage.scheduleSelectLastOption()
         ]);
         expect(await batchUpdatePage.getProofInput()).to.eq('5');
         expect(await batchUpdatePage.getDateInput()).to.contain('2001-01-01T02:30');
-        expect(await batchUpdatePage.getBatchNumberInput()).to.eq('batchNumber');
+        expect(await batchUpdatePage.getOrderCodeInput()).to.eq('orderCode');
         await batchUpdatePage.save();
         expect(await batchUpdatePage.getSaveButton().isPresent()).to.be.false;
 

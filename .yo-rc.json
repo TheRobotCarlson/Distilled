@@ -7,8 +7,7 @@
     "enableTranslation": false,
     "jhiPrefix": "jhi",
     "languages": [
-      "en",
-      "fr"
+      "en"
     ],
     "messageBroker": false,
     "nativeLanguage": "en",
@@ -35,19 +34,10 @@
     "skipUserManagement": false,
     "clientFramework": "angularX",
     "serverPort": "8080",
-    "jwtSecretKey": "NjhjZGJjZDc0ZGU1MzRkMjJkMDdkNDRhMzFhMGZhMzY0YWU5YzNmODcxYjQ0YWQ0NTJjM2YxY2QzZWQ3N2QwNzA3NGQ5Y2ZjOTdmMThlYjY2MjViZjAyNWFhYTE1MDYxYWIwMjZhYWRiODk3YjA0YzY4MmFhYTY0NmE5OTdkNTQ=",
+    "jwtSecretKey": "YzUyYmE2ZWQ2YzdmMDJlNGFmOWRmNzU3MGIxYmRkMzhmZWEyZmI2NmViMDUzYjU3MjYwNGRjNjMyNWYxZjZiMWM4MDI2MTZjMThkYTllZDI2YTE2MTk0YTFkZDEwMmY1YjBiMDQ3ODBjMmMxZDZlZTVmMGI4NDljOTk4NDJmOWE=",
     "entitySuffix": "",
     "dtoSuffix": "DTO",
-    "otherModules": [],
-    "aws": {
-      "applicationName": "distilled-2",
-      "environmentName": "distilled-2",
-      "bucketName": "distilled-4",
-      "instanceType": "t2.small",
-      "awsRegion": "us-east-1",
-      "dbName": "distilled4",
-      "dbInstanceClass": "db.t2.micro"
-    }
+    "otherModules": []
   },
   "entities": [
     "Grain",

@@ -17,17 +17,6 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_orderCode">Order Code</label>
-                    <input type="text" class="form-control" name="orderCode" id="field_orderCode"
-                        [(ngModel)]="schedule.orderCode" required/>
-                    <div [hidden]="!(editForm.controls.orderCode?.dirty && editForm.controls.orderCode?.invalid)">
-                        <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.orderCode?.errors?.required">
-                        This field is required.
-                        </small>
-                    </div>
-                </div>
-                <div class="form-group">
                     <label class="form-control-label" for="field_barrelCount">Barrel Count</label>
                     <input type="number" class="form-control" name="barrelCount" id="field_barrelCount"
                         [(ngModel)]="schedule.barrelCount" required/>

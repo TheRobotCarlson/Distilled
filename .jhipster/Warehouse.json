@@ -37,7 +37,7 @@
             "relationshipName": "schedule"
         }
     ],
-    "changelogDate": "20190419000617",
+    "changelogDate": "20190420184717",
     "entityTableName": "warehouse",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

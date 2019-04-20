@@ -22,7 +22,6 @@ public interface MashbillMapper extends EntityMapper<MashbillDTO, Mashbill> {
     @Mapping(source = "yeastId", target = "yeast")
     @Mapping(target = "barrels", ignore = true)
     @Mapping(target = "schedules", ignore = true)
-    @Mapping(target = "batches", ignore = true)
     @Mapping(source = "spiritId", target = "spirit")
     @Mapping(source = "customerId", target = "customer")
     Mashbill toEntity(MashbillDTO mashbillDTO);

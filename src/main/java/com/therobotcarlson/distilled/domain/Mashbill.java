@@ -51,9 +51,6 @@ public class Mashbill implements Serializable {
     @OneToMany(mappedBy = "mashbill")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Schedule> schedules = new HashSet<>();
-    @OneToMany(mappedBy = "mashbill")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Batch> batches = new HashSet<>();
     @ManyToOne
     @JsonIgnoreProperties("mashbills")
     private Spirit spirit;
@@ -178,31 +175,6 @@ public class Mashbill implements Serializable {
 
     public void setSchedules(Set<Schedule> schedules) {
         this.schedules = schedules;
-    }
-
-    public Set<Batch> getBatches() {
-        return batches;
-    }
-
-    public Mashbill batches(Set<Batch> batches) {
-        this.batches = batches;
-        return this;
-    }
-
-    public Mashbill addBatch(Batch batch) {
-        this.batches.add(batch);
-        batch.setMashbill(this);
-        return this;
-    }
-
-    public Mashbill removeBatch(Batch batch) {
-        this.batches.remove(batch);
-        batch.setMashbill(null);
-        return this;
-    }
-
-    public void setBatches(Set<Batch> batches) {
-        this.batches = batches;
     }
 
     public Spirit getSpirit() {

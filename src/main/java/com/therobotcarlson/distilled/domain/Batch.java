@@ -40,8 +40,8 @@ public class Batch implements Serializable {
     private ZonedDateTime date;
 
     @NotNull
-    @Column(name = "batch_number", nullable = false)
-    private String batchNumber;
+    @Column(name = "order_code", nullable = false)
+    private String orderCode;
 
     @OneToMany(mappedBy = "batch")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -49,10 +49,6 @@ public class Batch implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties("batches")
     private Schedule schedule;
-
-    @ManyToOne
-    @JsonIgnoreProperties("batches")
-    private Mashbill mashbill;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -89,17 +85,17 @@ public class Batch implements Serializable {
         this.date = date;
     }
 
-    public String getBatchNumber() {
-        return batchNumber;
+    public String getOrderCode() {
+        return orderCode;
     }
 
-    public Batch batchNumber(String batchNumber) {
-        this.batchNumber = batchNumber;
+    public Batch orderCode(String orderCode) {
+        this.orderCode = orderCode;
         return this;
     }
 
-    public void setBatchNumber(String batchNumber) {
-        this.batchNumber = batchNumber;
+    public void setOrderCode(String orderCode) {
+        this.orderCode = orderCode;
     }
 
     public Set<Barrel> getBarrels() {
@@ -139,19 +135,6 @@ public class Batch implements Serializable {
     public void setSchedule(Schedule schedule) {
         this.schedule = schedule;
     }
-
-    public Mashbill getMashbill() {
-        return mashbill;
-    }
-
-    public Batch mashbill(Mashbill mashbill) {
-        this.mashbill = mashbill;
-        return this;
-    }
-
-    public void setMashbill(Mashbill mashbill) {
-        this.mashbill = mashbill;
-    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -180,7 +163,7 @@ public class Batch implements Serializable {
             "id=" + getId() +
             ", proof=" + getProof() +
             ", date='" + getDate() + "'" +
-            ", batchNumber='" + getBatchNumber() + "'" +
+            ", orderCode='" + getOrderCode() + "'" +
             "}";
     }
 }

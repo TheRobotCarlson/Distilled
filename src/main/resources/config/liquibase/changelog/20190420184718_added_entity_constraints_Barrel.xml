@@ -6,7 +6,7 @@
     <!--
         Added the constraints for entity Barrel.
     -->
-    <changeSet id="20190419000618-2" author="jhipster">
+    <changeSet id="20190420184718-2" author="jhipster">
         
         <addForeignKeyConstraint baseColumnNames="warehouse_id"
                                  baseTableName="barrel"
@@ -19,12 +19,6 @@
                                  constraintName="fk_barrel_mashbill_id"
                                  referencedColumnNames="id"
                                  referencedTableName="mashbill"/>
-
-        <addForeignKeyConstraint baseColumnNames="order_id"
-                                 baseTableName="barrel"
-                                 constraintName="fk_barrel_order_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="schedule"/>
 
         <addForeignKeyConstraint baseColumnNames="customer_id"
                                  baseTableName="barrel"

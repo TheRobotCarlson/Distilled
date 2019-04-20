@@ -1,6 +1,5 @@
 import { IBarrel } from 'app/shared/model/barrel.model';
 import { ISchedule } from 'app/shared/model/schedule.model';
-import { IBatch } from 'app/shared/model/batch.model';
 import { IMashbillGrain } from 'app/shared/model/mashbill-grain.model';
 
 export interface IMashbill {
@@ -12,7 +11,6 @@ export interface IMashbill {
     yeastId?: number;
     barrels?: IBarrel[];
     schedules?: ISchedule[];
-    batches?: IBatch[];
     spiritName?: string;
     spiritId?: number;
     grainCounts?: IMashbillGrain[];
@@ -30,7 +28,6 @@ export class Mashbill implements IMashbill {
         public yeastId?: number,
         public barrels?: IBarrel[],
         public schedules?: ISchedule[],
-        public batches?: IBatch[],
         public spiritName?: string,
         public spiritId?: number,
         public grainCounts?: IMashbillGrain[],

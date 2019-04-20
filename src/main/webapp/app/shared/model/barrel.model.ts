@@ -7,11 +7,9 @@ export interface IBarrel {
     warehouseId?: number;
     mashbillMashbillCode?: string;
     mashbillId?: number;
-    orderOrderCode?: string;
-    orderId?: number;
     customerCustomerCode?: string;
     customerId?: number;
-    batchBatchNumber?: string;
+    batchOrderCode?: string;
     batchId?: number;
 }
 
@@ -23,11 +21,9 @@ export class Barrel implements IBarrel {
         public warehouseId?: number,
         public mashbillMashbillCode?: string,
         public mashbillId?: number,
-        public orderOrderCode?: string,
-        public orderId?: number,
         public customerCustomerCode?: string,
         public customerId?: number,
-        public batchBatchNumber?: string,
+        public batchOrderCode?: string,
         public batchId?: number
     ) {}
 }

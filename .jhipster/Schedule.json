@@ -6,13 +6,6 @@
             "fieldType": "ZonedDateTime"
         },
         {
-            "fieldName": "orderCode",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "required"
-            ]
-        },
-        {
             "fieldName": "barrelCount",
             "fieldType": "Integer",
             "fieldValidateRules": [
@@ -32,12 +25,6 @@
         }
     ],
     "relationships": [
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "barrel",
-            "otherEntityRelationshipName": "order",
-            "relationshipName": "barrel"
-        },
         {
             "relationshipType": "one-to-many",
             "otherEntityName": "batch",
@@ -66,7 +53,7 @@
             "otherEntityField": "warehouseCode"
         }
     ],
-    "changelogDate": "20190419000619",
+    "changelogDate": "20190420184719",
     "entityTableName": "schedule",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

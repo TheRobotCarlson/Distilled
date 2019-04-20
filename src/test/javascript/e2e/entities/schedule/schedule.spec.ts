@@ -41,7 +41,6 @@ describe('Schedule e2e test', () => {
         await scheduleComponentsPage.clickOnCreateButton();
         await promise.all([
             scheduleUpdatePage.setTargetDateInput('01/01/2001' + protractor.Key.TAB + '02:30AM'),
-            scheduleUpdatePage.setOrderCodeInput('orderCode'),
             scheduleUpdatePage.setBarrelCountInput('5'),
             scheduleUpdatePage.setTargetProofInput('5'),
             scheduleUpdatePage.setNotesInput('notes'),
@@ -50,7 +49,6 @@ describe('Schedule e2e test', () => {
             scheduleUpdatePage.warehouseSelectLastOption()
         ]);
         expect(await scheduleUpdatePage.getTargetDateInput()).to.contain('2001-01-01T02:30');
-        expect(await scheduleUpdatePage.getOrderCodeInput()).to.eq('orderCode');
         expect(await scheduleUpdatePage.getBarrelCountInput()).to.eq('5');
         expect(await scheduleUpdatePage.getTargetProofInput()).to.eq('5');
         expect(await scheduleUpdatePage.getNotesInput()).to.eq('notes');

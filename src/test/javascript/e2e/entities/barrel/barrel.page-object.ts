@@ -29,7 +29,6 @@ export class BarrelUpdatePage {
     barreledDateInput = element(by.id('field_barreledDate'));
     warehouseSelect = element(by.id('field_warehouse'));
     mashbillSelect = element(by.id('field_mashbill'));
-    orderSelect = element(by.id('field_order'));
     customerSelect = element(by.id('field_customer'));
     batchSelect = element(by.id('field_batch'));
 
@@ -81,25 +80,6 @@ export class BarrelUpdatePage {
 
     async getMashbillSelectedOption() {
         return this.mashbillSelect.element(by.css('option:checked')).getText();
-    }
-
-    async orderSelectLastOption() {
-        await this.orderSelect
-            .all(by.tagName('option'))
-            .last()
-            .click();
-    }
-
-    async orderSelectOption(option) {
-        await this.orderSelect.sendKeys(option);
-    }
-
-    getOrderSelect(): ElementFinder {
-        return this.orderSelect;
-    }
-
-    async getOrderSelectedOption() {
-        return this.orderSelect.element(by.css('option:checked')).getText();
     }
 
     async customerSelectLastOption() {

@@ -26,13 +26,6 @@
         },
         {
             "relationshipType": "many-to-one",
-            "otherEntityName": "schedule",
-            "otherEntityRelationshipName": "barrel",
-            "relationshipName": "order",
-            "otherEntityField": "orderCode"
-        },
-        {
-            "relationshipType": "many-to-one",
             "otherEntityName": "customer",
             "otherEntityRelationshipName": "barrel",
             "relationshipName": "customer",
@@ -43,10 +36,10 @@
             "otherEntityName": "batch",
             "otherEntityRelationshipName": "barrel",
             "relationshipName": "batch",
-            "otherEntityField": "batchNumber"
+            "otherEntityField": "orderCode"
         }
     ],
-    "changelogDate": "20190419000618",
+    "changelogDate": "20190420184718",
     "entityTableName": "barrel",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

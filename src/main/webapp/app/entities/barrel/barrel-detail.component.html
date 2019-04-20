@@ -21,12 +21,6 @@
                         <a [routerLink]="['/mashbill', barrel.mashbillId, 'view']">{{barrel.mashbillMashbillCode}}</a>
                     </div>
                 </dd>
-                <dt><span>Order</span></dt>
-                <dd>
-                    <div *ngIf="barrel.orderId">
-                        <a [routerLink]="['/schedule', barrel.orderId, 'view']">{{barrel.orderOrderCode}}</a>
-                    </div>
-                </dd>
                 <dt><span>Customer</span></dt>
                 <dd>
                     <div *ngIf="barrel.customerId">
@@ -36,7 +30,7 @@
                 <dt><span>Batch</span></dt>
                 <dd>
                     <div *ngIf="barrel.batchId">
-                        <a [routerLink]="['/batch', barrel.batchId, 'view']">{{barrel.batchBatchNumber}}</a>
+                        <a [routerLink]="['/batch', barrel.batchId, 'view']">{{barrel.batchOrderCode}}</a>
                     </div>
                 </dd>
             </dl>

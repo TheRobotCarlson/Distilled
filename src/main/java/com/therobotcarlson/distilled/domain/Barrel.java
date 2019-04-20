@@ -42,10 +42,6 @@ public class Barrel implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties("barrels")
-    private Schedule order;
-
-    @ManyToOne
-    @JsonIgnoreProperties("barrels")
     private Customer customer;
 
     @ManyToOne
@@ -98,19 +94,6 @@ public class Barrel implements Serializable {
 
     public void setMashbill(Mashbill mashbill) {
         this.mashbill = mashbill;
-    }
-
-    public Schedule getOrder() {
-        return order;
-    }
-
-    public Barrel order(Schedule schedule) {
-        this.order = schedule;
-        return this;
-    }
-
-    public void setOrder(Schedule schedule) {
-        this.order = schedule;
     }
 
     public Customer getCustomer() {

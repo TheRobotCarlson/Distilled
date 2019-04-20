@@ -42,12 +42,6 @@
             "relationshipName": "schedule"
         },
         {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "batch",
-            "otherEntityRelationshipName": "mashbill",
-            "relationshipName": "batch"
-        },
-        {
             "relationshipType": "many-to-one",
             "otherEntityName": "spirit",
             "otherEntityRelationshipName": "mashbill",
@@ -70,7 +64,7 @@
             "otherEntityField": "customerName"
         }
     ],
-    "changelogDate": "20190419000616",
+    "changelogDate": "20190420184716",
     "entityTableName": "mashbill",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

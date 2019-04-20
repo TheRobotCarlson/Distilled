@@ -57,9 +57,6 @@ public class ScheduleResourceIntTest {
     private static final ZonedDateTime DEFAULT_TARGET_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_TARGET_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
-    private static final String DEFAULT_ORDER_CODE = "AAAAAAAAAA";
-    private static final String UPDATED_ORDER_CODE = "BBBBBBBBBB";
-
     private static final Integer DEFAULT_BARREL_COUNT = 1;
     private static final Integer UPDATED_BARREL_COUNT = 2;
 
@@ -126,7 +123,6 @@ public class ScheduleResourceIntTest {
     public static Schedule createEntity(EntityManager em) {
         Schedule schedule = new Schedule()
             .targetDate(DEFAULT_TARGET_DATE)
-            .orderCode(DEFAULT_ORDER_CODE)
             .barrelCount(DEFAULT_BARREL_COUNT)
             .targetProof(DEFAULT_TARGET_PROOF)
             .notes(DEFAULT_NOTES);
@@ -155,7 +151,6 @@ public class ScheduleResourceIntTest {
         assertThat(scheduleList).hasSize(databaseSizeBeforeCreate + 1);
         Schedule testSchedule = scheduleList.get(scheduleList.size() - 1);
         assertThat(testSchedule.getTargetDate()).isEqualTo(DEFAULT_TARGET_DATE);
-        assertThat(testSchedule.getOrderCode()).isEqualTo(DEFAULT_ORDER_CODE);
         assertThat(testSchedule.getBarrelCount()).isEqualTo(DEFAULT_BARREL_COUNT);
         assertThat(testSchedule.getTargetProof()).isEqualTo(DEFAULT_TARGET_PROOF);
         assertThat(testSchedule.getNotes()).isEqualTo(DEFAULT_NOTES);
@@ -185,25 +180,6 @@ public class ScheduleResourceIntTest {
 
         // Validate the Schedule in Elasticsearch
         verify(mockScheduleSearchRepository, times(0)).save(schedule);
-    }
-
-    @Test
-    @Transactional
-    public void checkOrderCodeIsRequired() throws Exception {
-        int databaseSizeBeforeTest = scheduleRepository.findAll().size();
-        // set the field null
-        schedule.setOrderCode(null);
-
-        // Create the Schedule, which fails.
-        ScheduleDTO scheduleDTO = scheduleMapper.toDto(schedule);
-
-        restScheduleMockMvc.perform(post("/api/schedules")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(scheduleDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<Schedule> scheduleList = scheduleRepository.findAll();
-        assertThat(scheduleList).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -256,7 +232,6 @@ public class ScheduleResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(schedule.getId().intValue())))
             .andExpect(jsonPath("$.[*].targetDate").value(hasItem(sameInstant(DEFAULT_TARGET_DATE))))
-            .andExpect(jsonPath("$.[*].orderCode").value(hasItem(DEFAULT_ORDER_CODE.toString())))
             .andExpect(jsonPath("$.[*].barrelCount").value(hasItem(DEFAULT_BARREL_COUNT)))
             .andExpect(jsonPath("$.[*].targetProof").value(hasItem(DEFAULT_TARGET_PROOF)))
             .andExpect(jsonPath("$.[*].notes").value(hasItem(DEFAULT_NOTES.toString())));
@@ -274,7 +249,6 @@ public class ScheduleResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(schedule.getId().intValue()))
             .andExpect(jsonPath("$.targetDate").value(sameInstant(DEFAULT_TARGET_DATE)))
-            .andExpect(jsonPath("$.orderCode").value(DEFAULT_ORDER_CODE.toString()))
             .andExpect(jsonPath("$.barrelCount").value(DEFAULT_BARREL_COUNT))
             .andExpect(jsonPath("$.targetProof").value(DEFAULT_TARGET_PROOF))
             .andExpect(jsonPath("$.notes").value(DEFAULT_NOTES.toString()));
@@ -302,7 +276,6 @@ public class ScheduleResourceIntTest {
         em.detach(updatedSchedule);
         updatedSchedule
             .targetDate(UPDATED_TARGET_DATE)
-            .orderCode(UPDATED_ORDER_CODE)
             .barrelCount(UPDATED_BARREL_COUNT)
             .targetProof(UPDATED_TARGET_PROOF)
             .notes(UPDATED_NOTES);
@@ -318,7 +291,6 @@ public class ScheduleResourceIntTest {
         assertThat(scheduleList).hasSize(databaseSizeBeforeUpdate);
         Schedule testSchedule = scheduleList.get(scheduleList.size() - 1);
         assertThat(testSchedule.getTargetDate()).isEqualTo(UPDATED_TARGET_DATE);
-        assertThat(testSchedule.getOrderCode()).isEqualTo(UPDATED_ORDER_CODE);
         assertThat(testSchedule.getBarrelCount()).isEqualTo(UPDATED_BARREL_COUNT);
         assertThat(testSchedule.getTargetProof()).isEqualTo(UPDATED_TARGET_PROOF);
         assertThat(testSchedule.getNotes()).isEqualTo(UPDATED_NOTES);
@@ -383,7 +355,6 @@ public class ScheduleResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(schedule.getId().intValue())))
             .andExpect(jsonPath("$.[*].targetDate").value(hasItem(sameInstant(DEFAULT_TARGET_DATE))))
-            .andExpect(jsonPath("$.[*].orderCode").value(hasItem(DEFAULT_ORDER_CODE)))
             .andExpect(jsonPath("$.[*].barrelCount").value(hasItem(DEFAULT_BARREL_COUNT)))
             .andExpect(jsonPath("$.[*].targetProof").value(hasItem(DEFAULT_TARGET_PROOF)))
             .andExpect(jsonPath("$.[*].notes").value(hasItem(DEFAULT_NOTES)));

@@ -42,13 +42,6 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_order">Order</label>
-                    <select class="form-control" id="field_order" name="order" [(ngModel)]="barrel.orderId" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="scheduleOption.id" *ngFor="let scheduleOption of schedules; trackBy: trackScheduleById">{{scheduleOption.orderCode}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
                     <label class="form-control-label" for="field_customer">Customer</label>
                     <select class="form-control" id="field_customer" name="customer" [(ngModel)]="barrel.customerId" >
                         <option [ngValue]="null"></option>
@@ -59,7 +52,7 @@
                     <label class="form-control-label" for="field_batch">Batch</label>
                     <select class="form-control" id="field_batch" name="batch" [(ngModel)]="barrel.batchId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="batchOption.id" *ngFor="let batchOption of batches; trackBy: trackBatchById">{{batchOption.batchNumber}}</option>
+                        <option [ngValue]="batchOption.id" *ngFor="let batchOption of batches; trackBy: trackBatchById">{{batchOption.orderCode}}</option>
                     </select>
                 </div>
             </div>

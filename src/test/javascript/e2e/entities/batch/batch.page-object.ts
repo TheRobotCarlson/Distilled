@@ -28,9 +28,8 @@ export class BatchUpdatePage {
     cancelButton = element(by.id('cancel-save'));
     proofInput = element(by.id('field_proof'));
     dateInput = element(by.id('field_date'));
-    batchNumberInput = element(by.id('field_batchNumber'));
+    orderCodeInput = element(by.id('field_orderCode'));
     scheduleSelect = element(by.id('field_schedule'));
-    mashbillSelect = element(by.id('field_mashbill'));
 
     async getPageTitle() {
         return this.pageTitle.getText();
@@ -52,12 +51,12 @@ export class BatchUpdatePage {
         return this.dateInput.getAttribute('value');
     }
 
-    async setBatchNumberInput(batchNumber) {
-        await this.batchNumberInput.sendKeys(batchNumber);
+    async setOrderCodeInput(orderCode) {
+        await this.orderCodeInput.sendKeys(orderCode);
     }
 
-    async getBatchNumberInput() {
-        return this.batchNumberInput.getAttribute('value');
+    async getOrderCodeInput() {
+        return this.orderCodeInput.getAttribute('value');
     }
 
     async scheduleSelectLastOption() {
@@ -77,25 +76,6 @@ export class BatchUpdatePage {
 
     async getScheduleSelectedOption() {
         return this.scheduleSelect.element(by.css('option:checked')).getText();
-    }
-
-    async mashbillSelectLastOption() {
-        await this.mashbillSelect
-            .all(by.tagName('option'))
-            .last()
-            .click();
-    }
-
-    async mashbillSelectOption(option) {
-        await this.mashbillSelect.sendKeys(option);
-    }
-
-    getMashbillSelect(): ElementFinder {
-        return this.mashbillSelect;
-    }
-
-    async getMashbillSelectedOption() {
-        return this.mashbillSelect.element(by.css('option:checked')).getText();
     }
 
     async save() {

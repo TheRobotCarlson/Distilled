@@ -29,7 +29,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <!-- <th><span>ID</span></th> -->
+            <th><span>ID</span></th>
             <th><span>Quantity</span></th>
             <th><span>Grain</span></th>
             <th></th>
@@ -37,7 +37,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let mashbillGrain of mashbillGrains ;trackBy: trackId">
-                <!-- <td><a [routerLink]="['/mashbill-grain', mashbillGrain.id, 'view' ]">{{mashbillGrain.id}}</a></td> -->
+                <td><a [routerLink]="['/mashbill-grain', mashbillGrain.id, 'view' ]">{{mashbillGrain.id}}</a></td>
                 <td>{{mashbillGrain.quantity}}</td>
                 <td>
                     <div *ngIf="mashbillGrain.grainId">

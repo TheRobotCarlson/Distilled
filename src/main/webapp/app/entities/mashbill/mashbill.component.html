@@ -29,7 +29,7 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
-            <!-- <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="mashbillName"><span>Mashbill Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="mashbillCode"><span>Mashbill Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="mashbillNotes"><span>Mashbill Notes</span> <fa-icon [icon]="'sort'"></fa-icon></th>
@@ -41,7 +41,7 @@
             </thead>
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let mashbill of mashbills ;trackBy: trackId">
-                <!-- <td><a [routerLink]="['/mashbill', mashbill.id, 'view' ]">{{mashbill.id}}</a></td> -->
+                <td><a [routerLink]="['/mashbill', mashbill.id, 'view' ]">{{mashbill.id}}</a></td>
                 <td>{{mashbill.mashbillName}}</td>
                 <td>{{mashbill.mashbillCode}}</td>
                 <td>{{mashbill.mashbillNotes}}</td>

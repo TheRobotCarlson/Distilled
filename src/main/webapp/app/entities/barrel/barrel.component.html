@@ -29,19 +29,18 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
-            <!-- <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="barreledDate"><span>Barreled Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="warehouseWarehouseCode"><span>Warehouse</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="mashbillMashbillCode"><span>Mashbill</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="orderOrderCode"><span>Order</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="customerCustomerCode"><span>Customer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="batchBatchNumber"><span>Batch</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="batchOrderCode"><span>Batch</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let barrel of barrels ;trackBy: trackId">
-                <!-- <td><a [routerLink]="['/barrel', barrel.id, 'view' ]">{{barrel.id}}</a></td> -->
+                <td><a [routerLink]="['/barrel', barrel.id, 'view' ]">{{barrel.id}}</a></td>
                 <td>{{barrel.barreledDate | date:'medium'}}</td>
                 <td>
                     <div *ngIf="barrel.warehouseId">
@@ -54,18 +53,13 @@
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="barrel.orderId">
-                        <a [routerLink]="['../schedule', barrel.orderId , 'view' ]" >{{barrel.orderOrderCode}}</a>
-                    </div>
-                </td>
-                <td>
                     <div *ngIf="barrel.customerId">
                         <a [routerLink]="['../customer', barrel.customerId , 'view' ]" >{{barrel.customerCustomerCode}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="barrel.batchId">
-                        <a [routerLink]="['../batch', barrel.batchId , 'view' ]" >{{barrel.batchBatchNumber}}</a>
+                        <a [routerLink]="['../batch', barrel.batchId , 'view' ]" >{{barrel.batchOrderCode}}</a>
                     </div>
                 </td>
                 <td class="text-right">

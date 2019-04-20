@@ -18,16 +18,10 @@ public class BatchDTO implements Serializable {
     private ZonedDateTime date;
 
     @NotNull
-    private String batchNumber;
+    private String orderCode;
 
 
     private Long scheduleId;
-
-    private String scheduleOrderCode;
-
-    private Long mashbillId;
-
-    private String mashbillMashbillCode;
 
     public Long getId() {
         return id;
@@ -53,12 +47,12 @@ public class BatchDTO implements Serializable {
         this.date = date;
     }
 
-    public String getBatchNumber() {
-        return batchNumber;
+    public String getOrderCode() {
+        return orderCode;
     }
 
-    public void setBatchNumber(String batchNumber) {
-        this.batchNumber = batchNumber;
+    public void setOrderCode(String orderCode) {
+        this.orderCode = orderCode;
     }
 
     public Long getScheduleId() {
@@ -67,30 +61,6 @@ public class BatchDTO implements Serializable {
 
     public void setScheduleId(Long scheduleId) {
         this.scheduleId = scheduleId;
-    }
-
-    public String getScheduleOrderCode() {
-        return scheduleOrderCode;
-    }
-
-    public void setScheduleOrderCode(String scheduleOrderCode) {
-        this.scheduleOrderCode = scheduleOrderCode;
-    }
-
-    public Long getMashbillId() {
-        return mashbillId;
-    }
-
-    public void setMashbillId(Long mashbillId) {
-        this.mashbillId = mashbillId;
-    }
-
-    public String getMashbillMashbillCode() {
-        return mashbillMashbillCode;
-    }
-
-    public void setMashbillMashbillCode(String mashbillMashbillCode) {
-        this.mashbillMashbillCode = mashbillMashbillCode;
     }
 
     @Override
@@ -120,11 +90,8 @@ public class BatchDTO implements Serializable {
             "id=" + getId() +
             ", proof=" + getProof() +
             ", date='" + getDate() + "'" +
-            ", batchNumber='" + getBatchNumber() + "'" +
+            ", orderCode='" + getOrderCode() + "'" +
             ", schedule=" + getScheduleId() +
-            ", schedule='" + getScheduleOrderCode() + "'" +
-            ", mashbill=" + getMashbillId() +
-            ", mashbill='" + getMashbillMashbillCode() + "'" +
             "}";
     }
 }

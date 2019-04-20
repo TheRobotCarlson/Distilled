@@ -35,10 +35,6 @@ public class Schedule implements Serializable {
     private ZonedDateTime targetDate;
 
     @NotNull
-    @Column(name = "order_code", nullable = false)
-    private String orderCode;
-
-    @NotNull
     @Column(name = "barrel_count", nullable = false)
     private Integer barrelCount;
 
@@ -49,9 +45,6 @@ public class Schedule implements Serializable {
     @Column(name = "notes")
     private String notes;
 
-    @OneToMany(mappedBy = "order")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Barrel> barrels = new HashSet<>();
     @OneToMany(mappedBy = "schedule")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Batch> batches = new HashSet<>();
@@ -87,19 +80,6 @@ public class Schedule implements Serializable {
 
     public void setTargetDate(ZonedDateTime targetDate) {
         this.targetDate = targetDate;
-    }
-
-    public String getOrderCode() {
-        return orderCode;
-    }
-
-    public Schedule orderCode(String orderCode) {
-        this.orderCode = orderCode;
-        return this;
-    }
-
-    public void setOrderCode(String orderCode) {
-        this.orderCode = orderCode;
     }
 
     public Integer getBarrelCount() {
@@ -139,31 +119,6 @@ public class Schedule implements Serializable {
 
     public void setNotes(String notes) {
         this.notes = notes;
-    }
-
-    public Set<Barrel> getBarrels() {
-        return barrels;
-    }
-
-    public Schedule barrels(Set<Barrel> barrels) {
-        this.barrels = barrels;
-        return this;
-    }
-
-    public Schedule addBarrel(Barrel barrel) {
-        this.barrels.add(barrel);
-        barrel.setOrder(this);
-        return this;
-    }
-
-    public Schedule removeBarrel(Barrel barrel) {
-        this.barrels.remove(barrel);
-        barrel.setOrder(null);
-        return this;
-    }
-
-    public void setBarrels(Set<Barrel> barrels) {
-        this.barrels = barrels;
     }
 
     public Set<Batch> getBatches() {
@@ -256,7 +211,6 @@ public class Schedule implements Serializable {
         return "Schedule{" +
             "id=" + getId() +
             ", targetDate='" + getTargetDate() + "'" +
-            ", orderCode='" + getOrderCode() + "'" +
             ", barrelCount=" + getBarrelCount() +
             ", targetProof=" + getTargetProof() +
             ", notes='" + getNotes() + "'" +

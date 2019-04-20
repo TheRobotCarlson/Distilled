@@ -19,7 +19,6 @@ public interface ScheduleMapper extends EntityMapper<ScheduleDTO, Schedule> {
     @Mapping(source = "warehouse.warehouseCode", target = "warehouseWarehouseCode")
     ScheduleDTO toDto(Schedule schedule);
 
-    @Mapping(target = "barrels", ignore = true)
     @Mapping(target = "batches", ignore = true)
     @Mapping(source = "mashbillId", target = "mashbill")
     @Mapping(source = "customerId", target = "customer")

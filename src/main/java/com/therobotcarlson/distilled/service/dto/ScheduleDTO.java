@@ -14,9 +14,6 @@ public class ScheduleDTO implements Serializable {
     private ZonedDateTime targetDate;
 
     @NotNull
-    private String orderCode;
-
-    @NotNull
     private Integer barrelCount;
 
     @NotNull
@@ -51,14 +48,6 @@ public class ScheduleDTO implements Serializable {
 
     public void setTargetDate(ZonedDateTime targetDate) {
         this.targetDate = targetDate;
-    }
-
-    public String getOrderCode() {
-        return orderCode;
-    }
-
-    public void setOrderCode(String orderCode) {
-        this.orderCode = orderCode;
     }
 
     public Integer getBarrelCount() {
@@ -159,7 +148,6 @@ public class ScheduleDTO implements Serializable {
         return "ScheduleDTO{" +
             "id=" + getId() +
             ", targetDate='" + getTargetDate() + "'" +
-            ", orderCode='" + getOrderCode() + "'" +
             ", barrelCount=" + getBarrelCount() +
             ", targetProof=" + getTargetProof() +
             ", notes='" + getNotes() + "'" +

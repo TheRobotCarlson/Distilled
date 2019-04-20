@@ -23,17 +23,13 @@ public class BarrelDTO implements Serializable {
 
     private String mashbillMashbillCode;
 
-    private Long orderId;
-
-    private String orderOrderCode;
-
     private Long customerId;
 
     private String customerCustomerCode;
 
     private Long batchId;
 
-    private String batchBatchNumber;
+    private String batchOrderCode;
 
     public Long getId() {
         return id;
@@ -83,22 +79,6 @@ public class BarrelDTO implements Serializable {
         this.mashbillMashbillCode = mashbillMashbillCode;
     }
 
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long scheduleId) {
-        this.orderId = scheduleId;
-    }
-
-    public String getOrderOrderCode() {
-        return orderOrderCode;
-    }
-
-    public void setOrderOrderCode(String scheduleOrderCode) {
-        this.orderOrderCode = scheduleOrderCode;
-    }
-
     public Long getCustomerId() {
         return customerId;
     }
@@ -123,12 +103,12 @@ public class BarrelDTO implements Serializable {
         this.batchId = batchId;
     }
 
-    public String getBatchBatchNumber() {
-        return batchBatchNumber;
+    public String getBatchOrderCode() {
+        return batchOrderCode;
     }
 
-    public void setBatchBatchNumber(String batchBatchNumber) {
-        this.batchBatchNumber = batchBatchNumber;
+    public void setBatchOrderCode(String batchOrderCode) {
+        this.batchOrderCode = batchOrderCode;
     }
 
     @Override
@@ -161,12 +141,10 @@ public class BarrelDTO implements Serializable {
             ", warehouse='" + getWarehouseWarehouseCode() + "'" +
             ", mashbill=" + getMashbillId() +
             ", mashbill='" + getMashbillMashbillCode() + "'" +
-            ", order=" + getOrderId() +
-            ", order='" + getOrderOrderCode() + "'" +
             ", customer=" + getCustomerId() +
             ", customer='" + getCustomerCustomerCode() + "'" +
             ", batch=" + getBatchId() +
-            ", batch='" + getBatchBatchNumber() + "'" +
+            ", batch='" + getBatchOrderCode() + "'" +
             "}";
     }
 }

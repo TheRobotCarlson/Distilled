@@ -19,7 +19,7 @@
         }
     ],
     "relationships": [],
-    "changelogDate": "20190419000611",
+    "changelogDate": "20190420184711",
     "entityTableName": "grain",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

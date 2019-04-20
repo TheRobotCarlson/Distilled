@@ -13,20 +13,14 @@
                 <dd>
                     <span>{{batch.date}}</span>
                 </dd>
-                <dt><span>Batch Number</span></dt>
+                <dt><span>Order Code</span></dt>
                 <dd>
-                    <span>{{batch.batchNumber}}</span>
+                    <span>{{batch.orderCode}}</span>
                 </dd>
                 <dt><span>Schedule</span></dt>
                 <dd>
                     <div *ngIf="batch.scheduleId">
-                        <a [routerLink]="['/schedule', batch.scheduleId, 'view']">{{batch.scheduleOrderCode}}</a>
-                    </div>
-                </dd>
-                <dt><span>Mashbill</span></dt>
-                <dd>
-                    <div *ngIf="batch.mashbillId">
-                        <a [routerLink]="['/mashbill', batch.mashbillId, 'view']">{{batch.mashbillMashbillCode}}</a>
+                        <a [routerLink]="['/schedule', batch.scheduleId, 'view']">{{batch.scheduleId}}</a>
                     </div>
                 </dd>
             </dl>

@@ -60,8 +60,8 @@ public class BatchResourceIntTest {
     private static final ZonedDateTime DEFAULT_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
-    private static final String DEFAULT_BATCH_NUMBER = "AAAAAAAAAA";
-    private static final String UPDATED_BATCH_NUMBER = "BBBBBBBBBB";
+    private static final String DEFAULT_ORDER_CODE = "AAAAAAAAAA";
+    private static final String UPDATED_ORDER_CODE = "BBBBBBBBBB";
 
     @Autowired
     private BatchRepository batchRepository;
@@ -121,7 +121,7 @@ public class BatchResourceIntTest {
         Batch batch = new Batch()
             .proof(DEFAULT_PROOF)
             .date(DEFAULT_DATE)
-            .batchNumber(DEFAULT_BATCH_NUMBER);
+            .orderCode(DEFAULT_ORDER_CODE);
         return batch;
     }
 
@@ -148,7 +148,7 @@ public class BatchResourceIntTest {
         Batch testBatch = batchList.get(batchList.size() - 1);
         assertThat(testBatch.getProof()).isEqualTo(DEFAULT_PROOF);
         assertThat(testBatch.getDate()).isEqualTo(DEFAULT_DATE);
-        assertThat(testBatch.getBatchNumber()).isEqualTo(DEFAULT_BATCH_NUMBER);
+        assertThat(testBatch.getOrderCode()).isEqualTo(DEFAULT_ORDER_CODE);
 
         // Validate the Batch in Elasticsearch
         verify(mockBatchSearchRepository, times(1)).save(testBatch);
@@ -217,10 +217,10 @@ public class BatchResourceIntTest {
 
     @Test
     @Transactional
-    public void checkBatchNumberIsRequired() throws Exception {
+    public void checkOrderCodeIsRequired() throws Exception {
         int databaseSizeBeforeTest = batchRepository.findAll().size();
         // set the field null
-        batch.setBatchNumber(null);
+        batch.setOrderCode(null);
 
         // Create the Batch, which fails.
         BatchDTO batchDTO = batchMapper.toDto(batch);
@@ -247,7 +247,7 @@ public class BatchResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(batch.getId().intValue())))
             .andExpect(jsonPath("$.[*].proof").value(hasItem(DEFAULT_PROOF)))
             .andExpect(jsonPath("$.[*].date").value(hasItem(sameInstant(DEFAULT_DATE))))
-            .andExpect(jsonPath("$.[*].batchNumber").value(hasItem(DEFAULT_BATCH_NUMBER.toString())));
+            .andExpect(jsonPath("$.[*].orderCode").value(hasItem(DEFAULT_ORDER_CODE.toString())));
     }
     
     @Test
@@ -263,7 +263,7 @@ public class BatchResourceIntTest {
             .andExpect(jsonPath("$.id").value(batch.getId().intValue()))
             .andExpect(jsonPath("$.proof").value(DEFAULT_PROOF))
             .andExpect(jsonPath("$.date").value(sameInstant(DEFAULT_DATE)))
-            .andExpect(jsonPath("$.batchNumber").value(DEFAULT_BATCH_NUMBER.toString()));
+            .andExpect(jsonPath("$.orderCode").value(DEFAULT_ORDER_CODE.toString()));
     }
 
     @Test
@@ -289,7 +289,7 @@ public class BatchResourceIntTest {
         updatedBatch
             .proof(UPDATED_PROOF)
             .date(UPDATED_DATE)
-            .batchNumber(UPDATED_BATCH_NUMBER);
+            .orderCode(UPDATED_ORDER_CODE);
         BatchDTO batchDTO = batchMapper.toDto(updatedBatch);
 
         restBatchMockMvc.perform(put("/api/batches")
@@ -303,7 +303,7 @@ public class BatchResourceIntTest {
         Batch testBatch = batchList.get(batchList.size() - 1);
         assertThat(testBatch.getProof()).isEqualTo(UPDATED_PROOF);
         assertThat(testBatch.getDate()).isEqualTo(UPDATED_DATE);
-        assertThat(testBatch.getBatchNumber()).isEqualTo(UPDATED_BATCH_NUMBER);
+        assertThat(testBatch.getOrderCode()).isEqualTo(UPDATED_ORDER_CODE);
 
         // Validate the Batch in Elasticsearch
         verify(mockBatchSearchRepository, times(1)).save(testBatch);
@@ -366,7 +366,7 @@ public class BatchResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(batch.getId().intValue())))
             .andExpect(jsonPath("$.[*].proof").value(hasItem(DEFAULT_PROOF)))
             .andExpect(jsonPath("$.[*].date").value(hasItem(sameInstant(DEFAULT_DATE))))
-            .andExpect(jsonPath("$.[*].batchNumber").value(hasItem(DEFAULT_BATCH_NUMBER)));
+            .andExpect(jsonPath("$.[*].orderCode").value(hasItem(DEFAULT_ORDER_CODE)));
     }
 
     @Test
