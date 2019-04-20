@@ -44,7 +44,7 @@
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let schedule of schedules ;trackBy: trackId">
                 <!-- <td><a [routerLink]="['/schedule', schedule.id, 'view' ]">{{schedule.id}}</a></td> -->
-                <td>{{schedule.targetDate | date:'medium'}}</td>
+                <td>{{schedule.targetDate | date}}</td>
                 <td>{{schedule.orderCode}}</td>
                 <td>{{schedule.barrelCount}}</td>
                 <td>{{schedule.targetProof}}</td>

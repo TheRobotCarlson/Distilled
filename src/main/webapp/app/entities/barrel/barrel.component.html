@@ -42,7 +42,7 @@
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let barrel of barrels ;trackBy: trackId">
                 <!-- <td><a [routerLink]="['/barrel', barrel.id, 'view' ]">{{barrel.id}}</a></td> -->
-                <td>{{barrel.barreledDate | date:'medium'}}</td>
+                <td>{{barrel.barreledDate | date}}</td>
                 <td>
                     <div *ngIf="barrel.warehouseId">
                         <a [routerLink]="['../warehouse', barrel.warehouseId , 'view' ]" >{{barrel.warehouseWarehouseCode}}</a>
