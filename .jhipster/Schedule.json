@@ -53,7 +53,7 @@
             "otherEntityField": "warehouseCode"
         }
     ],
-    "changelogDate": "20190420184719",
+    "changelogDate": "20190420185756",
     "entityTableName": "schedule",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

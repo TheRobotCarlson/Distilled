@@ -64,7 +64,7 @@
             "otherEntityField": "customerName"
         }
     ],
-    "changelogDate": "20190420184716",
+    "changelogDate": "20190420185753",
     "entityTableName": "mashbill",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

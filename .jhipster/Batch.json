@@ -38,7 +38,7 @@
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20190420184720",
+    "changelogDate": "20190420185757",
     "entityTableName": "batch",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

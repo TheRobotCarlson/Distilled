@@ -15,21 +15,13 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity Customer.
+        Added the entity YeastSummary.
     -->
-    <changeSet id="20190420184714-1" author="jhipster">
-        <createTable tableName="customer">
+    <changeSet id="20190420185801-1" author="jhipster">
+        <createTable tableName="yeast_summary">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="customer_name" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-
-            <column name="customer_code" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         

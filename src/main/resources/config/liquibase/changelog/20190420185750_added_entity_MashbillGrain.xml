@@ -15,44 +15,23 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity Schedule.
+        Added the entity MashbillGrain.
     -->
-    <changeSet id="20190420184719-1" author="jhipster">
-        <createTable tableName="schedule">
+    <changeSet id="20190420185750-1" author="jhipster">
+        <createTable tableName="mashbill_grain">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="target_date" type="datetime">
+            <column name="quantity" type="double">
                 <constraints nullable="true" />
             </column>
 
-            <column name="barrel_count" type="integer">
-                <constraints nullable="false" />
-            </column>
-
-            <column name="target_proof" type="integer">
-                <constraints nullable="false" />
-            </column>
-
-            <column name="notes" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="mashbill_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="customer_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="warehouse_id" type="bigint">
+            <column name="grain_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-        <dropDefaultValue tableName="schedule" columnName="target_date" columnDataType="datetime"/>
         
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->

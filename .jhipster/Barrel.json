@@ -39,7 +39,7 @@
             "otherEntityField": "orderCode"
         }
     ],
-    "changelogDate": "20190420184718",
+    "changelogDate": "20190420185755",
     "entityTableName": "barrel",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

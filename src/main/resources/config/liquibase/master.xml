@@ -5,6 +5,26 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185748_added_entity_Grain.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185749_added_entity_Yeast.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185750_added_entity_MashbillGrain.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185751_added_entity_Customer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185752_added_entity_Spirit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185753_added_entity_Mashbill.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185754_added_entity_Warehouse.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185755_added_entity_Barrel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185756_added_entity_Schedule.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185757_added_entity_Batch.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185758_added_entity_ProductionSchedule.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185759_added_entity_GrainForecast.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185800_added_entity_ProductionSummary.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185801_added_entity_YeastSummary.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185802_added_entity_MasterSummary.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190420185750_added_entity_constraints_MashbillGrain.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185753_added_entity_constraints_Mashbill.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185755_added_entity_constraints_Barrel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185756_added_entity_constraints_Schedule.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190420185757_added_entity_constraints_Batch.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

@@ -27,7 +27,7 @@
             "ownerSide": false
         }
     ],
-    "changelogDate": "20190420184713",
+    "changelogDate": "20190420185750",
     "entityTableName": "mashbill_grain",
     "dto": "mapstruct",
     "pagination": "no",
