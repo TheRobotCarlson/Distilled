@@ -51,7 +51,7 @@ spring:
             hibernate.cache.region.factory_class: io.github.jhipster.config.jcache.BeanClassLoaderAwareJCacheRegionFactory
     data:
         jest:
-            uri: http://localhost:9200
+            uri: https://search-distilled-hgj6y33oyrmp6g4csbg253iuse.us-east-1.es.amazonaws.com/
     liquibase:
         contexts: prod
     mail:
@@ -111,13 +111,13 @@ jhipster:
                 # - In the JHipster Registry (which includes a Spring Cloud Config server)
                 # - In a separate `application-prod.yml` file, in the same folder as your executable WAR file
                 # - In the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET` environment variable
-                base64-secret: Nzc0MzdmODVjZWQxMDhhMjA2OTdhZThmNmJmODQ0OTFiYThiOGM3YzQ1ZTk5MDUyZGRhNDA4ODJlYTgxMWM1NWY1MTQyNTIzMzUwMDIzYmEyOTdmZDMxMmIxMzM1MDk1NWMzYTAzYzQ0NWFhMDdhM2YyMGRkZjdiMDI4NTA1MGI=
+                base64-secret: NjhjZGJjZDc0ZGU1MzRkMjJkMDdkNDRhMzFhMGZhMzY0YWU5YzNmODcxYjQ0YWQ0NTJjM2YxY2QzZWQ3N2QwNzA3NGQ5Y2ZjOTdmMThlYjY2MjViZjAyNWFhYTE1MDYxYWIwMjZhYWRiODk3YjA0YzY4MmFhYTY0NmE5OTdkNTQ=
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
                 token-validity-in-seconds-for-remember-me: 2592000
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: Distilled@localhost
-        base-url: http://my-server-url-to-change # Modify according to your server's URL
+        base-url: http://distilled-2.vy5gx2xucu.us-east-1.elasticbeanstalk.com/
     metrics:
         logs: # Reports metrics in the logs
             enabled: false
