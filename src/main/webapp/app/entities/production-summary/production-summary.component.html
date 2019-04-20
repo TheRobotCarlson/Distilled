@@ -35,7 +35,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let productionSummary of productionSummaries ;trackBy: trackId">
-                <td><a [routerLink]="['/production-summary', productionSummary.id, 'view' ]">{{productionSummary.id}}</a></td>
+                <!-- <td><a [routerLink]="['/production-summary', productionSummary.id, 'view' ]">{{productionSummary.id}}</a></td> -->
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
