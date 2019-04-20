@@ -8,13 +8,16 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Batch and its DTO BatchDTO.
  */
-@Mapper(componentModel = "spring", uses = {ScheduleMapper.class})
+@Mapper(componentModel = "spring", uses = {WarehouseMapper.class, ScheduleMapper.class})
 public interface BatchMapper extends EntityMapper<BatchDTO, Batch> {
 
+    @Mapping(source = "warehouse.id", target = "warehouseId")
+    @Mapping(source = "warehouse.warehouseCode", target = "warehouseWarehouseCode")
     @Mapping(source = "schedule.id", target = "scheduleId")
     BatchDTO toDto(Batch batch);
 
     @Mapping(target = "barrels", ignore = true)
+    @Mapping(source = "warehouseId", target = "warehouse")
     @Mapping(source = "scheduleId", target = "schedule")
     Batch toEntity(BatchDTO batchDTO);
 

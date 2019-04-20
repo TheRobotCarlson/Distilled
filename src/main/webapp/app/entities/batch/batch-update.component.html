@@ -54,6 +54,13 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" for="field_warehouse">Warehouse</label>
+                    <select class="form-control" id="field_warehouse" name="warehouse" [(ngModel)]="batch.warehouseId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="warehouseOption.id" *ngFor="let warehouseOption of warehouses; trackBy: trackWarehouseById">{{warehouseOption.warehouseCode}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label class="form-control-label" for="field_schedule">Schedule</label>
                     <select class="form-control" id="field_schedule" name="schedule" [(ngModel)]="batch.scheduleId" >
                         <option [ngValue]="null"></option>

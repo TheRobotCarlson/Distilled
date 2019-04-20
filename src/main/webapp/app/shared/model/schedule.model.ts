@@ -12,8 +12,6 @@ export interface ISchedule {
     mashbillId?: number;
     customerCustomerCode?: string;
     customerId?: number;
-    warehouseWarehouseCode?: string;
-    warehouseId?: number;
 }
 
 export class Schedule implements ISchedule {
@@ -27,8 +25,6 @@ export class Schedule implements ISchedule {
         public mashbillMashbillCode?: string,
         public mashbillId?: number,
         public customerCustomerCode?: string,
-        public customerId?: number,
-        public warehouseWarehouseCode?: string,
-        public warehouseId?: number
+        public customerId?: number
     ) {}
 }

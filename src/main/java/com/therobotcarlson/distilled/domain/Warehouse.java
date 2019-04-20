@@ -46,7 +46,7 @@ public class Warehouse implements Serializable {
     private Set<Barrel> barrels = new HashSet<>();
     @OneToMany(mappedBy = "warehouse")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Schedule> schedules = new HashSet<>();
+    private Set<Batch> batches = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -120,29 +120,29 @@ public class Warehouse implements Serializable {
         this.barrels = barrels;
     }
 
-    public Set<Schedule> getSchedules() {
-        return schedules;
+    public Set<Batch> getBatches() {
+        return batches;
     }
 
-    public Warehouse schedules(Set<Schedule> schedules) {
-        this.schedules = schedules;
+    public Warehouse batches(Set<Batch> batches) {
+        this.batches = batches;
         return this;
     }
 
-    public Warehouse addSchedule(Schedule schedule) {
-        this.schedules.add(schedule);
-        schedule.setWarehouse(this);
+    public Warehouse addBatch(Batch batch) {
+        this.batches.add(batch);
+        batch.setWarehouse(this);
         return this;
     }
 
-    public Warehouse removeSchedule(Schedule schedule) {
-        this.schedules.remove(schedule);
-        schedule.setWarehouse(null);
+    public Warehouse removeBatch(Batch batch) {
+        this.batches.remove(batch);
+        batch.setWarehouse(null);
         return this;
     }
 
-    public void setSchedules(Set<Schedule> schedules) {
-        this.schedules = schedules;
+    public void setBatches(Set<Batch> batches) {
+        this.batches = batches;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

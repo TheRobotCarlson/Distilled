@@ -12,8 +12,6 @@ import { IMashbill } from 'app/shared/model/mashbill.model';
 import { MashbillService } from 'app/entities/mashbill';
 import { ICustomer } from 'app/shared/model/customer.model';
 import { CustomerService } from 'app/entities/customer';
-import { IWarehouse } from 'app/shared/model/warehouse.model';
-import { WarehouseService } from 'app/entities/warehouse';
 
 @Component({
     selector: 'jhi-schedule-update',
@@ -26,8 +24,6 @@ export class ScheduleUpdateComponent implements OnInit {
     mashbills: IMashbill[];
 
     customers: ICustomer[];
-
-    warehouses: IWarehouse[];
     targetDate: string;
 
     constructor(
@@ -35,7 +31,6 @@ export class ScheduleUpdateComponent implements OnInit {
         protected scheduleService: ScheduleService,
         protected mashbillService: MashbillService,
         protected customerService: CustomerService,
-        protected warehouseService: WarehouseService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -59,13 +54,6 @@ export class ScheduleUpdateComponent implements OnInit {
                 map((response: HttpResponse<ICustomer[]>) => response.body)
             )
             .subscribe((res: ICustomer[]) => (this.customers = res), (res: HttpErrorResponse) => this.onError(res.message));
-        this.warehouseService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IWarehouse[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IWarehouse[]>) => response.body)
-            )
-            .subscribe((res: IWarehouse[]) => (this.warehouses = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {
@@ -104,10 +92,6 @@ export class ScheduleUpdateComponent implements OnInit {
     }
 
     trackCustomerById(index: number, item: ICustomer) {
-        return item.id;
-    }
-
-    trackWarehouseById(index: number, item: IWarehouse) {
         return item.id;
     }
 }

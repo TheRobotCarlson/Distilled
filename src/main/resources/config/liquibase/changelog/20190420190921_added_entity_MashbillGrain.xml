@@ -15,18 +15,18 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity MasterSummary.
+        Added the entity MashbillGrain.
     -->
-    <changeSet id="20190420185802-1" author="jhipster">
-        <createTable tableName="master_summary">
+    <changeSet id="20190420190921-1" author="jhipster">
+        <createTable tableName="mashbill_grain">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="proof_gallons" type="integer">
+            <column name="quantity" type="double">
                 <constraints nullable="true" />
             </column>
 
-            <column name="actual_barrel_count" type="integer">
+            <column name="grain_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

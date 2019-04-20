@@ -44,16 +44,9 @@
             "otherEntityRelationshipName": "schedule",
             "relationshipName": "customer",
             "otherEntityField": "customerCode"
-        },
-        {
-            "relationshipType": "many-to-one",
-            "otherEntityName": "warehouse",
-            "otherEntityRelationshipName": "schedule",
-            "relationshipName": "warehouse",
-            "otherEntityField": "warehouseCode"
         }
     ],
-    "changelogDate": "20190420185756",
+    "changelogDate": "20190420190927",
     "entityTableName": "schedule",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

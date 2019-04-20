@@ -56,10 +56,6 @@ public class Schedule implements Serializable {
     @JsonIgnoreProperties("schedules")
     private Customer customer;
 
-    @ManyToOne
-    @JsonIgnoreProperties("schedules")
-    private Warehouse warehouse;
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -170,19 +166,6 @@ public class Schedule implements Serializable {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
-    }
-
-    public Warehouse getWarehouse() {
-        return warehouse;
-    }
-
-    public Schedule warehouse(Warehouse warehouse) {
-        this.warehouse = warehouse;
-        return this;
-    }
-
-    public void setWarehouse(Warehouse warehouse) {
-        this.warehouse = warehouse;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

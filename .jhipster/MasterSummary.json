@@ -11,7 +11,7 @@
         }
     ],
     "relationships": [],
-    "changelogDate": "20190420185802",
+    "changelogDate": "20190420190933",
     "entityTableName": "master_summary",
     "dto": "no",
     "pagination": "no",

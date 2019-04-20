@@ -6,7 +6,7 @@
     <!--
         Added the constraints for entity Schedule.
     -->
-    <changeSet id="20190420185756-2" author="jhipster">
+    <changeSet id="20190420190927-2" author="jhipster">
         
         <addForeignKeyConstraint baseColumnNames="mashbill_id"
                                  baseTableName="schedule"
@@ -19,12 +19,6 @@
                                  constraintName="fk_schedule_customer_id"
                                  referencedColumnNames="id"
                                  referencedTableName="customer"/>
-
-        <addForeignKeyConstraint baseColumnNames="warehouse_id"
-                                 baseTableName="schedule"
-                                 constraintName="fk_schedule_warehouse_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="warehouse"/>
 
     </changeSet>
 </databaseChangeLog>

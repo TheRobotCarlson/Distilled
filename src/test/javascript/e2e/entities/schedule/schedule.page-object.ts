@@ -32,7 +32,6 @@ export class ScheduleUpdatePage {
     notesInput = element(by.id('field_notes'));
     mashbillSelect = element(by.id('field_mashbill'));
     customerSelect = element(by.id('field_customer'));
-    warehouseSelect = element(by.id('field_warehouse'));
 
     async getPageTitle() {
         return this.pageTitle.getText();
@@ -106,25 +105,6 @@ export class ScheduleUpdatePage {
 
     async getCustomerSelectedOption() {
         return this.customerSelect.element(by.css('option:checked')).getText();
-    }
-
-    async warehouseSelectLastOption() {
-        await this.warehouseSelect
-            .all(by.tagName('option'))
-            .last()
-            .click();
-    }
-
-    async warehouseSelectOption(option) {
-        await this.warehouseSelect.sendKeys(option);
-    }
-
-    getWarehouseSelect(): ElementFinder {
-        return this.warehouseSelect;
-    }
-
-    async getWarehouseSelectedOption() {
-        return this.warehouseSelect.element(by.css('option:checked')).getText();
     }
 
     async save() {

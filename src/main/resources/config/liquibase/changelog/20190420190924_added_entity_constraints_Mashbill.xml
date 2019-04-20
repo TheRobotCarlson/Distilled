@@ -6,7 +6,7 @@
     <!--
         Added the constraints for entity Mashbill.
     -->
-    <changeSet id="20190420185753-2" author="jhipster">
+    <changeSet id="20190420190924-2" author="jhipster">
         
         <addForeignKeyConstraint baseColumnNames="yeast_id"
                                  baseTableName="mashbill"

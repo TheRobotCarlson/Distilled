@@ -21,6 +21,10 @@ public class BatchDTO implements Serializable {
     private String orderCode;
 
 
+    private Long warehouseId;
+
+    private String warehouseWarehouseCode;
+
     private Long scheduleId;
 
     public Long getId() {
@@ -53,6 +57,22 @@ public class BatchDTO implements Serializable {
 
     public void setOrderCode(String orderCode) {
         this.orderCode = orderCode;
+    }
+
+    public Long getWarehouseId() {
+        return warehouseId;
+    }
+
+    public void setWarehouseId(Long warehouseId) {
+        this.warehouseId = warehouseId;
+    }
+
+    public String getWarehouseWarehouseCode() {
+        return warehouseWarehouseCode;
+    }
+
+    public void setWarehouseWarehouseCode(String warehouseWarehouseCode) {
+        this.warehouseWarehouseCode = warehouseWarehouseCode;
     }
 
     public Long getScheduleId() {
@@ -91,6 +111,8 @@ public class BatchDTO implements Serializable {
             ", proof=" + getProof() +
             ", date='" + getDate() + "'" +
             ", orderCode='" + getOrderCode() + "'" +
+            ", warehouse=" + getWarehouseId() +
+            ", warehouse='" + getWarehouseWarehouseCode() + "'" +
             ", schedule=" + getScheduleId() +
             "}";
     }

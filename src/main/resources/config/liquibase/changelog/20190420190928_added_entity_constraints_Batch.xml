@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Batch.
+    -->
+    <changeSet id="20190420190928-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="warehouse_id"
+                                 baseTableName="batch"
+                                 constraintName="fk_batch_warehouse_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="warehouse"/>
+
+        <addForeignKeyConstraint baseColumnNames="schedule_id"
+                                 baseTableName="batch"
+                                 constraintName="fk_batch_schedule_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="schedule"/>
+
+    </changeSet>
+</databaseChangeLog>

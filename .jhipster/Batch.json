@@ -32,13 +32,20 @@
         },
         {
             "relationshipType": "many-to-one",
+            "otherEntityName": "warehouse",
+            "otherEntityRelationshipName": "batch",
+            "relationshipName": "warehouse",
+            "otherEntityField": "warehouseCode"
+        },
+        {
+            "relationshipType": "many-to-one",
             "otherEntityName": "schedule",
             "otherEntityRelationshipName": "batch",
             "relationshipName": "schedule",
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20190420185757",
+    "changelogDate": "20190420190928",
     "entityTableName": "batch",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

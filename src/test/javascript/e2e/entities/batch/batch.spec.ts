@@ -43,6 +43,7 @@ describe('Batch e2e test', () => {
             batchUpdatePage.setProofInput('5'),
             batchUpdatePage.setDateInput('01/01/2001' + protractor.Key.TAB + '02:30AM'),
             batchUpdatePage.setOrderCodeInput('orderCode'),
+            batchUpdatePage.warehouseSelectLastOption(),
             batchUpdatePage.scheduleSelectLastOption()
         ]);
         expect(await batchUpdatePage.getProofInput()).to.eq('5');

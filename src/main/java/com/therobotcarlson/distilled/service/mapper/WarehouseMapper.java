@@ -13,7 +13,7 @@ public interface WarehouseMapper extends EntityMapper<WarehouseDTO, Warehouse> {
 
 
     @Mapping(target = "barrels", ignore = true)
-    @Mapping(target = "schedules", ignore = true)
+    @Mapping(target = "batches", ignore = true)
     Warehouse toEntity(WarehouseDTO warehouseDTO);
 
     default Warehouse fromId(Long id) {

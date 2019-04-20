@@ -15,36 +15,23 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity Barrel.
+        Added the entity MasterSummary.
     -->
-    <changeSet id="20190420185755-1" author="jhipster">
-        <createTable tableName="barrel">
+    <changeSet id="20190420190933-1" author="jhipster">
+        <createTable tableName="master_summary">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="barreled_date" type="datetime">
-                <constraints nullable="false" />
-            </column>
-
-            <column name="warehouse_id" type="bigint">
+            <column name="proof_gallons" type="integer">
                 <constraints nullable="true" />
             </column>
 
-            <column name="mashbill_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="customer_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="batch_id" type="bigint">
+            <column name="actual_barrel_count" type="integer">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-        <dropDefaultValue tableName="barrel" columnName="barreled_date" columnDataType="datetime"/>
         
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->

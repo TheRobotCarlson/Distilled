@@ -66,13 +66,6 @@
                         <option [ngValue]="customerOption.id" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.customerCode}}</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" for="field_warehouse">Warehouse</label>
-                    <select class="form-control" id="field_warehouse" name="warehouse" [(ngModel)]="schedule.warehouseId" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="warehouseOption.id" *ngFor="let warehouseOption of warehouses; trackBy: trackWarehouseById">{{warehouseOption.warehouseCode}}</option>
-                    </select>
-                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

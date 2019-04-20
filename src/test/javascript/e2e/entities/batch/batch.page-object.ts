@@ -29,6 +29,7 @@ export class BatchUpdatePage {
     proofInput = element(by.id('field_proof'));
     dateInput = element(by.id('field_date'));
     orderCodeInput = element(by.id('field_orderCode'));
+    warehouseSelect = element(by.id('field_warehouse'));
     scheduleSelect = element(by.id('field_schedule'));
 
     async getPageTitle() {
@@ -57,6 +58,25 @@ export class BatchUpdatePage {
 
     async getOrderCodeInput() {
         return this.orderCodeInput.getAttribute('value');
+    }
+
+    async warehouseSelectLastOption() {
+        await this.warehouseSelect
+            .all(by.tagName('option'))
+            .last()
+            .click();
+    }
+
+    async warehouseSelectOption(option) {
+        await this.warehouseSelect.sendKeys(option);
+    }
+
+    getWarehouseSelect(): ElementFinder {
+        return this.warehouseSelect;
+    }
+
+    async getWarehouseSelectedOption() {
+        return this.warehouseSelect.element(by.css('option:checked')).getText();
     }
 
     async scheduleSelectLastOption() {

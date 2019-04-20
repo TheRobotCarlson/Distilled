@@ -30,10 +30,6 @@ public class ScheduleDTO implements Serializable {
 
     private String customerCustomerCode;
 
-    private Long warehouseId;
-
-    private String warehouseWarehouseCode;
-
     public Long getId() {
         return id;
     }
@@ -106,22 +102,6 @@ public class ScheduleDTO implements Serializable {
         this.customerCustomerCode = customerCustomerCode;
     }
 
-    public Long getWarehouseId() {
-        return warehouseId;
-    }
-
-    public void setWarehouseId(Long warehouseId) {
-        this.warehouseId = warehouseId;
-    }
-
-    public String getWarehouseWarehouseCode() {
-        return warehouseWarehouseCode;
-    }
-
-    public void setWarehouseWarehouseCode(String warehouseWarehouseCode) {
-        this.warehouseWarehouseCode = warehouseWarehouseCode;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -155,8 +135,6 @@ public class ScheduleDTO implements Serializable {
             ", mashbill='" + getMashbillMashbillCode() + "'" +
             ", customer=" + getCustomerId() +
             ", customer='" + getCustomerCustomerCode() + "'" +
-            ", warehouse=" + getWarehouseId() +
-            ", warehouse='" + getWarehouseWarehouseCode() + "'" +
             "}";
     }
 }

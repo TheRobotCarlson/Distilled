@@ -24,7 +24,7 @@
         }
     ],
     "relationships": [],
-    "changelogDate": "20190420185749",
+    "changelogDate": "20190420190920",
     "entityTableName": "yeast",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

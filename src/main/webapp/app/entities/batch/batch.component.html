@@ -33,6 +33,7 @@
             <th jhiSortBy="proof"><span>Proof</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="date"><span>Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="orderCode"><span>Order Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="warehouseWarehouseCode"><span>Warehouse</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="scheduleId"><span>Schedule</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
@@ -43,6 +44,11 @@
                 <td>{{batch.proof}}</td>
                 <td>{{batch.date | date:'medium'}}</td>
                 <td>{{batch.orderCode}}</td>
+                <td>
+                    <div *ngIf="batch.warehouseId">
+                        <a [routerLink]="['../warehouse', batch.warehouseId , 'view' ]" >{{batch.warehouseWarehouseCode}}</a>
+                    </div>
+                </td>
                 <td>
                     <div *ngIf="batch.scheduleId">
                         <a [routerLink]="['../schedule', batch.scheduleId , 'view' ]" >{{batch.scheduleId}}</a>

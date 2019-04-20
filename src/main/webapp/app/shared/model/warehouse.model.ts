@@ -1,5 +1,5 @@
 import { IBarrel } from 'app/shared/model/barrel.model';
-import { ISchedule } from 'app/shared/model/schedule.model';
+import { IBatch } from 'app/shared/model/batch.model';
 
 export interface IWarehouse {
     id?: number;
@@ -7,7 +7,7 @@ export interface IWarehouse {
     owner?: string;
     capacity?: number;
     barrels?: IBarrel[];
-    schedules?: ISchedule[];
+    batches?: IBatch[];
 }
 
 export class Warehouse implements IWarehouse {
@@ -17,6 +17,6 @@ export class Warehouse implements IWarehouse {
         public owner?: string,
         public capacity?: number,
         public barrels?: IBarrel[],
-        public schedules?: ISchedule[]
+        public batches?: IBatch[]
     ) {}
 }

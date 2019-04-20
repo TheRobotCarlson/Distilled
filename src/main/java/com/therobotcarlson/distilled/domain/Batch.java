@@ -48,6 +48,10 @@ public class Batch implements Serializable {
     private Set<Barrel> barrels = new HashSet<>();
     @ManyToOne
     @JsonIgnoreProperties("batches")
+    private Warehouse warehouse;
+
+    @ManyToOne
+    @JsonIgnoreProperties("batches")
     private Schedule schedule;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -121,6 +125,19 @@ public class Batch implements Serializable {
 
     public void setBarrels(Set<Barrel> barrels) {
         this.barrels = barrels;
+    }
+
+    public Warehouse getWarehouse() {
+        return warehouse;
+    }
+
+    public Batch warehouse(Warehouse warehouse) {
+        this.warehouse = warehouse;
+        return this;
+    }
+
+    public void setWarehouse(Warehouse warehouse) {
+        this.warehouse = warehouse;
     }
 
     public Schedule getSchedule() {

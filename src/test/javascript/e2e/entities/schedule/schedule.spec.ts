@@ -45,8 +45,7 @@ describe('Schedule e2e test', () => {
             scheduleUpdatePage.setTargetProofInput('5'),
             scheduleUpdatePage.setNotesInput('notes'),
             scheduleUpdatePage.mashbillSelectLastOption(),
-            scheduleUpdatePage.customerSelectLastOption(),
-            scheduleUpdatePage.warehouseSelectLastOption()
+            scheduleUpdatePage.customerSelectLastOption()
         ]);
         expect(await scheduleUpdatePage.getTargetDateInput()).to.contain('2001-01-01T02:30');
         expect(await scheduleUpdatePage.getBarrelCountInput()).to.eq('5');

@@ -53,7 +53,7 @@ public class CacheConfiguration {
             cm.createCache(com.therobotcarlson.distilled.domain.Mashbill.class.getName() + ".grainCounts", jcacheConfiguration);
             cm.createCache(com.therobotcarlson.distilled.domain.Warehouse.class.getName(), jcacheConfiguration);
             cm.createCache(com.therobotcarlson.distilled.domain.Warehouse.class.getName() + ".barrels", jcacheConfiguration);
-            cm.createCache(com.therobotcarlson.distilled.domain.Warehouse.class.getName() + ".schedules", jcacheConfiguration);
+            cm.createCache(com.therobotcarlson.distilled.domain.Warehouse.class.getName() + ".batches", jcacheConfiguration);
             cm.createCache(com.therobotcarlson.distilled.domain.Barrel.class.getName(), jcacheConfiguration);
             cm.createCache(com.therobotcarlson.distilled.domain.Schedule.class.getName(), jcacheConfiguration);
             cm.createCache(com.therobotcarlson.distilled.domain.Schedule.class.getName() + ".batches", jcacheConfiguration);

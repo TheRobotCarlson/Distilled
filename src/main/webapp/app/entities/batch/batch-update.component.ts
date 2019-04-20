@@ -8,6 +8,8 @@ import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 import { JhiAlertService } from 'ng-jhipster';
 import { IBatch } from 'app/shared/model/batch.model';
 import { BatchService } from './batch.service';
+import { IWarehouse } from 'app/shared/model/warehouse.model';
+import { WarehouseService } from 'app/entities/warehouse';
 import { ISchedule } from 'app/shared/model/schedule.model';
 import { ScheduleService } from 'app/entities/schedule';
 
@@ -19,12 +21,15 @@ export class BatchUpdateComponent implements OnInit {
     batch: IBatch;
     isSaving: boolean;
 
+    warehouses: IWarehouse[];
+
     schedules: ISchedule[];
     date: string;
 
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected batchService: BatchService,
+        protected warehouseService: WarehouseService,
         protected scheduleService: ScheduleService,
         protected activatedRoute: ActivatedRoute
     ) {}
@@ -35,6 +40,13 @@ export class BatchUpdateComponent implements OnInit {
             this.batch = batch;
             this.date = this.batch.date != null ? this.batch.date.format(DATE_TIME_FORMAT) : null;
         });
+        this.warehouseService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<IWarehouse[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IWarehouse[]>) => response.body)
+            )
+            .subscribe((res: IWarehouse[]) => (this.warehouses = res), (res: HttpErrorResponse) => this.onError(res.message));
         this.scheduleService
             .query()
             .pipe(
@@ -73,6 +85,10 @@ export class BatchUpdateComponent implements OnInit {
 
     protected onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    trackWarehouseById(index: number, item: IWarehouse) {
+        return item.id;
     }
 
     trackScheduleById(index: number, item: ISchedule) {

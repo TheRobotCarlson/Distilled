@@ -7,6 +7,8 @@ export interface IBatch {
     date?: Moment;
     orderCode?: string;
     barrels?: IBarrel[];
+    warehouseWarehouseCode?: string;
+    warehouseId?: number;
     scheduleId?: number;
 }
 
@@ -17,6 +19,8 @@ export class Batch implements IBatch {
         public date?: Moment,
         public orderCode?: string,
         public barrels?: IBarrel[],
+        public warehouseWarehouseCode?: string,
+        public warehouseId?: number,
         public scheduleId?: number
     ) {}
 }

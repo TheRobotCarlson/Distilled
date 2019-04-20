@@ -33,12 +33,6 @@
                         <a [routerLink]="['/customer', schedule.customerId, 'view']">{{schedule.customerCustomerCode}}</a>
                     </div>
                 </dd>
-                <dt><span>Warehouse</span></dt>
-                <dd>
-                    <div *ngIf="schedule.warehouseId">
-                        <a [routerLink]="['/warehouse', schedule.warehouseId, 'view']">{{schedule.warehouseWarehouseCode}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"
