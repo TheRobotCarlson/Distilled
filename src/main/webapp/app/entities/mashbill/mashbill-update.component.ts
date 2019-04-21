@@ -16,6 +16,7 @@ import { ICustomer } from 'app/shared/model/customer.model';
 import { CustomerService } from 'app/entities/customer';
 import { IGrain } from 'app/shared/model/grain.model';
 import { GrainService } from 'app/entities/grain';
+import { extendsDirectlyFromObject } from '@angular/core/src/render3/jit/directive';
 
 @Component({
     selector: 'jhi-mashbill-update',
@@ -93,7 +94,16 @@ export class MashbillUpdateComponent implements OnInit {
                 filter((mayBeOk: HttpResponse<IMashbillGrain[]>) => mayBeOk.ok),
                 map((response: HttpResponse<IMashbillGrain[]>) => response.body)
             )
-            .subscribe((res: IMashbillGrain[]) => (this.mashbillgrains = res), (res: HttpErrorResponse) => this.onError(res.message));
+            .subscribe(
+                (res: IMashbillGrain[]) => {
+                    this.mashbillgrains = res;
+                    if (this.grains !== null && this.grains != null) {
+                        this.loadWorkingGrains();
+                    }
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+
         this.grainService
             .query()
             .pipe(
@@ -103,13 +113,9 @@ export class MashbillUpdateComponent implements OnInit {
             .subscribe(
                 (res: IGrain[]) => {
                     this.grains = res;
-                    this.workingGrains = this.grains.map((v, i, a) => {
-                        let ret: IMashbillGrain = new MashbillGrain();
-                        ret.grainGrainName = v.grainName;
-                        ret.grainId = v.id;
-                        ret.quantity = 0;
-                        return ret;
-                    });
+                    if (this.mashbillgrains !== null && this.mashbillgrains !== undefined) {
+                        this.loadWorkingGrains();
+                    }
                     console.log(this.workingGrains);
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
@@ -125,8 +131,44 @@ export class MashbillUpdateComponent implements OnInit {
 
     mapGrainToMBG(grain: IGrain, index: number) {}
 
+    quantitiesAddTo100() {
+        if (this.workingGrains === null || this.workingGrains === undefined) {
+            return false;
+        }
+        let total: number = 0;
+        for (let g of this.workingGrains) {
+            total = total + g.quantity;
+        }
+        if (total === 100) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     previousState() {
         window.history.back();
+    }
+
+    loadWorkingGrains() {
+        this.workingGrains = this.grains.map((v, i, a) => {
+            let ret: IMashbillGrain = new MashbillGrain();
+            ret.grainGrainName = v.grainName;
+            ret.grainId = v.id;
+            ret.quantity = 0;
+            if (this.mashbill.id !== null && this.mashbill.id !== undefined) {
+                for (let g of this.mashbillgrains) {
+                    if (g.grainId === v.id) {
+                        console.log('V.ID: ' + v.id);
+                        console.log(g);
+                        ret.quantity = g.quantity;
+                        break;
+                    }
+                }
+            }
+            console.log(ret);
+            return ret;
+        });
     }
 
     save() {

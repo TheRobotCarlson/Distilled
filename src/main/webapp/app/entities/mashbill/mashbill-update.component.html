@@ -44,6 +44,7 @@
                         <option [ngValue]="yeastOption.id" *ngFor="let yeastOption of yeasts; trackBy: trackYeastById">{{yeastOption.yeastCode}}</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label class="form-control-label" for="field_spirit">Spirit</label>
                     <select class="form-control" id="field_spirit" name="spirit" [(ngModel)]="mashbill.spiritId" >
@@ -65,16 +66,25 @@
                             <td>Quantity</td>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let grain of workingGrains, let i = index">
+                            <tr *ngFor="let grain of workingGrains; let i = index">
                                 <td>{{grain.grainGrainName}}</td>
                                 <td>
-                                    <input type="number" class="form-control" name="workingGrains[i].quantity" [(ngModel)]="workingGrains[i].quantity">
+                                    <input type="number" class="form-control" name="grain.quantity{{i}}" [(ngModel)]="grain.quantity">
                                 </td>
-                                </tr>
+                                <td>{{grain.quantity}}</td>
+                            </tr>
                         </tbody>
                     </table>
+
+                    <div *ngIf="!quantitiesAddTo100()">
+                            <small class="form-text text-danger">
+                                Quantities must add to 100
+                            </small>
+                    </div>
                     
                 </div>
+
+                
                 <div class="form-group">
                     <label class="form-control-label" for="field_customer">Customer</label>
                     <select class="form-control" id="field_customer" name="customer" [(ngModel)]="mashbill.customerId" >
@@ -83,11 +93,12 @@
                     </select>
                 </div>
             </div>
+
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
                 </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving || !quantitiesAddTo100()" class="btn btn-primary">
                     <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
                 </button>
             </div>
