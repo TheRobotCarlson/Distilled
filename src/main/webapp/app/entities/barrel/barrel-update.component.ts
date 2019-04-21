@@ -47,7 +47,6 @@ export class BarrelUpdateComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.barreledDate = new Date().toISOString().split('T')[0];
         this.activatedRoute.data.subscribe(({ barrel }) => {
             this.barrel = barrel;
             this.barreledDate = this.barrel.barreledDate != null ? this.barrel.barreledDate.format(DATE_TIME_FORMAT) : nowDateString();
