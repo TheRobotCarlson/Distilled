@@ -37,7 +37,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let masterSummary of masterSummaries ;trackBy: trackId">
-                <!-- <td><a [routerLink]="['/master-summary', masterSummary.id, 'view' ]">{{masterSummary.id}}</a></td> -->
+                <td><a [routerLink]="['/master-summary', masterSummary.id, 'view' ]">{{masterSummary.id}}</a></td>
                 <td>{{masterSummary.proofGallons}}</td>
                 <td>{{masterSummary.actualBarrelCount}}</td>
                 <td class="text-right">

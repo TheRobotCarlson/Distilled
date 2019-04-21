@@ -29,7 +29,7 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
-            <!-- <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="category"><span>Category</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="name"><span>Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="code"><span>Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
@@ -38,7 +38,7 @@
             </thead>
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let spirit of spirits ;trackBy: trackId">
-                <!-- <td><a [routerLink]="['/spirit', spirit.id, 'view' ]">{{spirit.id}}</a></td> -->
+                <td><a [routerLink]="['/spirit', spirit.id, 'view' ]">{{spirit.id}}</a></td>
                 <td>{{spirit.category}}</td>
                 <td>{{spirit.name}}</td>
                 <td>{{spirit.code}}</td>
