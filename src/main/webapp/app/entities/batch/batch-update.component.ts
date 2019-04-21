@@ -25,6 +25,7 @@ export class BatchUpdateComponent implements OnInit {
 
     schedules: ISchedule[];
     date: string;
+    orderCode: string;
 
     constructor(
         protected jhiAlertService: JhiAlertService,
@@ -37,6 +38,7 @@ export class BatchUpdateComponent implements OnInit {
     ngOnInit() {
         this.isSaving = false;
         this.date = new Date().toISOString().split('T')[0];
+
         this.activatedRoute.data.subscribe(({ batch }) => {
             this.batch = batch;
             this.date = this.batch.date != null ? this.batch.date.format(DATE_TIME_FORMAT) : this.date;
@@ -54,7 +56,28 @@ export class BatchUpdateComponent implements OnInit {
                 filter((mayBeOk: HttpResponse<ISchedule[]>) => mayBeOk.ok),
                 map((response: HttpResponse<ISchedule[]>) => response.body)
             )
-            .subscribe((res: ISchedule[]) => (this.schedules = res), (res: HttpErrorResponse) => this.onError(res.message));
+            .subscribe(
+                (res: ISchedule[]) => {
+                    this.schedules = res;
+                    this.batch.scheduleId = this.schedules[this.schedules.length - 1].id;
+                    this.createOrderCode(this.schedules[this.schedules.length - 1].mashbillMashbillCode);
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+    }
+
+    getMashbillFromSchedule() {
+        this.scheduleService.find(this.batch.scheduleId).subscribe(res => {
+            return res.body.mashbillMashbillCode;
+        });
+    }
+
+    createOrderCode(mashbill: String) {
+        const temp = this.date.split('-');
+        const arr = 'ABCDEFGHIJKL';
+        const month = parseInt(temp[1], 10);
+
+        this.batch.orderCode = temp[0].substring(2, 4) + arr[month] + temp[2] + mashbill;
     }
 
     previousState() {
