@@ -36,9 +36,10 @@ export class BatchUpdateComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
+        this.date = new Date().toISOString().split('T')[0];
         this.activatedRoute.data.subscribe(({ batch }) => {
             this.batch = batch;
-            this.date = this.batch.date != null ? this.batch.date.format(DATE_TIME_FORMAT) : null;
+            this.date = this.batch.date != null ? this.batch.date.format(DATE_TIME_FORMAT) : this.date;
         });
         this.warehouseService
             .query()

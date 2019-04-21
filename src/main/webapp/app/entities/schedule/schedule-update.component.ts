@@ -36,9 +36,10 @@ export class ScheduleUpdateComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
+        this.targetDate = new Date().toISOString().split('T')[0];
         this.activatedRoute.data.subscribe(({ schedule }) => {
             this.schedule = schedule;
-            this.targetDate = this.schedule.targetDate != null ? this.schedule.targetDate.format(DATE_TIME_FORMAT) : null;
+            this.targetDate = this.schedule.targetDate != null ? this.schedule.targetDate.format(DATE_TIME_FORMAT) : this.targetDate;
         });
         this.mashbillService
             .query()

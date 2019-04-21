@@ -18,10 +18,7 @@
             "app/*": ["src/main/webapp/app/*"]
         },
         "importHelpers": true,
-        "allowJs": true,
-        "angularCompilerOptions": {
-            "fullTemplateTypeCheck": true
-        }
+        "allowJs": true
     },
     "include": ["src/main/webapp/app", "src/test/javascript/"],
     "exclude": ["node_modules"]
