@@ -77,7 +77,7 @@ export class BatchUpdateComponent implements OnInit {
         const arr = 'ABCDEFGHIJKL';
         const month = parseInt(temp[1], 10);
 
-        this.batch.orderCode = temp[0].substring(2, 4) + arr[month] + temp[2] + mashbill;
+        this.batch.orderCode = temp[0].substring(2, 4) + arr[month - 1] + temp[2] + mashbill;
     }
 
     previousState() {
