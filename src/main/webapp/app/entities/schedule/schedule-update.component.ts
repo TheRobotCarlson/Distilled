@@ -12,6 +12,7 @@ import { IMashbill } from 'app/shared/model/mashbill.model';
 import { MashbillService } from 'app/entities/mashbill';
 import { ICustomer } from 'app/shared/model/customer.model';
 import { CustomerService } from 'app/entities/customer';
+import { nowDateString } from 'app/shared';
 
 @Component({
     selector: 'jhi-schedule-update',
@@ -41,7 +42,7 @@ export class ScheduleUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ schedule }) => {
             this.schedule = schedule;
-            this.targetDate = this.schedule.targetDate != null ? this.schedule.targetDate.format(DATE_TIME_FORMAT) : null;
+            this.targetDate = this.schedule.targetDate != null ? this.schedule.targetDate.format(DATE_TIME_FORMAT) : nowDateString();
         });
         this.mashbillService
             .query()

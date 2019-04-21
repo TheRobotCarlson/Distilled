@@ -12,6 +12,7 @@ import { IWarehouse } from 'app/shared/model/warehouse.model';
 import { WarehouseService } from 'app/entities/warehouse';
 import { ISchedule } from 'app/shared/model/schedule.model';
 import { ScheduleService } from 'app/entities/schedule';
+import { nowDateString } from 'app/shared';
 
 @Component({
     selector: 'jhi-batch-update',
@@ -39,7 +40,7 @@ export class BatchUpdateComponent implements OnInit {
         this.date = new Date().toISOString().split('T')[0];
         this.activatedRoute.data.subscribe(({ batch }) => {
             this.batch = batch;
-            this.date = this.batch.date != null ? this.batch.date.format(DATE_TIME_FORMAT) : null;
+            this.date = this.batch.date != null ? this.batch.date.format(DATE_TIME_FORMAT) : nowDateString();
         });
         this.warehouseService
             .query()

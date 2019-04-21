@@ -37,7 +37,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let productionSchedule of productionSchedules ;trackBy: trackId">
-                <td><a [routerLink]="['/production-schedule', productionSchedule.id, 'view' ]">{{productionSchedule.id}}</a></td>
+                <!-- <td><a [routerLink]="['/production-schedule', productionSchedule.id, 'view' ]">{{productionSchedule.id}}</a></td> -->
                 <td>{{productionSchedule.proofGallons}}</td>
                 <td>{{productionSchedule.actualBarrelCount}}</td>
                 <td class="text-right">
