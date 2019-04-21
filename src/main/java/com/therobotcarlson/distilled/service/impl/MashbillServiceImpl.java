@@ -2,10 +2,17 @@ package com.therobotcarlson.distilled.service.impl;
 
 import com.therobotcarlson.distilled.service.MashbillService;
 import com.therobotcarlson.distilled.domain.Mashbill;
+import com.therobotcarlson.distilled.repository.MashbillGrainRepository;
 import com.therobotcarlson.distilled.repository.MashbillRepository;
+import com.therobotcarlson.distilled.repository.search.MashbillGrainSearchRepository;
 import com.therobotcarlson.distilled.repository.search.MashbillSearchRepository;
 import com.therobotcarlson.distilled.service.dto.MashbillDTO;
+import com.therobotcarlson.distilled.service.dto.MashbillGrainDTO;
+import com.therobotcarlson.distilled.service.mapper.MashbillGrainMapper;
 import com.therobotcarlson.distilled.service.mapper.MashbillMapper;
+
+import com.therobotcarlson.distilled.domain.MashbillGrain;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,6 +22,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
+import java.util.Set;
+import java.util.HashSet;
 
 import static org.elasticsearch.index.query.QueryBuilders.*;
 
@@ -31,12 +40,23 @@ public class MashbillServiceImpl implements MashbillService {
 
     private final MashbillMapper mashbillMapper;
 
+    private final MashbillGrainMapper mashbillGrainMapper;
+
     private final MashbillSearchRepository mashbillSearchRepository;
 
-    public MashbillServiceImpl(MashbillRepository mashbillRepository, MashbillMapper mashbillMapper, MashbillSearchRepository mashbillSearchRepository) {
+    private final MashbillGrainSearchRepository mashbillGrainSearchRepository;
+
+    private final MashbillGrainRepository mashbillGrainRepository;
+
+
+
+    public MashbillServiceImpl(MashbillRepository mashbillRepository, MashbillMapper mashbillMapper, MashbillSearchRepository mashbillSearchRepository, MashbillGrainMapper mashbillGrainMapper, MashbillGrainSearchRepository mbgsr,MashbillGrainRepository mbgr) {
         this.mashbillRepository = mashbillRepository;
         this.mashbillMapper = mashbillMapper;
         this.mashbillSearchRepository = mashbillSearchRepository;
+        this.mashbillGrainMapper = mashbillGrainMapper;
+        this.mashbillGrainSearchRepository = mbgsr;
+        this.mashbillGrainRepository = mbgr;
     }
 
     /**
@@ -49,6 +69,17 @@ public class MashbillServiceImpl implements MashbillService {
     public MashbillDTO save(MashbillDTO mashbillDTO) {
         log.debug("Request to save Mashbill : {}", mashbillDTO);
         Mashbill mashbill = mashbillMapper.toEntity(mashbillDTO);
+        Set<MashbillGrain> mbgrains = mashbill.getGrainCounts();
+        log.debug("Mashbill Grains: {}", mbgrains);
+        Set<MashbillGrain> actualGrains = new HashSet<MashbillGrain>();
+        for(MashbillGrain g: mbgrains){
+            MashbillGrainDTO dto = this.mashbillGrainMapper.toDto(g);
+            MashbillGrain mbg = mashbillGrainRepository.save(g);
+            mashbillGrainSearchRepository.save(mbg);
+            actualGrains.add(mbg);
+        }
+        mashbill.grainCounts(actualGrains);
+        
         mashbill = mashbillRepository.save(mashbill);
         MashbillDTO result = mashbillMapper.toDto(mashbill);
         mashbillSearchRepository.save(mashbill);

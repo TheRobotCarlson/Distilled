@@ -51,11 +51,29 @@
                         <option [ngValue]="spiritOption.id" *ngFor="let spiritOption of spirits; trackBy: trackSpiritById">{{spiritOption.name}}</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="field_grainCount">Grain Count</label>
                     <select class="form-control" id="field_grainCount" multiple name="grainCount" [(ngModel)]="mashbill.grainCounts">
                         <option [ngValue]="getSelected(mashbill.grainCounts, mashbillGrainOption)" *ngFor="let mashbillGrainOption of mashbillgrains; trackBy: trackMashbillGrainById">{{mashbillGrainOption.grainGrainName}}: {{mashbillGrainOption.quantity}}</option>
                     </select>
+                </div> -->
+                <div class="form-group">
+                    <label for="field_grains">Grains</label>
+                    <table>
+                        <thead>
+                            <td>Grain</td>
+                            <td>Quantity</td>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let grain of workingGrains, let i = index">
+                                <td>{{grain.grainGrainName}}</td>
+                                <td>
+                                    <input type="number" class="form-control" name="workingGrains[i].quantity" [(ngModel)]="workingGrains[i].quantity">
+                                </td>
+                                </tr>
+                        </tbody>
+                    </table>
+                    
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_customer">Customer</label>

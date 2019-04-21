@@ -50,11 +50,11 @@
                         </tbody>
                     </table>
                 </div>
-                <dd>
+                <!-- <dd>
                     <span *ngFor="let grainCount of mashbill.grainCounts; let last = last">
                         <a [routerLink]="['/mashbill-grain', grainCount?.id, 'view' ]">{{grainCount.id}}</a>{{last ? '' : ', '}}
                     </span>
-                </dd>
+                </dd> -->
                 <dt><span>Customer</span></dt>
                 <dd>
                     <div *ngIf="mashbill.customerId">

@@ -10,10 +10,12 @@ import { IYeast } from 'app/shared/model/yeast.model';
 import { YeastService } from 'app/entities/yeast';
 import { ISpirit } from 'app/shared/model/spirit.model';
 import { SpiritService } from 'app/entities/spirit';
-import { IMashbillGrain } from 'app/shared/model/mashbill-grain.model';
+import { IMashbillGrain, MashbillGrain } from 'app/shared/model/mashbill-grain.model';
 import { MashbillGrainService } from 'app/entities/mashbill-grain';
 import { ICustomer } from 'app/shared/model/customer.model';
 import { CustomerService } from 'app/entities/customer';
+import { IGrain } from 'app/shared/model/grain.model';
+import { GrainService } from 'app/entities/grain';
 
 @Component({
     selector: 'jhi-mashbill-update',
@@ -29,6 +31,12 @@ export class MashbillUpdateComponent implements OnInit {
 
     mashbillgrains: IMashbillGrain[];
 
+    mbg: IMashbillGrain;
+
+    workingGrains: IMashbillGrain[];
+
+    grains: IGrain[];
+
     customers: ICustomer[];
 
     constructor(
@@ -38,6 +46,7 @@ export class MashbillUpdateComponent implements OnInit {
         protected spiritService: SpiritService,
         protected mashbillGrainService: MashbillGrainService,
         protected customerService: CustomerService,
+        protected grainService: GrainService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -85,6 +94,26 @@ export class MashbillUpdateComponent implements OnInit {
                 map((response: HttpResponse<IMashbillGrain[]>) => response.body)
             )
             .subscribe((res: IMashbillGrain[]) => (this.mashbillgrains = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.grainService
+            .query()
+            .pipe(
+                filter((mayBeOk: HttpResponse<IGrain[]>) => mayBeOk.ok),
+                map((response: HttpResponse<IGrain[]>) => response.body)
+            )
+            .subscribe(
+                (res: IGrain[]) => {
+                    this.grains = res;
+                    this.workingGrains = this.grains.map((v, i, a) => {
+                        let ret: IMashbillGrain = new MashbillGrain();
+                        ret.grainGrainName = v.grainName;
+                        ret.grainId = v.id;
+                        ret.quantity = 0;
+                        return ret;
+                    });
+                    console.log(this.workingGrains);
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
         this.customerService
             .query()
             .pipe(
@@ -94,12 +123,20 @@ export class MashbillUpdateComponent implements OnInit {
             .subscribe((res: ICustomer[]) => (this.customers = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
+    mapGrainToMBG(grain: IGrain, index: number) {}
+
     previousState() {
         window.history.back();
     }
 
     save() {
         this.isSaving = true;
+        this.mashbill.grainCounts = [];
+        for (let mbg of this.workingGrains) {
+            if (mbg.quantity != 0) {
+                this.mashbill.grainCounts.push(mbg);
+            }
+        }
         if (this.mashbill.id !== undefined) {
             this.subscribeToSaveResponse(this.mashbillService.update(this.mashbill));
         } else {
@@ -118,6 +155,21 @@ export class MashbillUpdateComponent implements OnInit {
 
     protected onSaveError() {
         this.isSaving = false;
+    }
+
+    protected mashbillGrainSubscribeToSaveResponse(result: Observable<HttpResponse<IMashbillGrain>>) {
+        result.subscribe(
+            (res: HttpResponse<IMashbillGrain>) => this.mashbillGrainOnSaveSuccess(),
+            (res: HttpErrorResponse) => this.mashbillGrainOnSaveError()
+        );
+    }
+
+    protected mashbillGrainOnSaveSuccess() {
+        console.log('Mashbill Grain saved properly');
+    }
+
+    protected mashbillGrainOnSaveError() {
+        console.log('Mashbill Grain NOT saved properly');
     }
 
     protected onError(errorMessage: string) {
