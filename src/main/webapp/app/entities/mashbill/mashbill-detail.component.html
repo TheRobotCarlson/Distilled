@@ -39,7 +39,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let grainCount of mashbill.grainCounts; trackBy: trackMashbillGrainById">
+                            <tr *ngFor="let grainCount of mashbill.grainCounts">
                                 <td>
                                     <div *ngIf="grainCount.grainId">
                                         <a [routerLink]="['/mashbill-grain', grainCount?.id, 'view' ]">{{grainCount.grainGrainName}}</a>
