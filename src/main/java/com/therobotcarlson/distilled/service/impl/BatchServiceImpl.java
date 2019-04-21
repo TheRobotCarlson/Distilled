@@ -1,5 +1,6 @@
 package com.therobotcarlson.distilled.service.impl;
 
+import com.therobotcarlson.distilled.repository.BarrelRepository;
 import com.therobotcarlson.distilled.service.BatchService;
 import com.therobotcarlson.distilled.domain.Batch;
 import com.therobotcarlson.distilled.repository.BatchRepository;
@@ -33,10 +34,13 @@ public class BatchServiceImpl implements BatchService {
 
     private final BatchSearchRepository batchSearchRepository;
 
-    public BatchServiceImpl(BatchRepository batchRepository, BatchMapper batchMapper, BatchSearchRepository batchSearchRepository) {
+    private final BarrelRepository barrelRepository;
+
+    public BatchServiceImpl(BatchRepository batchRepository, BatchMapper batchMapper, BatchSearchRepository batchSearchRepository, BarrelRepository barrelRepository) {
         this.batchRepository = batchRepository;
         this.batchMapper = batchMapper;
         this.batchSearchRepository = batchSearchRepository;
+        this.barrelRepository = barrelRepository;
     }
 
     /**
@@ -109,5 +113,22 @@ public class BatchServiceImpl implements BatchService {
         log.debug("Request to search for a page of Batches for query {}", query);
         return batchSearchRepository.search(queryStringQuery(query), pageable)
             .map(batchMapper::toDto);
+    }
+
+    /**
+     * Get the barrel count per batch.
+     *
+     * @param id the batch information
+     * @return the count of barrels
+     */
+    @Override
+    public long countBarrelsByBatch(Long id) {
+        Optional<Batch> batch = batchRepository.findById(id);
+
+        if(batch.isPresent()){
+            return barrelRepository.countBarrelsByBatch(batch.get());
+        } else {
+            return 0;
+        }
     }
 }

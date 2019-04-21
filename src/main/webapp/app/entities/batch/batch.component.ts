@@ -26,6 +26,7 @@ export class BatchComponent implements OnInit, OnDestroy {
     reverse: any;
     totalItems: number;
     currentSearch: string;
+    countsPerBatch: any;
 
     constructor(
         protected batchService: BatchService,
@@ -36,6 +37,7 @@ export class BatchComponent implements OnInit, OnDestroy {
         protected accountService: AccountService
     ) {
         this.batches = [];
+        this.countsPerBatch = {};
         this.itemsPerPage = ITEMS_PER_PAGE;
         this.page = 0;
         this.links = {
@@ -79,6 +81,7 @@ export class BatchComponent implements OnInit, OnDestroy {
     reset() {
         this.page = 0;
         this.batches = [];
+        this.countsPerBatch = {};
         this.loadAll();
     }
 
@@ -89,6 +92,7 @@ export class BatchComponent implements OnInit, OnDestroy {
 
     clear() {
         this.batches = [];
+        this.countsPerBatch = {};
         this.links = {
             last: 0
         };
@@ -104,6 +108,7 @@ export class BatchComponent implements OnInit, OnDestroy {
             return this.clear();
         }
         this.batches = [];
+        this.countsPerBatch = {};
         this.links = {
             last: 0
         };
@@ -145,7 +150,11 @@ export class BatchComponent implements OnInit, OnDestroy {
     protected paginateBatches(data: IBatch[], headers: HttpHeaders) {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
+
         for (let i = 0; i < data.length; i++) {
+            this.batchService.countBatchBarrels(data[i].id).subscribe(resp => {
+                this.countsPerBatch[data[i].id] = resp;
+            });
             this.batches.push(data[i]);
         }
     }

@@ -53,4 +53,12 @@ public interface BatchService {
      * @return the list of entities
      */
     Page<BatchDTO> search(String query, Pageable pageable);
+
+    /**
+     * Get the barrel count per batch.
+     *
+     * @param id the batch information
+     * @return the count of barrels
+     */
+    long countBarrelsByBatch(Long id);
 }

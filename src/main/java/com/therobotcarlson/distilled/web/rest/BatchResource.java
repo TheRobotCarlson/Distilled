@@ -109,6 +109,19 @@ public class BatchResource {
     }
 
     /**
+     * GET  /batches/:id : get the "id" batch.
+     *
+     * @param id the id of the batchDTO to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the count, or with 0
+     */
+    @GetMapping("/batches/{id}/barrels")
+    public ResponseEntity<Long> getBarrelsForBatch(@PathVariable Long id) {
+        log.debug("REST request to get Batch : {}", id);
+        Long barrelCount = batchService.countBarrelsByBatch(id);
+        return ResponseEntity.ok(barrelCount);
+    }
+
+    /**
      * DELETE  /batches/:id : delete the "id" batch.
      *
      * @param id the id of the batchDTO to delete

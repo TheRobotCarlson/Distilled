@@ -46,6 +46,10 @@ export class BatchService {
             .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
     }
 
+    countBatchBarrels(id: number): Observable<number> {
+        return this.http.get<number>(`${this.resourceUrl}/${id}/barrels`);
+    }
+
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }
