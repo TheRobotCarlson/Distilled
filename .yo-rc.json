@@ -34,12 +34,12 @@
         "dtoSuffix": "DTO",
         "otherModules": [],
         "aws": {
-            "applicationName": "distilled-2",
-            "environmentName": "distilled-2",
-            "bucketName": "distilled-4",
-            "instanceType": "t2.small",
+            "applicationName": "distilled-1",
+            "environmentName": "distilled-1",
+            "bucketName": "distilled-1",
+            "instanceType": "t2.micro",
             "awsRegion": "us-east-1",
-            "dbName": "distilled4",
+            "dbName": "distilled1",
             "dbInstanceClass": "db.t2.micro"
         }
     },
