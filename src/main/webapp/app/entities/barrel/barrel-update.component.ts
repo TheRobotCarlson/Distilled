@@ -16,7 +16,6 @@ import { ICustomer } from 'app/shared/model/customer.model';
 import { CustomerService } from 'app/entities/customer';
 import { IBatch } from 'app/shared/model/batch.model';
 import { BatchService } from 'app/entities/batch';
-import { nowDateString } from 'app/shared';
 
 @Component({
     selector: 'jhi-barrel-update',
@@ -49,7 +48,7 @@ export class BarrelUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ barrel }) => {
             this.barrel = barrel;
-            this.barreledDate = this.barrel.barreledDate != null ? this.barrel.barreledDate.format(DATE_TIME_FORMAT) : nowDateString();
+            this.barreledDate = this.barrel.barreledDate != null ? this.barrel.barreledDate.format(DATE_TIME_FORMAT) : null;
         });
         this.warehouseService
             .query()

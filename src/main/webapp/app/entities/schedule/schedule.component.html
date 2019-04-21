@@ -29,7 +29,7 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
-            <!-- <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="targetDate"><span>Target Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="barrelCount"><span>Barrel Count</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="targetProof"><span>Target Proof</span> <fa-icon [icon]="'sort'"></fa-icon></th>
@@ -41,8 +41,8 @@
             </thead>
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let schedule of schedules ;trackBy: trackId">
-                <!-- <td><a [routerLink]="['/schedule', schedule.id, 'view' ]">{{schedule.id}}</a></td> -->
-                <td>{{schedule.targetDate | date:'mediumDate'}}</td>
+                <td><a [routerLink]="['/schedule', schedule.id, 'view' ]">{{schedule.id}}</a></td>
+                <td>{{schedule.targetDate | date:'medium'}}</td>
                 <td>{{schedule.barrelCount}}</td>
                 <td>{{schedule.targetProof}}</td>
                 <td>{{schedule.notes}}</td>

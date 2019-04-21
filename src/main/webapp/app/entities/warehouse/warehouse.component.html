@@ -29,7 +29,7 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
-            <!-- <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="warehouseCode"><span>Warehouse Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="owner"><span>Owner</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="capacity"><span>Capacity</span> <fa-icon [icon]="'sort'"></fa-icon></th>
@@ -38,7 +38,7 @@
             </thead>
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let warehouse of warehouses ;trackBy: trackId">
-                <!-- <td><a [routerLink]="['/warehouse', warehouse.id, 'view' ]">{{warehouse.id}}</a></td> -->
+                <td><a [routerLink]="['/warehouse', warehouse.id, 'view' ]">{{warehouse.id}}</a></td>
                 <td>{{warehouse.warehouseCode}}</td>
                 <td>{{warehouse.owner}}</td>
                 <td>{{warehouse.capacity}}</td>
