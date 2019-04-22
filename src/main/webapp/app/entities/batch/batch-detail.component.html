@@ -30,7 +30,7 @@
                 <dt><span>Schedule</span></dt>
                 <dd>
                     <div *ngIf="batch.scheduleId">
-                        <a [routerLink]="['/schedule', batch.scheduleId, 'view']">{{batch.scheduleId}}</a>
+                        <a [routerLink]="['/schedule', batch.scheduleId, 'view']">{{sched.targetDate | date}} {{sched.mashbillMashbillCode}}</a>
                     </div>
                 </dd>
             </dl>

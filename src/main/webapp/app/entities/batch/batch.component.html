@@ -48,7 +48,7 @@
                 <td>{{batch.proof}}</td>
                 <td>
                     <div *ngIf="batch.scheduleId">
-                        <a [routerLink]="['../schedule', batch.scheduleId , 'view' ]" >{{batch.scheduleId}}</a>
+                        <a [routerLink]="['../schedule', batch.scheduleId , 'view' ]" >{{schedIDToString.get(batch.scheduleId)}}</a>
                     </div>
                 </td>
                 <td>

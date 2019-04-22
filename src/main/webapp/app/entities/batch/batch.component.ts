@@ -10,6 +10,7 @@ import { AccountService } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { BatchService } from './batch.service';
+import { ScheduleService } from '../schedule';
 
 @Component({
     selector: 'jhi-batch',
@@ -28,13 +29,16 @@ export class BatchComponent implements OnInit, OnDestroy {
     currentSearch: string;
     countsPerBatch: any;
 
+    schedIDToString: Map<number, string>;
+
     constructor(
         protected batchService: BatchService,
         protected jhiAlertService: JhiAlertService,
         protected eventManager: JhiEventManager,
         protected parseLinks: JhiParseLinks,
         protected activatedRoute: ActivatedRoute,
-        protected accountService: AccountService
+        protected accountService: AccountService,
+        protected scheduleService: ScheduleService
     ) {
         this.batches = [];
         this.countsPerBatch = {};
@@ -120,6 +124,7 @@ export class BatchComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.schedIDToString = new Map<number, string>();
         this.loadAll();
         this.accountService.identity().then(account => {
             this.currentAccount = account;
@@ -154,6 +159,11 @@ export class BatchComponent implements OnInit, OnDestroy {
         for (let i = 0; i < data.length; i++) {
             this.batchService.countBatchBarrels(data[i].id).subscribe(resp => {
                 this.countsPerBatch[data[i].id] = resp;
+            });
+            this.scheduleService.find(data[i].scheduleId).subscribe(res => {
+                let s = res.body;
+                let str = s.targetDate.toISOString().split('T')[0] + ' ' + s.mashbillMashbillCode;
+                this.schedIDToString.set(data[i].scheduleId, str);
             });
             this.batches.push(data[i]);
         }
