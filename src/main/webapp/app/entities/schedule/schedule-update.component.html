@@ -54,10 +54,16 @@
 
                 <div class="form-group">
                     <label class="form-control-label" for="field_mashbill">Mashbill</label>
-                    <select class="form-control" id="field_mashbill" name="mashbill" [(ngModel)]="schedule.mashbillId" >
+                    <select class="form-control" id="field_mashbill" name="mashbill" [(ngModel)]="schedule.mashbillId" required>
                         <option [ngValue]="null"></option>
                         <option [ngValue]="mashbillOption.id" *ngFor="let mashbillOption of mashbills; trackBy: trackMashbillById">{{mashbillOption.mashbillCode}}</option>
                     </select>
+                    <div [hidden]="!(editForm.controls.mashbill?.dirty && editForm.controls.mashbill?.invalid)">
+                            <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.mashbill?.errors?.required">
+                            This field is required.
+                            </small>
+                        </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_customer">Customer</label>

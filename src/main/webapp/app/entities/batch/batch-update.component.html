@@ -80,10 +80,16 @@
                 
                 <div class="form-group">
                     <label class="form-control-label" for="field_schedule">Schedule</label>
-                    <select class="form-control" id="field_schedule" name="schedule" (change)="createOrderCode(sched.mashbillMashbillCode)" [(ngModel)]="sched">
+                    <select class="form-control" id="field_schedule" name="schedule" (change)="createOrderCode(sched.mashbillMashbillCode)" [(ngModel)]="sched" required>
                         <option [ngValue]="null"></option>
                         <option [ngValue]="scheduleOption" *ngFor="let scheduleOption of schedules; trackBy: trackScheduleById"> {{scheduleOption.targetDate | date}} - {{scheduleOption.mashbillMashbillCode}}</option>
                     </select>
+                    <div [hidden]="!(editForm.controls.schedule?.dirty && editForm.controls.schedule?.invalid)">
+                            <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.schedule?.errors?.required">
+                            This field is required.
+                            </small>
+                        </div>
                 </div>
             </div>
             <div>
