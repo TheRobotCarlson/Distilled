@@ -43,7 +43,7 @@
             <tr *ngFor="let batch of batches ;trackBy: trackId">
                 <!-- <td><a [routerLink]="['/batch', batch.id, 'view' ]">{{batch.id}}</a></td> -->
                 <td>{{batch.orderCode}}</td>
-                <td>{{batch.date | date:'medium'}}</td>
+                <td>{{batch.date | date}}</td>
                 <td>{{countsPerBatch[batch.id]}}</td>
                 <td>{{batch.proof}}</td>
                 <td>
