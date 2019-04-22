@@ -10,6 +10,8 @@ import { AccountService } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { ScheduleService } from './schedule.service';
+import { IBatch } from 'app/shared/model/batch.model';
+import { BatchService } from '../batch';
 
 @Component({
     selector: 'jhi-schedule',
@@ -27,13 +29,20 @@ export class ScheduleComponent implements OnInit, OnDestroy {
     totalItems: number;
     currentSearch: string;
 
+    batches: IBatch[];
+
+    numBySchedule: Map<number, number>;
+
+    countsPerBatch: Map<number, number>;
+
     constructor(
         protected scheduleService: ScheduleService,
         protected jhiAlertService: JhiAlertService,
         protected eventManager: JhiEventManager,
         protected parseLinks: JhiParseLinks,
         protected activatedRoute: ActivatedRoute,
-        protected accountService: AccountService
+        protected accountService: AccountService,
+        protected batchService: BatchService
     ) {
         this.schedules = [];
         this.itemsPerPage = ITEMS_PER_PAGE;
@@ -71,7 +80,31 @@ export class ScheduleComponent implements OnInit, OnDestroy {
                 sort: this.sort()
             })
             .subscribe(
-                (res: HttpResponse<ISchedule[]>) => this.paginateSchedules(res.body, res.headers),
+                (res: HttpResponse<ISchedule[]>) => {
+                    this.paginateSchedules(res.body, res.headers);
+                    this.batchService
+                        .query()
+                        .pipe(
+                            filter((mayBeOk: HttpResponse<IBatch[]>) => mayBeOk.ok),
+                            map((response: HttpResponse<IBatch[]>) => response.body)
+                        )
+                        .subscribe(
+                            (resp: IBatch[]) => {
+                                this.batches = resp;
+                                console.log(this.batches);
+                                this.countsPerBatch = new Map<number, number>();
+                                for (let s of this.schedules) {
+                                    this.numBySchedule.set(s.id, 0);
+                                }
+                                this.batches.forEach((item, index) => {
+                                    this.batchService.countBatchBarrels(item.id).subscribe(resp => {
+                                        this.numBySchedule.set(item.scheduleId, this.numBySchedule.get(item.scheduleId) + resp);
+                                    });
+                                });
+                            },
+                            (resp: HttpErrorResponse) => this.onError(resp.message)
+                        );
+                },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
     }
@@ -115,6 +148,7 @@ export class ScheduleComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.numBySchedule = new Map<number, number>();
         this.loadAll();
         this.accountService.identity().then(account => {
             this.currentAccount = account;

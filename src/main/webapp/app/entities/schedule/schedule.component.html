@@ -32,10 +32,12 @@
             <!-- <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
             <th jhiSortBy="targetDate"><span>Target Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="barrelCount"><span>Barrel Count</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th><span>BarrelsMade</span></th>
             <th jhiSortBy="targetProof"><span>Target Proof</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="notes"><span>Notes</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="mashbillMashbillCode"><span>Mashbill</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="customerCustomerCode"><span>Customer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+
             <th></th>
             </tr>
             </thead>
@@ -44,6 +46,7 @@
                 <!-- <td><a [routerLink]="['/schedule', schedule.id, 'view' ]">{{schedule.id}}</a></td> -->
                 <td>{{schedule.targetDate | date:'medium'}}</td>
                 <td>{{schedule.barrelCount}}</td>
+                <td>{{numBySchedule.get(schedule.id)}}</td>
                 <td>{{schedule.targetProof}}</td>
                 <td>{{schedule.notes}}</td>
                 <td>

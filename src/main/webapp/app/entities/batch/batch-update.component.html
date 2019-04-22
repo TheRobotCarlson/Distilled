@@ -9,38 +9,55 @@
                     <input type="text" class="form-control" id="id" name="id"
                         [(ngModel)]="batch.id" readonly />
                 </div>
+
                 <div class="form-group">
-                    <label class="form-control-label" for="field_proof">Proof</label>
-                    <input type="number" class="form-control" name="proof" id="field_proof"
-                        [(ngModel)]="batch.proof" required/>
-                    <div [hidden]="!(editForm.controls.proof?.dirty && editForm.controls.proof?.invalid)">
+                        <label class="form-control-label" for="field_date">Date</label>
+                        <div class="d-flex">
+                            <input id="field_date" type="date" (change)="createOrderCode(sched.mashbillMashbillCode)" class="form-control" name="date" [(ngModel)]="date" placeholder="YYYY-MM-DD HH:mm"
+                            required/>
+                        </div>
+                        <div [hidden]="!(editForm.controls.date?.dirty && editForm.controls.date?.invalid)">
+                            <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.date?.errors?.required">
+                            This field is required.
+                            </small>
+                            <small class="form-text text-danger"
+                                [hidden]="!editForm.controls.date?.errors?.ZonedDateTimelocal">
+                                This field should be a date and time.
+                            </small>
+                        </div>
+                    </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_numBarrels">Number of Barrels</label>
+                    <input type="number" class="form-control" name="numBarrels" id="field_numBarrels"
+                        [(ngModel)]="numBarrels" required/>
+                    <div [hidden]="!(editForm.controls.numBarrels?.dirty && editForm.controls.numBarrels?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.proof?.errors?.required">
+                        [hidden]="!editForm.controls.numBarrels?.errors?.required">
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.proof?.errors?.number">
+                            [hidden]="!editForm.controls.numBarrels?.errors?.number">
                             This field should be a number.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_date">Date</label>
-                    <div class="d-flex">
-                        <input id="field_date" type="date" (change)="createOrderCode(sched.mashbillMashbillCode)" class="form-control" name="date" [(ngModel)]="date" placeholder="YYYY-MM-DD HH:mm"
-                        required/>
+                        <label class="form-control-label" for="field_proof">Proof</label>
+                        <input type="number" class="form-control" name="proof" id="field_proof"
+                            [(ngModel)]="batch.proof" required/>
+                        <div [hidden]="!(editForm.controls.proof?.dirty && editForm.controls.proof?.invalid)">
+                            <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.proof?.errors?.required">
+                            This field is required.
+                            </small>
+                            <small class="form-text text-danger"
+                                [hidden]="!editForm.controls.proof?.errors?.number">
+                                This field should be a number.
+                            </small>
+                        </div>
                     </div>
-                    <div [hidden]="!(editForm.controls.date?.dirty && editForm.controls.date?.invalid)">
-                        <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.date?.errors?.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.controls.date?.errors?.ZonedDateTimelocal">
-                            This field should be a date and time.
-                        </small>
-                    </div>
-                </div>
+                
                 <div class="form-group">
                     <label class="form-control-label" for="field_orderCode">Order Code</label>
                     <input type="text" class="form-control" name="orderCode" id="field_orderCode"
@@ -60,6 +77,7 @@
                         <option [ngValue]="warehouseOption.id" *ngFor="let warehouseOption of warehouses; trackBy: trackWarehouseById">{{warehouseOption.warehouseCode}}</option>
                     </select>
                 </div>
+                
                 <div class="form-group">
                     <label class="form-control-label" for="field_schedule">Schedule</label>
                     <select class="form-control" id="field_schedule" name="schedule" (change)="createOrderCode(sched.mashbillMashbillCode)" [(ngModel)]="sched">
