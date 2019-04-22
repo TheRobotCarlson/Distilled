@@ -34,9 +34,9 @@ export class ScheduleDetailComponent implements OnInit {
             .subscribe((resp: IBatch[]) => {
                 this.batches = resp;
                 this.batches.forEach((item, index) => {
-                    this.batchService.countBatchBarrels(item.id).subscribe(resp => {
+                    this.batchService.countBatchBarrels(item.id).subscribe(batchResp => {
                         if (item.scheduleId === this.schedule.id) {
-                            this.numBarrels = this.numBarrels + resp;
+                            this.numBarrels = this.numBarrels + batchResp;
                         }
                     });
                 });

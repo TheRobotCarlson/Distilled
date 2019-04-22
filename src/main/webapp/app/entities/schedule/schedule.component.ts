@@ -93,12 +93,12 @@ export class ScheduleComponent implements OnInit, OnDestroy {
                                 this.batches = resp;
                                 console.log(this.batches);
                                 this.countsPerBatch = new Map<number, number>();
-                                for (let s of this.schedules) {
+                                for (const s of this.schedules) {
                                     this.numBySchedule.set(s.id, 0);
                                 }
                                 this.batches.forEach((item, index) => {
-                                    this.batchService.countBatchBarrels(item.id).subscribe(resp => {
-                                        this.numBySchedule.set(item.scheduleId, this.numBySchedule.get(item.scheduleId) + resp);
+                                    this.batchService.countBatchBarrels(item.id).subscribe(scheduleResp => {
+                                        this.numBySchedule.set(item.scheduleId, this.numBySchedule.get(item.scheduleId) + scheduleResp);
                                     });
                                 });
                             },

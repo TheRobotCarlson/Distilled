@@ -161,8 +161,8 @@ export class BatchComponent implements OnInit, OnDestroy {
                 this.countsPerBatch[data[i].id] = resp;
             });
             this.scheduleService.find(data[i].scheduleId).subscribe(res => {
-                let s = res.body;
-                let str = s.targetDate.toISOString().split('T')[0] + ' ' + s.mashbillMashbillCode;
+                const s = res.body;
+                const str = s.targetDate.toISOString().split('T')[0] + ' ' + s.mashbillMashbillCode;
                 this.schedIDToString.set(data[i].scheduleId, str);
             });
             this.batches.push(data[i]);

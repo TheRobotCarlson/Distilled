@@ -33,7 +33,7 @@ export class BatchUpdateComponent implements OnInit {
     date: string;
     orderCode: string;
 
-    batchSaved: boolean = false;
+    batchSaved = false;
 
     constructor(
         protected jhiAlertService: JhiAlertService,
@@ -126,7 +126,7 @@ export class BatchUpdateComponent implements OnInit {
 
                 this.batch.barrels = [];
                 for (let i = 0; i < this.numBarrels; i = i + 1) {
-                    let barrel = new Barrel();
+                    const barrel = new Barrel();
                     barrel.barreledDate = this.batch.date;
                     barrel.batchOrderCode = this.batch.orderCode;
                     barrel.customerCustomerCode = this.sched.customerCustomerCode;
