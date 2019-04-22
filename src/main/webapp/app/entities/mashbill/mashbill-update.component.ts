@@ -135,8 +135,9 @@ export class MashbillUpdateComponent implements OnInit {
         if (this.workingGrains === null || this.workingGrains === undefined) {
             return false;
         }
-        let total: number = 0;
-        for (let g of this.workingGrains) {
+
+        let total = 0;
+        for (const g of this.workingGrains) {
             total = total + g.quantity;
         }
         if (total === 100) {
@@ -152,12 +153,12 @@ export class MashbillUpdateComponent implements OnInit {
 
     loadWorkingGrains() {
         this.workingGrains = this.grains.map((v, i, a) => {
-            let ret: IMashbillGrain = new MashbillGrain();
+            const ret: IMashbillGrain = new MashbillGrain();
             ret.grainGrainName = v.grainName;
             ret.grainId = v.id;
             ret.quantity = 0;
             if (this.mashbill.id !== null && this.mashbill.id !== undefined) {
-                for (let g of this.mashbillgrains) {
+                for (const g of this.mashbillgrains) {
                     if (g.grainId === v.id) {
                         console.log('V.ID: ' + v.id);
                         console.log(g);
@@ -174,8 +175,8 @@ export class MashbillUpdateComponent implements OnInit {
     save() {
         this.isSaving = true;
         this.mashbill.grainCounts = [];
-        for (let mbg of this.workingGrains) {
-            if (mbg.quantity != 0) {
+        for (const mbg of this.workingGrains) {
+            if (mbg.quantity !== 0) {
                 this.mashbill.grainCounts.push(mbg);
             }
         }
