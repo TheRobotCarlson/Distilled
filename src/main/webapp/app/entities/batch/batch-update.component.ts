@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -20,6 +20,8 @@ import { ScheduleService } from 'app/entities/schedule';
 export class BatchUpdateComponent implements OnInit {
     batch: IBatch;
     isSaving: boolean;
+
+    sched: ISchedule;
 
     warehouses: IWarehouse[];
 
@@ -87,6 +89,7 @@ export class BatchUpdateComponent implements OnInit {
     save() {
         this.isSaving = true;
         this.batch.date = this.date != null ? moment(this.date, DATE_TIME_FORMAT) : null;
+        this.batch.scheduleId = this.sched.id;
         if (this.batch.id !== undefined) {
             this.subscribeToSaveResponse(this.batchService.update(this.batch));
         } else {

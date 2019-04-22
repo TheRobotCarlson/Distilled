@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="field_date">Date</label>
                     <div class="d-flex">
-                        <input id="field_date" type="date" class="form-control" name="date" [(ngModel)]="date" placeholder="YYYY-MM-DD HH:mm"
+                        <input id="field_date" type="date" (change)="createOrderCode(sched.mashbillMashbillCode)" class="form-control" name="date" [(ngModel)]="date" placeholder="YYYY-MM-DD HH:mm"
                         required/>
                     </div>
                     <div [hidden]="!(editForm.controls.date?.dirty && editForm.controls.date?.invalid)">
@@ -62,9 +62,9 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_schedule">Schedule</label>
-                    <select class="form-control" id="field_schedule" name="schedule" [(ngModel)]="batch.scheduleId" >
+                    <select class="form-control" id="field_schedule" name="schedule" (change)="createOrderCode(sched.mashbillMashbillCode)" [(ngModel)]="sched">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="scheduleOption.id" *ngFor="let scheduleOption of schedules; trackBy: trackScheduleById"> {{scheduleOption.targetDate | date}} - {{scheduleOption.mashbillMashbillCode}}</option>
+                        <option [ngValue]="scheduleOption" *ngFor="let scheduleOption of schedules; trackBy: trackScheduleById"> {{scheduleOption.targetDate | date}} - {{scheduleOption.mashbillMashbillCode}}</option>
                     </select>
                 </div>
             </div>
