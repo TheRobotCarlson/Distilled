@@ -51,7 +51,7 @@ spring:
             hibernate.cache.region.factory_class: io.github.jhipster.config.jcache.BeanClassLoaderAwareJCacheRegionFactory
     data:
         jest:
-            uri: https://search-distilled1-r3knt7vrdpod2fhrbe4azpzdmi.us-east-1.es.amazonaws.com/
+            uri: https://search-distilled2-e5eqvqwecycvcx6p5jmkst6fca.us-east-1.es.amazonaws.com
     liquibase:
         contexts: prod
     mail:
